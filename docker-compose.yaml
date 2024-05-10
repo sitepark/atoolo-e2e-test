@@ -24,8 +24,8 @@ services:
       SOLR_HOST: solr
       SOLR_PORT: 8983
       IES_WEBNODE_HOME: /srv/sitepark/ies-webnode
-      XDEBUG_MODE: debug,develop,profile
-      XDEBUG_SESSION: PHPSTORM
+      #XDEBUG_MODE: debug,develop,profile
+      #XDEBUG_SESSION: PHPSTORM
     volumes:
       - ./resources:/var/www/atoolo-e2e-test/www/resources
       - ./docker/php/bin:/tools
