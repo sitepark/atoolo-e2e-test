@@ -1,0 +1,6 @@
+# @test:token-required
+mutation {
+    index {
+        total
+    }
+}

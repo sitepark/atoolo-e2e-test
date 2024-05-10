@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+Add language also in:
+com.sitepark.ies.webnode.solr.service.CoresService.SUPPORTED_LANGUAGES
+-->
+<multilingual>
+	<ar/>
+	<bg/>
+	<ca/>
+	<cjk/>
+	<cz/>
+	<da/>
+	<de filename="schema.xml" schemaname="sitepark-2.1" multilingualType="text_de_extended"/>
+	<el/>
+	<en/>
+	<es/>
+	<eu/>
+	<fa/>
+	<fi/>
+	<fr/>
+	<ga/>
+	<gh/>
+	<gl/>
+	<hi/>
+	<hu/>
+	<hy/>
+	<id/>
+	<it/>
+	<ja/>
+	<lv/>
+	<nl/>
+	<no/>
+	<pl/>
+	<pt/>
+	<ro/>
+	<ru/>
+	<sv/>
+	<tr/>
+	<uk/>
+</multilingual>

@@ -1,0 +1,21 @@
+query search {
+    search(input:{
+        filter: [
+            { absoluteDateRange: {
+                from: "2022-11-30T23:00:00Z",
+                to: "2022-12-31T22:59:59Z"
+            } }
+        ]
+    }){
+        total
+        results {
+            id
+            name
+            teaser {
+                ... on ArticleTeaser {
+                    date
+                }
+            }
+        }
+    }
+}

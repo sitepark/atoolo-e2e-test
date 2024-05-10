@@ -1,0 +1,149 @@
+<schema name="sitepark-2.1-cz" version="1.6">
+   <uniqueKey>id</uniqueKey>
+   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../../schema-types.xml"/>
+   <fields>
+      <field name="id" type="string" stored="true" indexed="true"/>
+      <field name="host" type="string" stored="true" indexed="true"/>
+      <field name="url" type="url" stored="true" indexed="true" required="true"
+             omitNorms="true"/>
+      <field name="lang" type="string" stored="true" indexed="true" multiValued="true"/>
+      <field name="keywords" type="text_general" stored="true" indexed="true"
+             multiValued="true"
+             termVectors="true"
+             omitNorms="true"/>
+      <field name="raw_keywords" type="text_raw" stored="false" indexed="true"
+             multiValued="true"
+             omitNorms="true"/>
+      <field name="raw_content" type="text_raw" stored="false" indexed="true"
+             multiValued="true"/>
+      <field name="crawl_process_id" type="string" stored="true" indexed="true"/>
+      <field name="crawl_config_id" type="string" stored="true" indexed="true"/>
+      <field name="crawl_status" type="string" stored="true" indexed="true"/>
+      <field name="crawl_broken_links" type="string" stored="true" indexed="true"/>
+      <field name="crawl_message" type="text_general" stored="true" indexed="true"/>
+      <field name="contenttype" type="string" stored="true" indexed="true"
+             multiValued="false"/>
+      <field name="contentlength" type="string" stored="true" indexed="true"/>
+      <field name="sp_id" type="long" stored="true" indexed="true"/>
+      <field name="sp_name" type="alphaOnlySort" stored="true" indexed="true"
+             multiValued="false"/>
+      <field name="sp_title_raw" type="text_sort" stored="true" indexed="true"
+             multiValued="false"/>
+      <field name="sp_sortvalue" type="alphaOnlySort" stored="true" indexed="true"
+             multiValued="false"/>
+      <field name="sp_source" type="string" stored="true" indexed="true" multiValued="true"/>
+      <field name="sp_anchor" type="string" stored="true" indexed="true" multiValued="true"/>
+      <field name="sp_objecttype" type="string" stored="true" indexed="true"
+             multiValued="false"/>
+      <field name="sp_contenttype" type="string" stored="true" indexed="true"
+             multiValued="true"/>
+      <field name="sp_category" type="long" stored="true" indexed="true" multiValued="true"/>
+      <field name="sp_category_path" type="long" stored="true" indexed="true"
+             multiValued="true"/>
+      <field name="sp_group" type="long" stored="true" indexed="true" multiValued="false"/>
+      <field name="sp_group_path" type="long" stored="true" indexed="true"
+             multiValued="true"/>
+      <field name="sp_archive" type="boolean" stored="true" indexed="true"
+             multiValued="false"/>
+      <field name="sp_date" type="date" stored="true" indexed="true" multiValued="false"/>
+      <field name="sp_date_from" type="date" stored="true" indexed="true"
+             multiValued="false"/>
+      <field name="sp_date_to" type="date" stored="true" indexed="true" multiValued="false"/>
+      <field name="sp_date_list" type="date" stored="true" indexed="true" multiValued="true"/>
+      <field name="sp_language" type="string" stored="true" indexed="true"
+             multiValued="true"/>
+      <field name="sp_canonical" type="boolean" stored="true" indexed="true"/>
+      <field name="sp_site" type="long" stored="true" indexed="true" multiValued="true"/>
+      <field name="sp_boost_keywords" type="text_general" stored="true" indexed="true"
+             multiValued="false"/>
+      <field name="sp_changed" type="date" stored="true" indexed="true"/>
+      <field name="sp_generated" type="date" stored="true" indexed="true"/>
+      <field name="include_groups" type="string" stored="true" indexed="true"
+             multiValued="true"
+             default="all"/>
+      <field name="exclude_groups" type="string" stored="true" indexed="true"
+             multiValued="true"
+             default="none"/>
+      <field name="sp_citygov_firstname" type="text_lc" stored="true" indexed="true"
+             multiValued="false"/>
+      <field name="sp_citygov_lastname" type="text_lc" stored="true" indexed="true"
+             multiValued="false"/>
+      <field name="sp_citygov_startletter" type="text_lc" stored="true" indexed="true"
+             multiValued="false"/>
+      <field name="sp_citygov_email" type="string" stored="true" indexed="true"
+             multiValued="true"/>
+      <field name="sp_citygov_fax" type="text_lc" stored="true" indexed="true"
+             multiValued="true"/>
+      <field name="sp_citygov_phone" type="text_lc" stored="true" indexed="true"
+             multiValued="true"/>
+      <field name="sp_citygov_address" type="text_lc" stored="true" indexed="true"
+             multiValued="true"/>
+      <field name="sp_citygov_function" type="text_lc" stored="true" indexed="true"
+             multiValued="true"/>
+      <field name="sp_citygov_product" type="text_lc" stored="true" indexed="true"
+             multiValued="true"/>
+      <field name="sp_citygov_responsibility" type="text_lc" stored="true" indexed="true"
+             multiValued="true"/>
+      <field name="sp_citygov_organisation" type="text_lc" stored="true" indexed="true"
+             multiValued="true"/>
+      <field name="sp_citygov_organisationtoken" type="text_lc" stored="true" indexed="true"
+             multiValued="true"/>
+      <field name="sp_vv_sortfieldorganisationtoken" type="alphaOnlySort" stored="true"
+             indexed="true"
+             multiValued="false"/>
+      <field name="sp_organisation" type="long" stored="true" indexed="true"/>
+      <field name="sp_organisation_path" type="long" stored="true" indexed="true"
+             multiValued="true"/>
+      <dynamicField name="sp_meta_long_*" type="long" stored="true" indexed="true"
+                    multiValued="true"/>
+      <dynamicField name="sp_meta_float_*" type="float" stored="true" indexed="true"
+                    multiValued="true"/>
+      <dynamicField name="sp_meta_int_*" type="int" stored="true" indexed="true" multiValued="true"/>
+      <dynamicField name="sp_meta_string_*" type="string" stored="true" indexed="true"
+                    multiValued="true"/>
+      <dynamicField name="sp_meta_bool_*" type="boolean" stored="true" indexed="true"
+                    multiValued="false"/>
+      <dynamicField name="sp_meta_single_long_*" type="long" stored="true" indexed="true"
+                    multiValued="false"/>
+      <dynamicField name="sp_meta_single_float_*" type="float" stored="true" indexed="true"
+                    multiValued="false"/>
+      <dynamicField name="sp_meta_single_int_*" type="int" stored="true" indexed="true"
+                    multiValued="false"/>
+      <dynamicField name="sp_meta_single_string_*" type="string" stored="true" indexed="true"
+                    multiValued="false"/>
+      <dynamicField name="sp_meta_single_bool_*" type="boolean" stored="true" indexed="true"
+                    multiValued="false"/>
+      <field name="sp_geo_points" type="location_rpt" indexed="true" stored="true"
+             multiValued="true"/>
+      <dynamicField name="meta_*" type="string" indexed="false" stored="false" multiValued="true"/>
+      <field name="meta_content_language" type="string" indexed="false" stored="true"
+             multiValued="false"/>
+      <field name="meta_content_type" type="string" indexed="false" stored="true"
+             multiValued="false"/>
+      <field name="_version_" type="long" indexed="true" stored="true" multiValued="false"/>
+      <copyField source="title" dest="raw_keywords"/>
+      <copyField source="sp_title" dest="raw_keywords"/>
+      <copyField source="keywords" dest="raw_keywords"/>
+      <copyField source="title" dest="raw_content"/>
+      <copyField source="sp_title" dest="raw_content"/>
+      <copyField source="keywords" dest="raw_content"/>
+      <copyField source="content" dest="raw_content"/>
+      <copyField source="sp_title" dest="sp_title_raw"/>
+      <copyField source="sp_language" dest="lang"/>
+      <copyField source="meta_content_language" dest="lang"/>
+      <copyField source="meta_content_type" dest="contenttype"/>
+      <field name="title" type="text_cz" stored="true" indexed="true" multiValued="false"
+             termVectors="true"/>
+      <field name="description" type="text_cz" stored="true" indexed="true"
+             multiValued="true"
+             termVectors="true"/>
+      <field name="content" type="text_cz" stored="true" indexed="true" multiValued="true"
+             termVectors="true"/>
+      <field name="sp_title" type="text_cz" stored="true" indexed="true"/>
+      <field name="sp_intro" type="text_cz" stored="true" indexed="true"/>
+      <dynamicField name="sp_meta_text_*" type="text_cz" stored="true" indexed="true"
+                    multiValued="true"/>
+      <dynamicField name="sp_meta_single_text_*" type="text_cz" stored="true" indexed="true"
+                    multiValued="false"/>
+   </fields>
+</schema>

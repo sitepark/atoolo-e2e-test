@@ -1,0 +1,31 @@
+#
+# Liste von Worten, die vom SnowballFilter nicht weiter normiert werden sollen
+#
+#
+
+# Unterscheide das 'PKW parken' vom 'Freizeit-Park', daher nicht stemmen
+parken
+
+# aus zB 'wortpiraten' oder 'heiraten' wird per DictComWordTokenFilter u.a. 'raten'. Daraus soll der SnowBallFilter kein rat werden!
+raten
+
+# Personen sollen nicht zu 'müll' werden. Müll vs. der Person Müller
+müller
+mueller
+müllers
+muellers
+
+#Der Herr Kratz möchte nicht mit der Krätze in Verbindung gebracht werden
+krätze
+kraetze
+krätzes
+kraetzes
+
+# Herr Körner und Frau Korn sind verschieden Personen 
+körner
+koerner
+körners
+koerners
+
+# Bei der Suche nach 'kotzen' sollte nicht der Herr Kotz an erster Stelle
+kotzen

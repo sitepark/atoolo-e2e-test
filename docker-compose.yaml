@@ -1,0 +1,44 @@
+services:
+
+  solr:
+    build:
+      context: ./docker/solr
+    environment:
+      TZ: ${TZ:-Europe/Berlin}
+      SOLR_HOST: 0.0.0.0
+        #      SOLR_MODULES: analysis-extras
+    volumes:
+      - ./docker/solr/etc/solr/configsets:/var/solr/data/configsets
+    ports:
+      - 9091:8983
+    networks:
+      - atoolo-e2e-test
+
+  php:
+    #    image: php:8.3-apache
+    build:
+      context: ./docker/php
+#    user: ${USERID}:${GROUPID}
+    environment:
+      TZ: ${TZ:-Europe/Berlin}
+      SOLR_HOST: solr
+      SOLR_PORT: 8983
+      IES_WEBNODE_HOME: /srv/sitepark/ies-webnode
+      XDEBUG_MODE: debug,develop,profile
+      XDEBUG_SESSION: PHPSTORM
+    volumes:
+      - ./resources:/var/www/atoolo-e2e-test/www/resources
+      - ./docker/php/bin:/tools
+      - ./docker/php/etc/apache2/sites-enabled/atoolo-e2e-test.conf:/etc/apache2/sites-enabled/atoolo-e2e-test.conf
+      - ./docker/php/etc/ies-webnode/config/realm.properties:/srv/sitepark/ies-webnode/config/realm.properties
+      - ./docker/php/etc/php/conf.d/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
+    networks:
+      - atoolo-e2e-test
+    ports:
+      - 9090:80
+      - 9191:8000
+
+
+networks:
+  atoolo-e2e-test:
+

@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<fields>
+	<field name="id" type="string" stored="true" indexed="true"/>
+
+	<!-- =================================================================== -->
+	<!-- Standard-Felder (index-basic plugin s.u. copyTo) 										 -->
+	<!-- =================================================================== -->
+
+	<!-- verpflichtene Felder für das index-basic plugin -->
+	<field name="host"              type="string"         stored="true" indexed="true"/>
+	<field name="url"               type="url"            stored="true" indexed="true" required="true" omitNorms="true"/>
+	<field name="lang"              type="string"         stored="true" indexed="true" multiValued="true"/>
+	<field name="title"             type="text_de"        stored="true" indexed="true" multiValued="false" termVectors="true"/>
+	<field name="description"       type="text_de"        stored="true" indexed="true" multiValued="true"  termVectors="true"/>
+	<field name="keywords"          type="text_de"        stored="true" indexed="true" multiValued="true"  termVectors="true" omitNorms="true"/>
+	<field name="content"           type="text_de"        stored="true" indexed="true" multiValued="true"  termVectors="true"/>
+
+	<!-- Der Inhalt ohne Stemming für Suggest und Spellchecking -->
+	<field name="raw_keywords"      type="text_lc"       stored="false" indexed="true" multiValued="true" omitNorms="true"/>
+	<field name="raw_content"       type="text_lc"       stored="false" indexed="true" multiValued="true"/>
+
+	<!-- fields for crawler -->
+	<field name="crawl_process_id"   type="string"       stored="true" indexed="true"  />
+	<field name="crawl_config_id"    type="string"       stored="true" indexed="true"  />
+	<field name="crawl_status"       type="string"       stored="true" indexed="true"  />
+	<field name="crawl_broken_links" type="string"       stored="true" indexed="true"  />
+	<field name="crawl_message"      type="text_general" stored="true" indexed="true"  />
+
+	<!-- =================================================================== -->
+	<!-- content Felder (s.u. copyTo) 										 -->
+	<!-- =================================================================== -->
+	<field name="contenttype"       type="string"   stored="true" indexed="true"  multiValued="false"/>
+	<field name="contentlength"     type="string"   stored="true" indexed="true"/>
+
+	<!-- =================================================================== -->
+	<!-- Standardfelder 													 -->
+	<!-- =================================================================== -->
+	<!-- die ID (zB: 15523) des IES-Arikels -->
+	<field name="sp_id"             type="long"           stored="true" indexed="true"/>
+	<!-- Artikelname im IES, nach dem ggf sortiert werden kann. -->
+	<field name="sp_name"           type="alphaOnlySort"  stored="true" indexed="true" multiValued="false" />
+	<field name="sp_title"          type="text_de"        stored="true" indexed="true" />
+	<field name="sp_intro"          type="text_de"        stored="true" indexed="true" />
+	<!-- dient der Sortierung der Ergebnisse und wird in 'sorttitle' kopiert -->
+	<field name="sp_sortvalue"      type="alphaOnlySort"  stored="true" indexed="true"  multiValued="false" />
+	<!-- Quelle der Daten wie id der MicrositeHompage oder 'schuldatenbank' oder 'nachrichten'-->
+	<field name="sp_source"         type="string"         stored="true" indexed="true"  multiValued="true"/>
+	<!-- Object-Type wie 'home', 'rubric', 'content', ...  -->
+	<field name="sp_objecttype"     type="string"         stored="true" indexed="true"  multiValued="false"/>
+	<!-- Seitentypen wie 'content', 'home', 'content product',  'rubrik', 'gallery', 'movie', ...  -->
+	<field name="sp_contenttype"    type="string"         stored="true" indexed="true"  multiValued="true"/>
+	<!-- Katgorie wie Sport/Beruf, Bauen/Ehe oder Politik/Touristik  (ggf. abhängig von der jeweiligen sp_source) -->
+	<field name="sp_category"       type="long"           stored="true" indexed="true"  multiValued="true"/>
+	<!-- Kategorien Pfad  -->
+	<field name="sp_category_path"  type="long"           stored="true" indexed="true"  multiValued="true"/>
+	<!-- IES ID der Pool/Group des Objectes  -->
+	<field name="sp_group"          type="long"           stored="true" indexed="true"  multiValued="false"/>
+	<!-- IES ID-Pfad der Pool/Group Struktur des Objectes  -->
+	<field name="sp_group_path"     type="long"           stored="true" indexed="true"  multiValued="true"/>
+	<!-- Artikel, die in einem UnterPool mit dem Flag 'isArchive' liegen, erhalten dieses Flag -->
+	<field name="sp_archive"        type="string"         stored="true" indexed="true"  multiValued="false"/>
+	<!-- Datum der Seite, die vom Redakteur eingegeben werden kann. Format:  "1995-12-31T23:59:59Z" =>   http://wiki.apache.org/solr/IndexingDates  -->
+	<field name="sp_date"           type="date"           stored="true" indexed="true"  multiValued="false"/>
+	<field name="sp_date_from"      type="date"           stored="true" indexed="true"  multiValued="false"/>
+	<field name="sp_date_to"        type="date"           stored="true" indexed="true"  multiValued="false"/>
+	<!-- Vom Redakteur (oder System) angegebene Sprache der jeweiligen Seiten -->
+	<field name="sp_language"       type="string"         stored="true" indexed="true" multiValued="true"/>
+
+	<!-- Flag ist false bei scheduled Artikeln die nur über Parameter aufrufbar sind (scheduled events) -->
+	<field name="sp_canonical"      type="boolean"        stored="true" indexed="true"/>
+
+	<!-- Für das Boosting über einzelne Begriffe. Bitte nur ganz behutsam einsetzen. -->
+	<field name="sp_boost_keywords" type="text_general"   stored="true" indexed="true" multiValued="false"/>
+
+	<!-- Veranstaltungsdatum: Liste von Tagen "1995-12-31T00:00:00Z" =>   http://wiki.apache.org/solr/IndexingDates
+		<field name="sp_eventdate"      type="date"           stored="true" indexed="true"  multiValued="true"/>
+		 -->
+	<!-- Rubrikname wie 'Rathaus -> Bekanntmachungen '
+		<field name="sp_rubric"         type="string"         stored="true" indexed="false" multiValued="false"/>
+		-->
+	<!-- sp_theme Werte für das Farbschema der Rubrik (zB: 'red', 'green', 'blue', ... )
+		<field name="sp_theme"          type="string"         stored="true" indexed="true"  multiValued="true"/>
+		-->
+	<!-- 'kleines' Bild, welches auch für die Teaser-Ergebnislisten verwendet wird
+		<field name="sp_image"          type="string"         stored="true" indexed="false" multiValued="false"/>
+		 -->
+	<!-- Url zu einem großen Bild für eine Kachel-Darstellung
+		<field name="sp_image_tile"     type="string"         stored="true" indexed="false" multiValued="false"/>
+		-->
+	<field name="sp_changed"        type="date"           stored="true" indexed="true"/>
+
+	<!-- Datum der Erstellung. Format:  "1995-12-31T23:59:59Z" =>   http://wiki.apache.org/solr/IndexingDates
+		<field name="sp_created"        type="date"           stored="true" indexed="true"/>
+	 -->
+
+
+	<!-- =================================================================== -->
+	<!-- für die Personalisierung per Plugin gesetzt						 -->
+	<!-- =================================================================== -->
+	<field name="include_groups"    type="string"         stored="true" indexed="true"  multiValued="true" default="all"/>
+	<field name="exclude_groups"    type="string"         stored="true" indexed="true"  multiValued="true" default="none" />
+
+	<!-- =================================================================== -->
+	<!-- CityGov Standardfelder												 -->
+	<!-- =================================================================== -->
+	<!-- title|sp_title                    field name="sp_citygov_name"                type="string"      stored="true" indexed="true"  multiValued="false"/ -->
+	<!-- sp_contenttype (citygovProduct)   field name="sp_citygov_objecttype"          type="string"      stored="true" indexed="true"  multiValued="false"/-->
+	<field name="sp_citygov_firstname"           type="text_lc" stored="true" indexed="true"  multiValued="false"/>
+	<field name="sp_citygov_lastname"            type="text_lc" stored="true" indexed="true"  multiValued="false"/>
+	<!-- nachladen:  field name="sp_citygov_cryptedemail"        type="string"      stored="true" indexed="true"  multiValued="false"/ -->
+	<field name="sp_citygov_startletter"         type="text_lc" stored="true" indexed="true"  multiValued="false"/>
+	<!-- Synon. altern. Titel werden im Template mit Title und Keywords gelöst:  field name="sp_citygov_synonym"             type="text_general" stored="true" indexed="true"  multiValued="false"/ -->
+	<field name="sp_citygov_email"               type="string"      stored="true" indexed="true"  multiValued="true"/>
+	<field name="sp_citygov_fax"                 type="text_lc" stored="true" indexed="true"  multiValued="true"/>
+	<field name="sp_citygov_phone"               type="text_lc" stored="true" indexed="true"  multiValued="true"/>
+	<!-- für die Suche reicht evtl nur sp_phone field name="sp_citygov_furtherphone"        type="text_lc" stored="true" indexed="true"  multiValued="false"/-->
+	<field name="sp_citygov_address"             type="text_lc" stored="true" indexed="true"  multiValued="true"/>
+	<field name="sp_citygov_function"            type="text_lc" stored="true" indexed="true"  multiValued="true"/>
+	<field name="sp_citygov_product"             type="text_lc" stored="true" indexed="true"  multiValued="true"/>
+	<field name="sp_citygov_responsibility"      type="text_lc" stored="true" indexed="true"  multiValued="true"/>
+	<!-- kann für Suche in _product    field name="sp_citygov_productsynonym"      type="text_lc" stored="true" indexed="true"  multiValued="false"/-->
+	<!-- field name="sp_citygov_mainorganisation"    type="text_lc" stored="true" indexed="true"  multiValued="false"/ -->
+	<field name="sp_citygov_organisation"        type="text_lc" stored="true" indexed="true"  multiValued="true"/>
+	<!-- für die Sortierung der Mitarbeiter nach Ihren Orga-Token. (suchen und korrket sortieren mit einen Feld-Typ geht leider nicht) -->
+	<field name="sp_citygov_organisationtoken"   type="text_lc" stored="true" indexed="true"  multiValued="true"/>
+	<field name="sp_vv_sortfieldorganisationtoken" type="alphaOnlySort" stored="true" indexed="true"  multiValued="false"/>
+	<!-- kann für Suche in   field name="sp_citygov_organisationsynonym" type="text_lc" stored="true" indexed="true"  multiValued="false"/-->
+
+
+	<!-- =================================================================== -->
+	<!-- Applikations-Daten im JSON Format									 -->
+	<!-- =================================================================== -->
+	<!--
+			sp_jsondata* => Soll für Applikationsdaten genutzt werden:
+			z.B. sp_jsondata_geo: Daten für Geo-Referenzierung
+			==>  Daten halten ist nicht mehr Solr's Aufgabe
+		<dynamicField name="sp_jsondata*"       type="string" stored="true" indexed="false" multiValued="false" />
+		-->
+
+	<!-- =================================================================== -->
+	<!-- Applikations-Verknüpfungen (z.b.:sp_objectlink_event_location)      -->
+	<!-- =================================================================== -->
+	<!--
+				z.B:	sp_data_eventlocation = 'Freitext für den Veranstaltungs-Ort'
+						sp_data_organizerlink	'id85452'
+		<dynamicField name="sp_data_*"    type="string" stored="true" indexed="true"  multiValued="true"/>
+		-->
+	<dynamicField name="sp_meta_long_*"   type="long" stored="true" indexed="true"  multiValued="true"/>
+	<dynamicField name="sp_meta_float_*"  type="float" stored="true" indexed="true"  multiValued="true"/>
+	<dynamicField name="sp_meta_text_*"   type="text_de" stored="true" indexed="true"  multiValued="true"/>
+	<dynamicField name="sp_meta_string_*"   type="string" stored="true" indexed="true"  multiValued="true"/>
+
+	<!-- =================================================================== -->
+	<!-- GEO Informationen 													 -->
+	<!-- =================================================================== -->
+	<field name="sp_geo_points"             type="location_rpt"  indexed="true" stored="true" multiValued="true" />
+	<!--
+		<field name="sp_geo_lng"                type="double" indexed="true" stored="true" multiValued="false" />
+		<field name="sp_geo_lat"                type="double" indexed="true" stored="true" multiValued="false" />
+	 -->
+
+
+	<!-- Prüfen, ob diese Felder noch aktuell sind: -->
+	<!--
+		<field name="sp_vv_date"                type="string" stored="true" indexed="true"  multiValued="true"/>
+		<field name="sp_objecttype"             type="string" stored="true" indexed="true"  multiValued="true"/>
+	-->
+
+	<!-- =================================================================== -->
+	<!-- weitere dynamische Felder von Tika									 -->
+	<!-- Gesichert werden aber nur die hier spezifizierten.					 -->
+	<!-- =================================================================== -->
+	<!--dynamicField name="meta_*"     type="string" indexed="false" stored="true" multiValued="true"/ -->
+	<dynamicField name="meta_*"          type="string" indexed="false" stored="false" multiValued="true"/>
+	<field name="meta_content_language"  type="string" indexed="false" stored="true" multiValued="false"/>
+	<field name="meta_content_type"      type="string" indexed="false" stored="true" multiValued="false"/>
+
+	<!-- Die Verion ist für das UpdateLog nötig.
+		 Nur so können einzelne Felder von Dokumenten aktualisiert werden (wenn die Url mit Literals zu lang wird. ) -->
+	<field name="_version_" type="long" indexed="true" stored="true" multiValued="false"/>
+
+	<!-- =================================================================== -->
+	<!-- (dynamischen) Felder kopieren 										 -->
+	<!-- =================================================================== -->
+
+	<!-- Nur für das Suggest die Daten ohne Stemming in einem separaten Feld übertragen-->
+	<copyField source="title"                 dest="raw_keywords"/>
+	<copyField source="keywords"              dest="raw_keywords"/>
+	<copyField source="title"                 dest="raw_content"/>
+	<copyField source="keywords"              dest="raw_content"/>
+	<copyField source="content"               dest="raw_content"/>
+
+	<!-- Die Sprache übernehmen, wenn sie redaktionell angegeben wurde -->
+	<copyField source="sp_language"           dest="lang"/>
+
+	<!-- Metadaten von Binärdaten übernehmen, wenn vorhanden. -->
+	<copyField source="meta_content_language" dest="lang"/>
+	<copyField source="meta_content_type"     dest="contenttype"/>
+
+</fields>

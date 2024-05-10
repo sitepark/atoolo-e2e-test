@@ -1,0 +1,13 @@
+query search {
+    search(input:{
+        filter: [
+            { categories: ["16589"] }
+        ]
+    }){
+        total
+        results {
+            id
+            name
+        }
+    }
+}
