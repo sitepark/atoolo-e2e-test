@@ -12,5 +12,6 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: 8.3
+          tools: composer, phive
       - name: Test
         run: bin/run.sh
