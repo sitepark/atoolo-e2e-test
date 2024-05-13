@@ -24,6 +24,7 @@ composer config --json --merge extra.symfony.endpoint \
 '["flex://defaults"]'
 
 composer config minimum-stability dev
+composer config platform-check true
 
 # the recieps are not yet working
 curl "https://raw.githubusercontent.com/sitepark/symfony-recipes/main/atoolo/graphql-search-bundle/1.0/config/packages/graphql.yaml" > config/packages/graphql.yaml
