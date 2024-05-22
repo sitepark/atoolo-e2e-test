@@ -26,24 +26,11 @@ composer config --json --merge extra.symfony.endpoint \
 composer config minimum-stability dev
 composer config platform-check true
 
-# the recieps are not yet working
-curl "https://raw.githubusercontent.com/sitepark/symfony-recipes/main/atoolo/graphql-search-bundle/1.0/config/packages/graphql.yaml" > config/packages/graphql.yaml
-
-# we do not have an atoolo-search-bundle yet
-sed -i 's#configure your dependencies.#configure your dependencies.\n\nimports:\n  - { resource\: ../vendor/atoolo/search/config/commands.yml }#' config/services.yaml
-
-composer require --no-interaction atoolo/graphql-search-bundle:dev-feature/core-name
-
-# currenty no recieps for security bundle
-composer require atoolo/security-bundle:dev-main || true
-rm config/packages/security.yaml
-cat >config/routes/atoolo-security.yaml <<EOL
-atoolo_security_bundle:
-    resource: '@AtooloSecurityBundle/Resources/config/routing/login_check.yaml'
-EOL
-
-bin/console cache:clear
-
-composer require symfony/monolog-bundle
+# install toolo suite
+composer require --no-interaction \
+    atoolo/deployment-bundle:dev-main  \
+    atoolo/graphql-search-bundle:dev-main \
+    atoolo/security-bundle:dev-main \
+    symfony/monolog-bundle
 
 ./bin/console lexik:jwt:generate-keypair

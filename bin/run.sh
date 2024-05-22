@@ -8,5 +8,6 @@ docker compose stop
 docker compose rm -f
 docker compose up -d
 docker compose exec -u root php /tools/setup.sh
+
 composer install
 composer test
