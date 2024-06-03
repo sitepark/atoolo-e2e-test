@@ -13,6 +13,7 @@ symfony new $PROJECT_DIR --version="^7.0"
 
 cd $HOME/$PROJECT_DIR
 
+# symfony-recipes config
 composer config extra.symfony.allow-contrib true
 composer config --json extra.symfony.endpoint \
 '["'\
@@ -23,12 +24,29 @@ composer config --json extra.symfony.endpoint \
 composer config --json --merge extra.symfony.endpoint \
 '["flex://defaults"]'
 
+# Atoolo runtime config
+composer config --json extra.atoolo.runtime \
+'{'\
+'    "ini": {'\
+'        "set": {'\
+'            "date.timezone": "Europe/Berlin"'\
+'        }'\
+'    },'\
+'    "umask": "0002",'\
+'    "users": ['\
+'        "www-data",'\
+'        "{SCRIPT_OWNER}"'\
+'    ]'\
+'}'
+
+
 composer config minimum-stability dev
 composer config platform-check true
 
 # install toolo suite
 composer require --no-interaction \
-    atoolo/deployment-bundle:dev-main  \
+    atoolo/runtime:dev-feature/initial-implementation \
+    atoolo/deployment-bundle:dev-main \
     atoolo/graphql-search-bundle:dev-main \
     atoolo/security-bundle:dev-main \
     symfony/monolog-bundle
