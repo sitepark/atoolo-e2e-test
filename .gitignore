@@ -10,5 +10,4 @@
 .phpactor.json
 .env
 
-/data/php/.bash_history
-/data/php/.composer/*
+/data/php/*
