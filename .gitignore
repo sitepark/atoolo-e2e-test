@@ -4,6 +4,11 @@
 !var/cache/.gitkeep
 /var/log/*
 !var/log/.gitkeep
+!var/log/.gitkeep
 /var/test/*
 /tools
 .phpactor.json
+.env
+
+/data/php/.bash_history
+/data/php/.composer/*

@@ -1,8 +1,11 @@
 #!/bin/bash
 set -e
 
+touch data/php/.bash_history
+
 echo start docker container
 
+#docker compose build
 #docker compose build --no-cache
 docker compose stop
 docker compose rm -f

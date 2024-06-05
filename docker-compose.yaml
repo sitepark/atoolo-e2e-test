@@ -24,6 +24,7 @@ services:
       SOLR_HOST: solr
       SOLR_PORT: 8983
       IES_WEBNODE_HOME: /srv/sitepark/ies-webnode
+      GITHUB_TOKEN: ${GITHUB_TOKEN}
       #XDEBUG_MODE: debug,develop,profile
       #XDEBUG_SESSION: PHPSTORM
     volumes:
@@ -32,13 +33,13 @@ services:
       - ./docker/php/etc/apache2/sites-enabled/atoolo-e2e-test.conf:/etc/apache2/sites-enabled/atoolo-e2e-test.conf
       - ./docker/php/etc/ies-webnode/config/realm.properties:/srv/sitepark/ies-webnode/config/realm.properties
       - ./docker/php/etc/php/conf.d/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
+      - ./data/php/.bash_history:/root/.bash_history
+#      - ./data/php/.composer:/var/www/.composer
     networks:
       - atoolo-e2e-test
     ports:
       - 9090:80
       - 9191:8000
 
-
 networks:
   atoolo-e2e-test:
-
