@@ -9,7 +9,7 @@ cd $HOME
 git config --global user.email "opensource@sitepark.com"
 git config --global user.name "Atoolo e2e test bot"
 
-if [ "GITHUB_TOKEN" != "" ]; then
+if [ "${GITHUB_TOKEN}" != "" ]; then
     composer config --global github-oauth.github.com ${GITHUB_TOKEN}
 fi
 
