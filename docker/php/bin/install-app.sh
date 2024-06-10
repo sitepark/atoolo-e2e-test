@@ -51,6 +51,7 @@ composer config platform-check true
 composer config --no-plugins allow-plugins.atoolo/runtime true
 composer require --no-interaction \
     atoolo/runtime:dev-feature/initial-implementation \
+    atoolo/runtime-check-bundle:dev-feature/initial-implementation \
     atoolo/deployment-bundle:dev-main \
     atoolo/graphql-search-bundle:dev-main \
     atoolo/security-bundle:dev-main \

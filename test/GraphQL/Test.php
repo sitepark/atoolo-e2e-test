@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Atoolo\Test\GraphQL;
+namespace Atoolo\E2E\Test\GraphQL;
 
 use JsonException;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -13,7 +13,7 @@ use Symfony\Component\Finder\Finder;
 
 class Test extends TestCase
 {
-    private static string $ENDPOINT_BASE = 'http://atoolo-e2e-test:9090';
+    private static string $ENDPOINT_BASE;
 
     private static string $GRAPHQL_PATH = '/api/graphql/';
 
@@ -24,6 +24,12 @@ class Test extends TestCase
     private ?int $tokenCreatedAt = null;
 
     private int $tokenTtlInSeconds = 60;
+
+    public static function setUpBeforeClass(): void
+    {
+        // from phpunit.xml
+        self::$ENDPOINT_BASE = $_SERVER['ENTPOINT_BASE'];
+    }
 
     /**
      * @throws JsonException
