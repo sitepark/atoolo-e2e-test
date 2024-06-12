@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace Atoolo\E2E\Test\Runtime;
 
-use Atoolo\Runtime\Check\Service\CheckStatus;
+use Atoolo\E2E\Test\TokenGenerator;
 use JsonException;
 use PHPUnit\Framework\TestCase;
+use RuntimeException;
 use Symfony\Component\Process\Process;
 
 class Test extends TestCase
@@ -24,8 +25,22 @@ class Test extends TestCase
      */
     public function testRuntimeCheckPerHttp(): void
     {
-        $content = file_get_contents(self::$ENDPOINT_BASE . '/runtime-check')
-            ?? '{}';
+        $token = TokenGenerator::getInstance()->getToken();
+        $opts = [
+            'http' => [
+                'header' => 'Authorization: Bearer ' . $token
+            ]
+        ];
+        $url = self::$ENDPOINT_BASE . '/api/runtime-check';
+
+        $content = file_get_contents(
+            $url,
+            false,
+            stream_context_create($opts)
+        ) ?? '{}';
+        if ($content === false) {
+            throw new RuntimeException((error_get_last())['message']);
+        }
         $data = json_decode(
             $content,
             true,
@@ -52,7 +67,7 @@ class Test extends TestCase
             '-s',
             '/bin/bash',
             '-c',
-            '/apps/atoolo-e2e-test/bin/console runtime:check --json --fpm-skip'
+            '/apps/atoolo-e2e-test/bin/console runtime:check --json --skip fpm'
         ]);
 
         $process->run();
