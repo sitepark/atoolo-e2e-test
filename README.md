@@ -1,3 +1,5 @@
+[![E2E Test](https://github.com/sitepark/atoolo-e2e-test/actions/workflows/e2e-test.yml/badge.svg)](https://github.com/sitepark/atoolo-e2e-test/actions/workflows/e2e-test.yml)
+
 # End-to-end tests for the atoolo suite
 
 This project contains the end-to-end tests for the atoolo suite. Two containers are provided for the tests via [`docker-compose.yaml`](docker-compose.yaml).
