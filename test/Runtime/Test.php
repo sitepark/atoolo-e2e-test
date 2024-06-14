@@ -67,7 +67,7 @@ class Test extends TestCase
             '-s',
             '/bin/bash',
             '-c',
-            '/apps/atoolo-e2e-test/bin/console runtime:check --json --skip fpm'
+            '/apps/atoolo-e2e-test/bin/console runtime:check --json --fail-on-error false --skip fpm-fcgi'
         ]);
 
         $process->run();
@@ -83,9 +83,13 @@ class Test extends TestCase
             JSON_THROW_ON_ERROR
         );
 
+        $messages = isset($data['messages'])
+            ? implode("\n", $data['messages'])
+            : '';
+
         $this->assertTrue(
             $data['success'],
-            "Runtime check failed\n" . print_r($data['messages'], true)
+            "Runtime check failed\n" . $messages
         );
     }
 }

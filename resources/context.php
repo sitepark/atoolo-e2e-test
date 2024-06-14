@@ -1,6 +1,7 @@
 <?php return [
 	"publisher" => [
 		"preview" => false,
+		"serverName" => "atoolo-e2e-test",
 		"serverAliases" => [],
 		"nature" => "internet",
 		"anchor" => "www",

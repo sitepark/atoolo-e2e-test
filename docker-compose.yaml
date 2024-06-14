@@ -25,6 +25,7 @@ services:
       SOLR_PORT: 8983
       IES_WEBNODE_HOME: /srv/sitepark/ies-webnode
       GITHUB_TOKEN: ${GITHUB_TOKEN}
+      RESOURCE_ROOT: /var/www/atoolo-e2e-test/www/resources
       #XDEBUG_MODE: debug,develop,profile
       #XDEBUG_SESSION: PHPSTORM
     volumes:
