@@ -42,15 +42,15 @@
         "sort-packages": true
     },
     "scripts": {
-        "post-install-cmd": "phive --no-progress install --force-accept-unsigned --trust-gpg-keys C00543248C87FB13,4AA394086372C20A,CF1A108D0E7AE720,51C67305FFC2E5C0",
+        "post-install-cmd": "phive --no-progress install --force-accept-unsigned --trust-gpg-keys C00543248C87FB13,4AA394086372C20A,CF1A108D0E7AE720,51C67305FFC2E5C0,E82B2FB314E9906E",
         "analyse": [
             "@analyse:phplint",
             "@analyse:phpstan",
-            "@analyse:phpcs",
+            "@analyse:phpcsfixer",
             "@analyse:compatibilitycheck"
         ],
         "analyse:compatibilitycheck": "./vendor/bin/phpcs --standard=./phpcs.compatibilitycheck.xml",
-        "analyse:phpcs": "./vendor/bin/phpcs",
+	"analyse:phpcsfixer": "./tools/php-cs-fixer check --diff --show-progress=dots",
         "analyse:phplint": "./tools/phplint",
         "analyse:phpstan": "./tools/phpstan analyse",
         "cs-fix": [
@@ -58,15 +58,13 @@
         ],
         "cs-fix:phpcbf": "./vendor/bin/phpcbf",
         "report": [
-            "@report:phpcs",
             "@report:phpstan"
         ],
-        "report:phpcs": "./vendor/bin/phpcs || exit 0",
         "report:phpstan": "./tools/phpstan analyse --no-progress --no-ansi --no-interaction --error-format=checkstyle > ./var/log/phpstan-report.xml || exit 0",
         "test": [
             "@test:phpunit"
         ],
         "test:infection": "vendor/bin/infection --threads=8 --no-progress --only-covered -s || exit 0",
-        "test:phpunit": "./tools/phpunit.phar -c phpunit.xml"
+        "test:phpunit": "./tools/phpunit.phar -c phpunit.xml --coverage-text"
     }
 }

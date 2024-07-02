@@ -28,24 +28,27 @@ class Test extends TestCase
         $token = TokenGenerator::getInstance()->getToken();
         $opts = [
             'http' => [
-                'header' => 'Authorization: Bearer ' . $token
-            ]
+                'header' => 'Authorization: Bearer ' . $token,
+            ],
         ];
         $url = self::$ENDPOINT_BASE . '/api/runtime-check';
 
         $content = file_get_contents(
             $url,
             false,
-            stream_context_create($opts)
-        ) ?? '{}';
+            stream_context_create($opts),
+        );
         if ($content === false) {
-            throw new RuntimeException((error_get_last())['message']);
+            throw new RuntimeException((error_get_last())['message'] ?? 'unknown error');
         }
+        /**
+         * @var array{success: bool} $data
+         */
         $data = json_decode(
             $content,
             true,
             512,
-            JSON_THROW_ON_ERROR
+            JSON_THROW_ON_ERROR,
         );
         $this->assertTrue($data['success'], 'Runtime check failed');
     }
@@ -67,7 +70,7 @@ class Test extends TestCase
             '-s',
             '/bin/bash',
             '-c',
-            '/apps/atoolo-e2e-test/bin/console runtime:check --json --fail-on-error false --skip fpm-fcgi'
+            '/apps/atoolo-e2e-test/bin/console runtime:check --json --fail-on-error false --skip fpm-fcgi',
         ]);
 
         $process->run();
@@ -75,12 +78,12 @@ class Test extends TestCase
             $this->fail($process->getErrorOutput());
         }
 
-        /** @var array<string, mixed> $data */
+        /** @var array{messages?:array<string>, success:bool} $data */
         $data = json_decode(
             $process->getOutput(),
             true,
             512,
-            JSON_THROW_ON_ERROR
+            JSON_THROW_ON_ERROR,
         );
 
         $messages = isset($data['messages'])
@@ -89,7 +92,7 @@ class Test extends TestCase
 
         $this->assertTrue(
             $data['success'],
-            "Runtime check failed\n" . $messages
+            "Runtime check failed\n" . $messages,
         );
     }
 }

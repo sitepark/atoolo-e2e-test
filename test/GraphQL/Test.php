@@ -26,6 +26,7 @@ class Test extends TestCase
 
     /**
      * @throws JsonException
+     * @return array<string, array<int, mixed>>
      */
     public static function graphqlQuery(): array
     {
@@ -48,14 +49,14 @@ class Test extends TestCase
 
             if (!file_exists($resultJsonFile)) {
                 throw new RuntimeException(
-                    'Missing result file ' . $resultJsonFile
+                    'Missing result file ' . $resultJsonFile,
                 );
             }
             $resultJson = json_decode(
-                file_get_contents($resultJsonFile),
+                file_get_contents($resultJsonFile) ?: '{}',
                 true,
                 512,
-                JSON_THROW_ON_ERROR
+                JSON_THROW_ON_ERROR,
             );
 
             $data[$file->getRelativePathname()] = [
@@ -63,7 +64,7 @@ class Test extends TestCase
                 $resultJsonFile,
                 $query,
                 $resultJson,
-                $tokenRequired
+                $tokenRequired,
             ];
         }
 
@@ -71,6 +72,7 @@ class Test extends TestCase
     }
 
     /**
+     * @param array<string, mixed> $resultJson
      * @throws JsonException
      */
     #[DataProvider('graphqlQuery')]
@@ -79,7 +81,7 @@ class Test extends TestCase
         string $resultFile,
         string $query,
         array $resultJson,
-        bool $tokenRequired
+        bool $tokenRequired,
     ): void {
 
         $headers = [];
@@ -91,8 +93,8 @@ class Test extends TestCase
         $client = ClientBuilder::build(
             self::$ENDPOINT_BASE . self::$GRAPHQL_PATH,
             [
-                'headers' => $headers
-            ]
+                'headers' => $headers,
+            ],
         );
         $response = $client->query($query);
 
@@ -101,19 +103,19 @@ class Test extends TestCase
                 static fn($error) =>
                     $error['message'] .
                     "\npath: " . implode('/', $error['path']),
-                $response->getErrors()
+                $response->getErrors(),
             );
             $this->fail(
                 $queryFile . "\n" .
                 $resultFile . "\n" .
                 "Errors:\n" .
-                implode("\n", $messages)
+                implode("\n", $messages),
             );
         } else {
             $this->assertEquals(
                 $resultJson,
                 $response->getData(),
-                $queryFile . "\n" . $resultFile
+                $queryFile . "\n" . $resultFile,
             );
         }
     }
