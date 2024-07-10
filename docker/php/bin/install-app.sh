@@ -50,9 +50,14 @@ composer config platform-check true
 # install toolo suite
 composer config --no-plugins allow-plugins.atoolo/runtime true
 composer require --no-interaction \
-    atoolo/runtime:dev-feature/initial-implementation \
-    atoolo/runtime-check-bundle:dev-feature/initial-implementation \
+    atoolo/runtime:dev-main \
+    atoolo/runtime-check-bundle:dev-main \
     atoolo/deployment-bundle:dev-main \
+    atoolo/resource-bundle:dev-main \
+    atoolo/search-bundle:dev-main \
+    atoolo/citygov-bundle:dev-main \
+    atoolo/citycall-bundle:dev-main \
+    atoolo/events-calendar-bundle:dev-main \
     atoolo/graphql-search-bundle:dev-main \
     atoolo/security-bundle:dev-main \
     symfony/monolog-bundle
