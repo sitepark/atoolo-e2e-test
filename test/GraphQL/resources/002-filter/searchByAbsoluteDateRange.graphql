@@ -12,8 +12,15 @@ query search {
             id
             name
             teaser {
-                ... on ArticleTeaser {
-                    date
+                ... on EventTeaser {
+                    eventDates {
+                        start
+                        end
+                        rrule
+                        isFullDay
+                        hasStartTime
+                        hasEndTime
+                    } 
                 }
             }
         }
