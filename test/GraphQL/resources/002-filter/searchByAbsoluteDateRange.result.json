@@ -6,7 +6,16 @@
 				"id": "34526",
 				"name": "Reise in 80 Tagen um die Welt",
 				"teaser": {
-					"date": "2022-12-13T13:44:28+01:00"
+					"eventDates": [
+						{
+							"start": "2022-12-16T16:00:00+01:00",
+							"end": "2022-12-16T23:59:00+01:00",
+							"rrule": null,
+							"isFullDay": false,
+							"hasStartTime": true,
+							"hasEndTime": true
+						}
+					]
 				}
 			}
 		]
