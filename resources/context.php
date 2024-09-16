@@ -1,4 +1,12 @@
 <?php return [
+	'tenant' => [
+		'id' => '2',
+		'name' => 'Atoolo E2E Tanent',
+		'anchor' => 'atoolo-e2e-tanent',
+		'attributes' => [
+			'abc' => 'cde',
+		],
+	],
 	"publisher" => [
 		"preview" => false,
 		"serverName" => "atoolo-e2e-test",
