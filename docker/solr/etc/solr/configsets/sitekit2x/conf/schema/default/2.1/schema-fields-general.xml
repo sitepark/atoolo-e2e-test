@@ -36,10 +36,12 @@
 	<field name="sp_id"             type="long"           stored="true" indexed="true"/>
 	<!-- Artikelname im IES, nach dem ggf sortiert werden kann. -->
 	<field name="sp_name"           type="alphaOnlySort"  stored="true" indexed="true" multiValued="false" />
-	<!-- Für die Möglich keit nach Anfangsbuchstaben zu Filtern/Gruppieren (kann zukünfitg sp_citygov_startletter ersetzen ) -->
+	<!-- Für das Suggest ohne Wortstammreduktion -->
 	<field name="sp_title_raw"      type="text_sort"               stored="true" indexed="true" multiValued="false" />
 	<!-- dient der Sortierung der Ergebnisse und wird in 'sorttitle' kopiert -->
 	<field name="sp_sortvalue"      type="alphaOnlySort"  stored="true" indexed="true"  multiValued="false" />
+	<!-- Für die Recherche und Facettierung nach Anfangsbuchstaben. (bei Personen != dem Titel) -->
+	<field name="sp_startletter"    type="string"         stored="true" indexed="true" multiValued="false"/>
 	<!-- Quelle der Daten wie id der MicrositeHompage oder 'schuldatenbank' oder 'nachrichten'-->
 	<field name="sp_source"         type="string"         stored="true" indexed="true"  multiValued="true"/>
 	<!--  für spezielle Anwendungsfälle z.b. Kundenspezifische Short-Url's -->
@@ -73,21 +75,6 @@
 	<!-- Für das Boosting über einzelne Begriffe. Bitte nur ganz behutsam einsetzen. -->
 	<field name="sp_boost_keywords" type="text_general"   stored="true" indexed="true" multiValued="false"/>
 
-	<!-- Veranstaltungsdatum: Liste von Tagen "1995-12-31T00:00:00Z" =>   http://wiki.apache.org/solr/IndexingDates
-		<field name="sp_eventdate"      type="date"           stored="true" indexed="true"  multiValued="true"/>
-		-->
-	<!-- Rubrikname wie 'Rathaus -> Bekanntmachungen '
-		<field name="sp_rubric"         type="string"         stored="true" indexed="false" multiValued="false"/>
-		-->
-	<!-- sp_theme Werte für das Farbschema der Rubrik (zB: 'red', 'green', 'blue', ... )
-		<field name="sp_theme"          type="string"         stored="true" indexed="true"  multiValued="true"/>
-		-->
-	<!-- 'kleines' Bild, welches auch für die Teaser-Ergebnislisten verwendet wird
-		<field name="sp_image"          type="string"         stored="true" indexed="false" multiValued="false"/>
-		-->
-	<!-- Url zu einem großen Bild für eine Kachel-Darstellung
-		<field name="sp_image_tile"     type="string"         stored="true" indexed="false" multiValued="false"/>
-		-->
 	<field name="sp_changed"        type="date"           stored="true" indexed="true"/>
 	<field name="sp_generated"      type="date"           stored="true" indexed="true"/>
 
@@ -105,8 +92,6 @@
 	<!-- =================================================================== -->
 	<!-- CityGov Standardfelder												 -->
 	<!-- =================================================================== -->
-	<!-- title|sp_title                    field name="sp_citygov_name"                type="string"      stored="true" indexed="true"  multiValued="false"/ -->
-	<!-- sp_contenttype (citygovProduct)   field name="sp_citygov_objecttype"          type="string"      stored="true" indexed="true"  multiValued="false"/-->
 	<field name="sp_citygov_firstname"           type="text_lc" stored="true" indexed="true"  multiValued="false"/>
 	<field name="sp_citygov_lastname"            type="text_lc" stored="true" indexed="true"  multiValued="false"/>
 	<!-- nachladen:  field name="sp_citygov_cryptedemail"        type="string"      stored="true" indexed="true"  multiValued="false"/ -->
@@ -120,8 +105,6 @@
 	<field name="sp_citygov_function"            type="text_lc" stored="true" indexed="true"  multiValued="true"/>
 	<field name="sp_citygov_product"             type="text_lc" stored="true" indexed="true"  multiValued="true"/>
 	<field name="sp_citygov_responsibility"      type="text_lc" stored="true" indexed="true"  multiValued="true"/>
-	<!-- kann für Suche in _product    field name="sp_citygov_productsynonym"      type="text_lc" stored="true" indexed="true"  multiValued="false"/-->
-	<!-- field name="sp_citygov_mainorganisation"    type="text_lc" stored="true" indexed="true"  multiValued="false"/ -->
 	<field name="sp_citygov_organisation"        type="text_lc" stored="true" indexed="true"  multiValued="true"/>
 	<!-- für die Sortierung der Mitarbeiter nach Ihren Orga-Token. (suchen und korrket sortieren mit einen Feld-Typ geht leider nicht) -->
 	<field name="sp_citygov_organisationtoken"   type="text_lc" stored="true" indexed="true"  multiValued="true"/>
@@ -192,13 +175,10 @@
 	<copyField source="sp_title"              dest="raw_content"/>
 	<copyField source="keywords"              dest="raw_content"/>
 	<copyField source="content"               dest="raw_content"/>
-
-	<!-- Für die Möglich keit nach Anfangsbuchstaben zu Filtern/Gruppieren (kann zukünfitg sp_citygov_startletter ersetzen ) -->
+	<!-- Für das Suggest ohne Wortstammreduktion -->
 	<copyField source="sp_title"               dest="sp_title_raw"/>
-
 	<!-- Die Sprache übernehmen, wenn sie redaktionell angegeben wurde -->
 	<copyField source="sp_language"           dest="lang"/>
-
 	<!-- Metadaten von Binärdaten übernehmen, wenn vorhanden. -->
 	<copyField source="meta_content_language" dest="lang"/>
 	<copyField source="meta_content_type"     dest="contenttype"/>
