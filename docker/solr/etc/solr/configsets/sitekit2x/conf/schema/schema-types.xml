@@ -181,6 +181,16 @@
 		</analyzer>
 	</fieldType>
 
+	<!-- nur LowerCaseFactory und Ascii-MappingCharFilterFactory für das Buchstaben-Feld -->
+	<fieldType name="text_letter" class="solr.TextField" positionIncrementGap="100">
+		<analyzer>
+			<tokenizer class="solr.KeywordTokenizerFactory"/>
+			<!-- Umwandlung spezieller Zeiche. ZB: A -> Ae | € -> euro-->
+			<charFilter class="solr.MappingCharFilterFactory" mapping="schema/mapping-ISOLetterChars.txt"/>
+			<filter class="solr.LowerCaseFilterFactory"/>
+		</analyzer>
+	</fieldType>
+
 	<!--Nur: TokenizerFactory und LowerCaseFilterFactory -->
 	<fieldType name="text_lc" class="solr.TextField" positionIncrementGap="100">
 		<analyzer>

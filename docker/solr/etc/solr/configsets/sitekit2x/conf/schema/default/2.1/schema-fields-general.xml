@@ -41,7 +41,7 @@
 	<!-- dient der Sortierung der Ergebnisse und wird in 'sorttitle' kopiert -->
 	<field name="sp_sortvalue"      type="alphaOnlySort"  stored="true" indexed="true"  multiValued="false" />
 	<!-- Für die Recherche und Facettierung nach Anfangsbuchstaben. (bei Personen != dem Titel) -->
-	<field name="sp_startletter"    type="string"         stored="true" indexed="true" multiValued="false"/>
+	<field name="sp_startletter"    type="text_letter"    stored="true" indexed="true" multiValued="false"/>
 	<!-- Quelle der Daten wie id der MicrositeHompage oder 'schuldatenbank' oder 'nachrichten'-->
 	<field name="sp_source"         type="string"         stored="true" indexed="true"  multiValued="true"/>
 	<!--  für spezielle Anwendungsfälle z.b. Kundenspezifische Short-Url's -->
