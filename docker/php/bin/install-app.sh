@@ -60,7 +60,8 @@ composer require --no-interaction \
     atoolo/events-calendar-bundle:dev-main \
     atoolo/graphql-search-bundle:dev-main \
     atoolo/security-bundle:dev-main \
+    atoolo/form-bundle:dev-feature/initial-implementation \
     symfony/monolog-bundle
- 
+
 
 ./bin/console lexik:jwt:generate-keypair

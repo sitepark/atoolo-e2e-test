@@ -20,7 +20,7 @@ class TokenGenerator
     public static function getInstance(): self
     {
         if (self::$instance === null) {
-            self::$instance = new self($_SERVER['ENTPOINT_BASE']);
+            self::$instance = new self($_SERVER['ENDPOINT_BASE']);
         }
 
         return self::$instance;

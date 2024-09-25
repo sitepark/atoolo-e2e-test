@@ -11,7 +11,8 @@
     ],
     "require": {
         "php": ">=8.2 <8.4.0",
-        "ext-intl": "*"
+        "ext-intl": "*",
+        "symfony/http-client": "^7.1"
     },
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^1.0",

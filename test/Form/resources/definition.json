@@ -1,0 +1,632 @@
+{
+    "schema": {
+        "type": "object",
+        "properties": {
+            "field-1": {
+                "type": "string",
+                "title": "Einzeiliges Textfeld"
+            },
+            "field-2": {
+                "type": "string",
+                "title": "Dateupload",
+                "acceptedFileNames": [
+                    "*.png",
+                    "*.jpg"
+                ],
+                "maxFileSize": 2000000,
+                "acceptedContentTypes": [
+                    "image\/*"
+                ],
+                "format": "data-url"
+            },
+            "field-4": {
+                "type": "string",
+                "title": "Email",
+                "format": "email"
+            },
+            "field-5": {
+                "type": "string",
+                "title": "Telefonnummer",
+                "format": "phone"
+            },
+            "field-6": {
+                "type": "integer",
+                "title": "Zahlen"
+            },
+            "field-7": {
+                "type": "string",
+                "title": "Datum",
+                "format": "date"
+            },
+            "field-8": {
+                "type": "string",
+                "title": "mehrzeiliges Textfeld"
+            },
+            "field-9": {
+                "type": "string",
+                "title": "Richtext eingabefeld",
+                "format": "html",
+                "allowedElements": [
+                    "p",
+                    "strong",
+                    "em",
+                    "li",
+                    "ul",
+                    "ol"
+                ]
+            },
+            "field-10": {
+                "type": "boolean",
+                "title": "Checkbox"
+            },
+            "field-11": {
+                "type": "boolean"
+            },
+            "field-12": {
+                "type": "array",
+                "title": "Checkbox-Gruppe",
+                "items": {
+                    "oneOf": [
+                        {
+                            "const": "ad5bf874-90b4-4e97-8aaa-2dde2622e918",
+                            "title": "Hund"
+                        },
+                        {
+                            "const": "28ae045f-557b-48d9-9d68-eb62f49c34d7",
+                            "title": "Katze"
+                        },
+                        {
+                            "const": "598b8184-80e7-43f2-b6cd-982ca22f6cf0",
+                            "title": "Maus"
+                        }
+                    ]
+                },
+                "uniqueItems": true
+            },
+            "field-13": {
+                "type": "string",
+                "title": "Radio-Buttons",
+                "oneOf": [
+                    {
+                        "const": "e78099f0-1b5f-40e3-8fa1-eb71247afe11",
+                        "title": "Hund"
+                    },
+                    {
+                        "const": "8cd05a5b-cbfe-4f49-bcf5-f38a5409f7aa",
+                        "title": "Katze"
+                    },
+                    {
+                        "const": "6b58b515-6626-4b5a-b1e1-4965a9d38e80",
+                        "title": "Maus"
+                    }
+                ]
+            },
+            "field-14": {
+                "type": "string",
+                "title": "Auswahlliste",
+                "oneOf": [
+                    {
+                        "const": "7384956d-a19d-4967-88e2-3d3c900d5214",
+                        "title": "Hund"
+                    },
+                    {
+                        "const": "0a2e796f-3db9-449b-8861-6e15c11778a0",
+                        "title": "Katze"
+                    },
+                    {
+                        "const": "843024f7-2f5a-48a0-9f88-2a9c4aa30d18",
+                        "title": "Maus"
+                    }
+                ]
+            },
+            "contact": {
+                "type": "object",
+                "properties": {
+                    "salutation": {
+                        "type": "string",
+                        "oneOf": [
+                            {
+                                "const": "salutationFemale",
+                                "title": "Woman"
+                            },
+                            {
+                                "const": "salutationMale",
+                                "title": "Mr."
+                            },
+                            {
+                                "const": "salutationDiverse",
+                                "title": "Miscellaneous"
+                            },
+                            {
+                                "const": "salutationNotSpecified",
+                                "title": "Not specified"
+                            }
+                        ]
+                    },
+                    "firstname": {
+                        "type": "string"
+                    },
+                    "lastname": {
+                        "type": "string"
+                    },
+                    "street": {
+                        "type": "string"
+                    },
+                    "housenumber": {
+                        "type": "string"
+                    },
+                    "postalcode": {
+                        "type": "string"
+                    },
+                    "city": {
+                        "type": "string"
+                    },
+                    "phone": {
+                        "type": "string",
+                        "format": "phone"
+                    },
+                    "mobile": {
+                        "type": "string",
+                        "format": "phone"
+                    },
+                    "email": {
+                        "type": "string",
+                        "format": "email"
+                    }
+                }
+            },
+            "webAccountContact": {
+                "type": "object",
+                "properties": {
+                    "firstname": {
+                        "type": "string"
+                    },
+                    "lastname": {
+                        "type": "string"
+                    },
+                    "street": {
+                        "type": "string"
+                    },
+                    "housenumber": {
+                        "type": "string"
+                    },
+                    "postalcode": {
+                        "type": "string"
+                    },
+                    "city": {
+                        "type": "string"
+                    },
+                    "phone": {
+                        "type": "string",
+                        "format": "phone"
+                    },
+                    "mobile": {
+                        "type": "string",
+                        "format": "phone"
+                    },
+                    "email": {
+                        "type": "string",
+                        "format": "email"
+                    }
+                }
+            },
+            "field-17": {
+                "type": "string",
+                "title": "Feld in anderer Gruppe"
+            }
+        },
+        "required": [
+            "field-1"
+        ],
+        "errorMessage": {
+            "required": {
+                "field-1": "Das einzeiliges Textfeld muss angegeben werden"
+            },
+            "acceptedFileNames": {
+                "field-2": "Diese Datei ist nicht g\u00fctig"
+            },
+            "maxFileSize": {
+                "field-2": "Diese Datei ist nicht g\u00fctig"
+            },
+            "acceptedContentTypes": {
+                "field-2": "Diese Datei ist nicht g\u00fctig"
+            }
+        }
+    },
+    "uischema": {
+        "elements": [
+            {
+                "elements": [
+                    {
+                        "scope": "#\/properties\/field-1",
+                        "label": "Einzeiliges Textfeld",
+                        "options": {
+                            "autocomplete": "name",
+                            "spaceAfter": true
+                        },
+                        "type": "Control"
+                    },
+                    {
+                        "scope": "#\/properties\/field-2",
+                        "label": "Dateupload",
+                        "options": {
+                            "spaceAfter": true
+                        },
+                        "type": "Control"
+                    },
+                    {
+                        "htmlLabel": {
+                            "entities": [
+                                {
+                                    "start": 45,
+                                    "link": {
+                                        "resourceUrl": "\/rubrik\/studiengang.php",
+                                        "modelType": "content.link.link",
+                                        "label": "Studiengang",
+                                        "url": "\/rubrik\/studiengang.php"
+                                    },
+                                    "end": 87,
+                                    "modelType": "html.richText.internalLink",
+                                    "inner": {
+                                        "normalized": true,
+                                        "modelType": "html.richText",
+                                        "text": "Link"
+                                    }
+                                }
+                            ],
+                            "normalized": true,
+                            "modelType": "html.richText",
+                            "text": "Anmerkung mit&nbsp;<strong>html<\/strong> und <a href=\"\/rubrik\/studiengang.php\">Link<\/a>."
+                        },
+                        "options": [],
+                        "type": "Annotation"
+                    },
+                    {
+                        "scope": "#\/properties\/field-4",
+                        "label": "Email",
+                        "options": {
+                            "autocomplete": "email",
+                            "asReplyTo": true
+                        },
+                        "type": "Control"
+                    },
+                    {
+                        "scope": "#\/properties\/field-5",
+                        "label": "Telefonnummer",
+                        "options": {
+                            "autocomplete": "tel"
+                        },
+                        "type": "Control"
+                    },
+                    {
+                        "scope": "#\/properties\/field-6",
+                        "label": "Zahlen",
+                        "options": {
+                            "autocomplete": "off"
+                        },
+                        "type": "Control"
+                    },
+                    {
+                        "scope": "#\/properties\/field-7",
+                        "label": "Datum",
+                        "options": {
+                            "autocomplete": "name"
+                        },
+                        "type": "Control"
+                    },
+                    {
+                        "scope": "#\/properties\/field-8",
+                        "label": "mehrzeiliges Textfeld",
+                        "options": {
+                            "autocomplete": "off",
+                            "multi": true
+                        },
+                        "type": "Control"
+                    },
+                    {
+                        "scope": "#\/properties\/field-9",
+                        "label": "Richtext eingabefeld",
+                        "options": {
+                            "htmleditor": true
+                        },
+                        "type": "Control"
+                    },
+                    {
+                        "scope": "#\/properties\/field-10",
+                        "label": "Checkbox",
+                        "options": [],
+                        "type": "Control"
+                    },
+                    {
+                        "scope": "#\/properties\/field-11",
+                        "htmlLabel": {
+                            "entities": [
+                                {
+                                    "start": 36,
+                                    "link": {
+                                        "resourceUrl": "\/rubrik\/studiengang.php",
+                                        "modelType": "content.link.link",
+                                        "label": "Studiengang",
+                                        "url": "\/rubrik\/studiengang.php"
+                                    },
+                                    "end": 78,
+                                    "modelType": "html.richText.internalLink",
+                                    "inner": {
+                                        "normalized": true,
+                                        "modelType": "html.richText",
+                                        "text": "Link"
+                                    }
+                                }
+                            ],
+                            "normalized": true,
+                            "modelType": "html.richText",
+                            "text": "Ein <strong>Html<\/strong> label mit <a href=\"\/rubrik\/studiengang.php\">Link<\/a>."
+                        },
+                        "options": [],
+                        "type": "Control"
+                    },
+                    {
+                        "scope": "#\/properties\/field-12",
+                        "label": "Checkbox-Gruppe",
+                        "options": [],
+                        "type": "Control"
+                    },
+                    {
+                        "scope": "#\/properties\/field-13",
+                        "label": "Radio-Buttons",
+                        "options": {
+                            "format": "radio"
+                        },
+                        "type": "Control"
+                    },
+                    {
+                        "scope": "#\/properties\/field-14",
+                        "label": "Auswahlliste",
+                        "options": [],
+                        "type": "Control"
+                    },
+                    {
+                        "elements": [
+                            {
+                                "scope": "#\/properties\/contact\/properties\/salutation",
+                                "label": "Salutation",
+                                "options": {
+                                    "format": "radio"
+                                },
+                                "type": "Control"
+                            },
+                            {
+                                "elements": [
+                                    {
+                                        "scope": "#\/properties\/contact\/properties\/firstname",
+                                        "label": "First name",
+                                        "options": {
+                                            "autocomplete": "given-name"
+                                        },
+                                        "type": "Control"
+                                    },
+                                    {
+                                        "scope": "#\/properties\/contact\/properties\/lastname",
+                                        "label": "Surname",
+                                        "options": {
+                                            "autocomplete": "family-name"
+                                        },
+                                        "type": "Control"
+                                    }
+                                ],
+                                "options": [],
+                                "type": "HorizontalLayout"
+                            },
+                            {
+                                "elements": [
+                                    {
+                                        "scope": "#\/properties\/contact\/properties\/street",
+                                        "label": "Street",
+                                        "options": {
+                                            "autocomplete": "address-line1"
+                                        },
+                                        "type": "Control"
+                                    },
+                                    {
+                                        "scope": "#\/properties\/contact\/properties\/housenumber",
+                                        "label": "House number",
+                                        "options": {
+                                            "autocomplete": "on"
+                                        },
+                                        "type": "Control"
+                                    }
+                                ],
+                                "options": [],
+                                "type": "HorizontalLayout"
+                            },
+                            {
+                                "elements": [
+                                    {
+                                        "scope": "#\/properties\/contact\/properties\/postalcode",
+                                        "label": "ZIP CODE",
+                                        "options": {
+                                            "autocomplete": "postal-code"
+                                        },
+                                        "type": "Control"
+                                    },
+                                    {
+                                        "scope": "#\/properties\/contact\/properties\/city",
+                                        "label": "Location",
+                                        "options": {
+                                            "autocomplete": "address-level2"
+                                        },
+                                        "type": "Control"
+                                    }
+                                ],
+                                "options": [],
+                                "type": "HorizontalLayout"
+                            },
+                            {
+                                "scope": "#\/properties\/contact\/properties\/phone",
+                                "label": "Telephone",
+                                "options": {
+                                    "autocomplete": "tel-national"
+                                },
+                                "type": "Control"
+                            },
+                            {
+                                "scope": "#\/properties\/contact\/properties\/mobile",
+                                "label": "Cell phone",
+                                "options": {
+                                    "autocomplete": "on"
+                                },
+                                "type": "Control"
+                            },
+                            {
+                                "scope": "#\/properties\/contact\/properties\/email",
+                                "label": "E-mail address",
+                                "options": {
+                                    "autocomplete": "email"
+                                },
+                                "type": "Control"
+                            }
+                        ],
+                        "options": [],
+                        "type": "Group"
+                    },
+                    {
+                        "elements": [
+                            {
+                                "elements": [
+                                    {
+                                        "scope": "#\/properties\/webAccountContact\/properties\/firstname",
+                                        "label": "First name",
+                                        "options": {
+                                            "autocomplete": "given-name"
+                                        },
+                                        "type": "Control"
+                                    },
+                                    {
+                                        "scope": "#\/properties\/webAccountContact\/properties\/lastname",
+                                        "label": "Surname",
+                                        "options": {
+                                            "autocomplete": "family-name"
+                                        },
+                                        "type": "Control"
+                                    }
+                                ],
+                                "options": [],
+                                "type": "HorizontalLayout"
+                            },
+                            {
+                                "elements": [
+                                    {
+                                        "scope": "#\/properties\/webAccountContact\/properties\/street",
+                                        "label": "Street",
+                                        "options": {
+                                            "autocomplete": "address-line1"
+                                        },
+                                        "type": "Control"
+                                    },
+                                    {
+                                        "scope": "#\/properties\/webAccountContact\/properties\/housenumber",
+                                        "label": "House number",
+                                        "options": {
+                                            "autocomplete": "on"
+                                        },
+                                        "type": "Control"
+                                    }
+                                ],
+                                "options": [],
+                                "type": "HorizontalLayout"
+                            },
+                            {
+                                "elements": [
+                                    {
+                                        "scope": "#\/properties\/webAccountContact\/properties\/postalcode",
+                                        "label": "ZIP CODE",
+                                        "options": {
+                                            "autocomplete": "postal-code"
+                                        },
+                                        "type": "Control"
+                                    },
+                                    {
+                                        "scope": "#\/properties\/webAccountContact\/properties\/city",
+                                        "label": "Location",
+                                        "options": {
+                                            "autocomplete": "address-level2"
+                                        },
+                                        "type": "Control"
+                                    }
+                                ],
+                                "options": [],
+                                "type": "HorizontalLayout"
+                            },
+                            {
+                                "scope": "#\/properties\/webAccountContact\/properties\/phone",
+                                "label": "Telephone",
+                                "options": {
+                                    "autocomplete": "tel-national"
+                                },
+                                "type": "Control"
+                            },
+                            {
+                                "scope": "#\/properties\/webAccountContact\/properties\/mobile",
+                                "label": "Cell phone",
+                                "options": {
+                                    "autocomplete": "on"
+                                },
+                                "type": "Control"
+                            },
+                            {
+                                "scope": "#\/properties\/webAccountContact\/properties\/email",
+                                "label": "E-mail address",
+                                "options": {
+                                    "autocomplete": "email"
+                                },
+                                "type": "Control"
+                            }
+                        ],
+                        "options": [],
+                        "type": "Group"
+                    }
+                ],
+                "label": "Feldgruppe Legende",
+                "options": {
+                    "hideLegend": true
+                },
+                "type": "Group"
+            },
+            {
+                "elements": [
+                    {
+                        "scope": "#\/properties\/field-17",
+                        "label": "Feld in anderer Gruppe",
+                        "options": {
+                            "autocomplete": "name"
+                        },
+                        "type": "Control"
+                    }
+                ],
+                "label": "Zweite Gruppe",
+                "options": {
+                    "hideLegend": false
+                },
+                "type": "Group"
+            },
+            {
+                "htmlLabel": [],
+                "options": [],
+                "type": "Annotation"
+            }
+        ],
+        "options": [],
+        "type": "VerticalLayout"
+    },
+    "buttons": {
+        "submit": "absenden"
+    },
+    "messages": {
+        "success": {
+            "headline": "Best\u00e4tigung",
+            "text": "Text"
+        }
+    },
+    "component": "formEditor-1",
+    "lang" : "de"
+}
