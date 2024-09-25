@@ -6,7 +6,7 @@ This project contains the end-to-end tests for the atoolo suite. Two containers 
 
 1. `solr` - Solr server for the searches
 2. `php`- PHP container with Apache web server in which the test project runs
-2. `mail`- [Mailpit](https://github.com/axllent/mailpit) email testing tool
+2. `mailer`- [Mailpit](https://github.com/axllent/mailpit) email testing tool
 
 All containers are recreated for each test run. See [`run.sh`](bin/run.sh).
 
@@ -15,6 +15,13 @@ The tests run a Symfony project that uses the Atoolo suite. This project is rebu
 The Solr index is also recreated for each test run, using the resources stored in the [`resources`](resources/) directory.
 
 The tests themselves are not executed in the container but on the host system. All tests are stored in the [`tests`](tests/) directory.
+
+## Endpoints
+
+- Solr: http://localhost:9091/solr/
+- Mailpit: http://localhost:8025/
+- Atoolo GraphQL project: http://localhost:9090/api/graphql/
+- Atoolo Form API project: http://localhost:9090/api/form/
 
 ## Execute tests
 
@@ -52,11 +59,3 @@ php:
 ### PHPStrom
 
 To set up debugging with PHPStorm, a new server with the host `atoolo-e2e-test` and the port `9090` must be set up in the settings for an Atoolo project (e.g. `atoolo/graphql-search-bundle`) in `PHP / Servers`. The path mapping must be activated. And e.g. the path `/home/user/git/atoolo-graph-serach-bundle` must be mapped to the server path `/apps/atoolo-e2e-test/vendor/atoolo/graphql-search-bundle`.
-
-### Solr
-
-http://atoolo-e2e-test:9091/solr/
-
-### Mailpit
-
-http://atoolo-e2e-test:8025/
