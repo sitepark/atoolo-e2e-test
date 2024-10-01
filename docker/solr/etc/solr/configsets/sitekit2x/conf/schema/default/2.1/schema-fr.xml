@@ -31,7 +31,7 @@
              multiValued="false"/>
       <field name="sp_sortvalue" type="alphaOnlySort" stored="true" indexed="true"
              multiValued="false"/>
-      <field name="sp_startletter" type="string" stored="true" indexed="true"
+      <field name="sp_startletter" type="text_letter" stored="true" indexed="true"
              multiValued="false"/>
       <field name="sp_source" type="string" stored="true" indexed="true" multiValued="true"/>
       <field name="sp_anchor" type="string" stored="true" indexed="true" multiValued="true"/>
