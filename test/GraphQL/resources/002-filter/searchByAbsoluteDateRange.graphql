@@ -13,10 +13,10 @@ query search {
             name
             teaser {
                 ... on EventTeaser {
-                    eventDates {
+                    schedulings {
                         start
                         end
-                        rrule
+                        rRule
                         isFullDay
                         hasStartTime
                         hasEndTime
