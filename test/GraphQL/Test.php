@@ -102,7 +102,7 @@ class Test extends TestCase
             $messages = array_map(
                 static fn($error) =>
                     $error['message'] .
-                    "\npath: " . implode('/', $error['path']),
+                    "\npath: " . (is_array($error['path']) ? implode('/', $error['path']) : $error['path']),
                 $response->getErrors(),
             );
             $this->fail(

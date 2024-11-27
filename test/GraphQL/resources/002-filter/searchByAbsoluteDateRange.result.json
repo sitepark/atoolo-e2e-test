@@ -13,7 +13,8 @@
 							"rRule": null,
 							"isFullDay": false,
 							"hasStartTime": true,
-							"hasEndTime": true
+							"hasEndTime": true,
+							"rRule": null
 						}
 					]
 				}
