@@ -10,7 +10,7 @@ services:
     volumes:
       - ./docker/solr/etc/solr/configsets:/var/solr/data/configsets
     ports:
-      - 9091:8983
+      - ${SOLR_MAPPING_PORT}:8983
     networks:
       - atoolo-e2e-test
 
@@ -38,10 +38,10 @@ services:
       - ./docker/php/etc/ies-webnode/config/realm.properties:/srv/sitepark/ies-webnode/config/realm.properties
       - ./docker/php/etc/php/conf.d/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
       - ./data/php/.bash_history:/root/.bash_history
-#      - ./data/php/.composer:/var/www/.composer
+      - ./data/php/.composer:/var/www/.composer
     ports:
-      - 9090:80
-      - 9191:8000
+      - ${APACHE_MAPPING_PORT}:80
+      - ${FPM_MAPPING_PORT}:8000
     networks:
       - atoolo-e2e-test
   mailer:
@@ -50,8 +50,8 @@ services:
       MP_SMTP_AUTH_ACCEPT_ANY: 1
       MP_SMTP_AUTH_ALLOW_INSECURE: 1
     ports:
-      - 8025:8025
-      - 1025:1025
+      - ${MAILPIT_HTTP_MAPPING_PORT}:8025
+      - ${MAILPIT_SMTP_MAPPING_PORT}:1025
     networks:
       - atoolo-e2e-test
 

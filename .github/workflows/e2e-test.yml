@@ -9,7 +9,7 @@ jobs:
 
     strategy:
       matrix:
-        phpVersions: ["8.3"]
+        phpVersions: ["8.2", "8.3"]
     name: E2E Tests (PHP ${{ matrix.phpVersions }})
 
     steps:

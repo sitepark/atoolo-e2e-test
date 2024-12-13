@@ -16,7 +16,6 @@ class Test extends TestCase
 
     public static function setUpBeforeClass(): void
     {
-        // from phpunit.xml
         self::$ENDPOINT_BASE = $_SERVER['ENDPOINT_BASE'];
     }
 
@@ -61,6 +60,8 @@ class Test extends TestCase
         $process = new Process([
             'docker',
             'compose',
+            '--project-name',
+            $_SERVER['DOCKER_COMPOSE_PROJECT_NAME'],
             'exec',
             '-u',
             'root',
