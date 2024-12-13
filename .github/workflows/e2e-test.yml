@@ -6,15 +6,31 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        phpVersions: ["8.3"]
+    name: E2E Tests (PHP ${{ matrix.phpVersions }})
+
     steps:
       - uses: actions/checkout@v2
-      - name: Install PHP 8.3
+
+      - name: Install PHP ${{ matrix.phpVersions }}
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.3
+          php-version: ${{ matrix.phpVersions }}
           tools: composer, phive
+
+      - name: "Cache tools installed with PHIVE (PHP ${{ matrix.phpVersions }})"
+        uses: "actions/cache@v3"
+        with:
+          path: "${{ runner.temp }}/.phive"
+          key: "php-phive-${{ hashFiles('.phive/phars.xml') }}"
+          restore-keys: "php-phive-"
+
       - name: Add hosts to /etc/hosts
         run: |
           sudo echo "127.0.0.1 atoolo-e2e-test" | sudo tee -a /etc/hosts
-      - name: Test
-        run: bin/run.sh
+
+      - name: Test PHP(${{ matrix.phpVersions }})
+        run: MATRIX_PHP_VERSION=${{ matrix.phpVersions }} bin/run.sh

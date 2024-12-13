@@ -15,9 +15,9 @@ services:
       - atoolo-e2e-test
 
   php:
-    #    image: php:8.3-apache
+    image: e2e-test-php:${MATRIX_PHP_VERSION}
     build:
-      context: ./docker/php
+      context: ./docker/php/${MATRIX_PHP_VERSION}
 #    user: ${USERID}:${GROUPID}
     environment:
       TZ: ${TZ:-Europe/Berlin}
