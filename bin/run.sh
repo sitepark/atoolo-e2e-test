@@ -15,6 +15,7 @@ if [ "$MATRIX_PHP_VERSION" == "" ]; then
     export FPM_MAPPING_PORT=9191
     export MAILPIT_SMTP_MAPPING_PORT=1025
     export MAILPIT_HTTP_MAPPING_PORT=8025
+    export DOCKER_COMPOSE_PROJECT_NAME=atoolo-e2e-test
 else
     export VERSION_AS_NUMBER=${MATRIX_PHP_VERSION/./""}
     export SOLR_MAPPING_PORT=${VERSION_AS_NUMBER}91
@@ -44,7 +45,7 @@ composer test
 # Without DOCKER_COMPOSE_PROJECT_NAME, it is assumed that the test is executed locally.
 # In this case, we leave the containers started so that the tests can simply be repeated
 # with `composer test` or via IDE.
-if [ "${DOCKER_COMPOSE_PROJECT_NAME}" != "" ]; then
+if [ "${DOCKER_COMPOSE_PROJECT_NAME}" != "atoolo-e2e-test" ]; then
   echo stop ${DOCKER_COMPOSE_PROJECT_NAME}
   docker compose --project-name "${DOCKER_COMPOSE_PROJECT_NAME}" stop
   docker compose --project-name "${DOCKER_COMPOSE_PROJECT_NAME}" rm -f
