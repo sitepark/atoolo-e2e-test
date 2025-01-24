@@ -1,12 +1,11 @@
 services:
-
   solr:
     build:
       context: ./docker/solr
     environment:
       TZ: ${TZ:-Europe/Berlin}
       SOLR_HOST: 0.0.0.0
-        #      SOLR_MODULES: analysis-extras
+      SOLR_MODULES: analysis-extras
     volumes:
       - ./docker/solr/etc/solr/configsets:/var/solr/data/configsets
     ports:
@@ -18,7 +17,7 @@ services:
     image: e2e-test-php:${MATRIX_PHP_VERSION}
     build:
       context: ./docker/php/${MATRIX_PHP_VERSION}
-#    user: ${USERID}:${GROUPID}
+    #user: ${USERID}:${GROUPID}
     environment:
       TZ: ${TZ:-Europe/Berlin}
       SOLR_HOST: solr
