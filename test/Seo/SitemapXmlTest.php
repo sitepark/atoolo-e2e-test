@@ -25,7 +25,11 @@ class SitemapXmlTest extends TestCase
             'sitemap.xml',
         );
 
-        $expected = file_get_contents(__DIR__ . '/resources/sitemap.xml');
+        $expected = str_replace(
+            '__ENDPOINT_BASE__',
+            $_SERVER['ENDPOINT_BASE'],
+            file_get_contents(__DIR__ . '/resources/sitemap.xml'),
+        );
 
         $this->assertEquals(
             $expected,
@@ -42,7 +46,11 @@ class SitemapXmlTest extends TestCase
             'sitemap-1.xml',
         );
 
-        $expected = file_get_contents(__DIR__ . '/resources/sitemap-1.xml');
+        $expected = str_replace(
+            '__ENDPOINT_BASE__',
+            $_SERVER['ENDPOINT_BASE'],
+            file_get_contents(__DIR__ . '/resources/sitemap-1.xml'),
+        );
 
         $this->assertEquals(
             $expected,
