@@ -1,0 +1,30 @@
+query search {
+    search(input:{
+        lang: "en"
+        filter: [
+            { ids: ["34526"] }
+        ]
+    }){
+        total
+        results {
+            id
+            name
+            teaser {
+                link {
+                    url
+                }
+                ... on EventTeaser {
+                    headline
+                    schedulings {
+                        start
+                        end
+                        rRule
+                        isFullDay
+                        hasStartTime
+                        hasEndTime
+                    }
+                }
+            }
+        }
+    }
+}

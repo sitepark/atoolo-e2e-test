@@ -4,8 +4,12 @@
 		"results": [
 			{
 				"id": "34526",
-				"name": "Reise in 80 Tagen um die Welt",
+				"name": "Around the World in 80 Days",
 				"teaser": {
+					"headline": "Around the World in 80 Days",
+					"link": {
+						"url" : "/en/veranstaltungen/reise-in-80-tagen-um-die-welt"
+					},
 					"schedulings": [
 						{
 							"start": "2022-12-16T16:00:00+01:00",

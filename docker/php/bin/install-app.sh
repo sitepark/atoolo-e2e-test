@@ -61,6 +61,8 @@ composer require --no-interaction \
     atoolo/graphql-search-bundle:dev-main \
     atoolo/security-bundle:dev-main \
     atoolo/form-bundle:dev-feature/initial-implementation \
+    atoolo/seo-bundle:dev-main \
+    atoolo/rewrite-bundle:dev-main \
     symfony/monolog-bundle
 
 
