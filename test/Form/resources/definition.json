@@ -127,19 +127,19 @@
                         "oneOf": [
                             {
                                 "const": "salutationFemale",
-                                "title": "Woman"
+                                "title": "Frau"
                             },
                             {
                                 "const": "salutationMale",
-                                "title": "Mr."
+                                "title": "Herr"
                             },
                             {
                                 "const": "salutationDiverse",
-                                "title": "Miscellaneous"
+                                "title": "Divers"
                             },
                             {
                                 "const": "salutationNotSpecified",
-                                "title": "Not specified"
+                                "title": "Keine Angabe"
                             }
                         ]
                     },
@@ -389,7 +389,7 @@
                         "elements": [
                             {
                                 "scope": "#\/properties\/contact\/properties\/salutation",
-                                "label": "Salutation",
+                                "label": "Anrede",
                                 "options": {
                                     "format": "radio"
                                 },
@@ -399,7 +399,7 @@
                                 "elements": [
                                     {
                                         "scope": "#\/properties\/contact\/properties\/firstname",
-                                        "label": "First name",
+                                        "label": "Vorname",
                                         "options": {
                                             "autocomplete": "given-name"
                                         },
@@ -407,7 +407,7 @@
                                     },
                                     {
                                         "scope": "#\/properties\/contact\/properties\/lastname",
-                                        "label": "Surname",
+                                        "label": "Nachname",
                                         "options": {
                                             "autocomplete": "family-name"
                                         },
@@ -421,7 +421,7 @@
                                 "elements": [
                                     {
                                         "scope": "#\/properties\/contact\/properties\/street",
-                                        "label": "Street",
+                                        "label": "Stra\u00dfe",
                                         "options": {
                                             "autocomplete": "address-line1"
                                         },
@@ -429,7 +429,7 @@
                                     },
                                     {
                                         "scope": "#\/properties\/contact\/properties\/housenumber",
-                                        "label": "House number",
+                                        "label": "Hausnummer",
                                         "options": {
                                             "autocomplete": "on"
                                         },
@@ -443,7 +443,7 @@
                                 "elements": [
                                     {
                                         "scope": "#\/properties\/contact\/properties\/postalcode",
-                                        "label": "ZIP CODE",
+                                        "label": "PLZ",
                                         "options": {
                                             "autocomplete": "postal-code"
                                         },
@@ -451,7 +451,7 @@
                                     },
                                     {
                                         "scope": "#\/properties\/contact\/properties\/city",
-                                        "label": "Location",
+                                        "label": "Ort",
                                         "options": {
                                             "autocomplete": "address-level2"
                                         },
@@ -463,7 +463,7 @@
                             },
                             {
                                 "scope": "#\/properties\/contact\/properties\/phone",
-                                "label": "Telephone",
+                                "label": "Telefon",
                                 "options": {
                                     "autocomplete": "tel-national"
                                 },
@@ -471,7 +471,7 @@
                             },
                             {
                                 "scope": "#\/properties\/contact\/properties\/mobile",
-                                "label": "Cell phone",
+                                "label": "Mobiltelefon",
                                 "options": {
                                     "autocomplete": "on"
                                 },
@@ -479,7 +479,7 @@
                             },
                             {
                                 "scope": "#\/properties\/contact\/properties\/email",
-                                "label": "E-mail address",
+                                "label": "E-Mail-Adresse",
                                 "options": {
                                     "autocomplete": "email"
                                 },
@@ -495,7 +495,7 @@
                                 "elements": [
                                     {
                                         "scope": "#\/properties\/webAccountContact\/properties\/firstname",
-                                        "label": "First name",
+                                        "label": "Vorname",
                                         "options": {
                                             "autocomplete": "given-name"
                                         },
@@ -503,7 +503,7 @@
                                     },
                                     {
                                         "scope": "#\/properties\/webAccountContact\/properties\/lastname",
-                                        "label": "Surname",
+                                        "label": "Nachname",
                                         "options": {
                                             "autocomplete": "family-name"
                                         },
@@ -517,7 +517,7 @@
                                 "elements": [
                                     {
                                         "scope": "#\/properties\/webAccountContact\/properties\/street",
-                                        "label": "Street",
+                                        "label": "Stra\u00dfe",
                                         "options": {
                                             "autocomplete": "address-line1"
                                         },
@@ -525,7 +525,7 @@
                                     },
                                     {
                                         "scope": "#\/properties\/webAccountContact\/properties\/housenumber",
-                                        "label": "House number",
+                                        "label": "Hausnummer",
                                         "options": {
                                             "autocomplete": "on"
                                         },
@@ -539,7 +539,7 @@
                                 "elements": [
                                     {
                                         "scope": "#\/properties\/webAccountContact\/properties\/postalcode",
-                                        "label": "ZIP CODE",
+                                        "label": "PLZ",
                                         "options": {
                                             "autocomplete": "postal-code"
                                         },
@@ -547,7 +547,7 @@
                                     },
                                     {
                                         "scope": "#\/properties\/webAccountContact\/properties\/city",
-                                        "label": "Location",
+                                        "label": "Ort",
                                         "options": {
                                             "autocomplete": "address-level2"
                                         },
@@ -559,7 +559,7 @@
                             },
                             {
                                 "scope": "#\/properties\/webAccountContact\/properties\/phone",
-                                "label": "Telephone",
+                                "label": "Telefon",
                                 "options": {
                                     "autocomplete": "tel-national"
                                 },
@@ -567,7 +567,7 @@
                             },
                             {
                                 "scope": "#\/properties\/webAccountContact\/properties\/mobile",
-                                "label": "Cell phone",
+                                "label": "Mobiltelefon",
                                 "options": {
                                     "autocomplete": "on"
                                 },
@@ -575,7 +575,7 @@
                             },
                             {
                                 "scope": "#\/properties\/webAccountContact\/properties\/email",
-                                "label": "E-mail address",
+                                "label": "E-Mail-Adresse",
                                 "options": {
                                     "autocomplete": "email"
                                 },
@@ -627,6 +627,6 @@
             "text": "Text"
         }
     },
-    "component": "formEditor-1",
-    "lang" : "de"
+    "lang": "de",
+    "component": "formEditor-1"
 }
