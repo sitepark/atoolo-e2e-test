@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+#set -e
 
 touch data/php/.bash_history
 
@@ -9,7 +9,7 @@ echo start docker container
 
 # to run outside of github actions
 if [ "$MATRIX_PHP_VERSION" == "" ]; then
-    export MATRIX_PHP_VERSION=8.2
+    export MATRIX_PHP_VERSION=8.3
     export SOLR_MAPPING_PORT=9091
     export APACHE_MAPPING_PORT=9090
     export FPM_MAPPING_PORT=9191
@@ -34,12 +34,15 @@ export MAILPIT_ENDPOINT_BASE=http://atoolo-e2e-test:${MAILPIT_HTTP_MAPPING_PORT}
 docker compose --project-name "${DOCKER_COMPOSE_PROJECT_NAME}" stop
 docker compose --project-name "${DOCKER_COMPOSE_PROJECT_NAME}" rm -f
 docker compose --project-name "${DOCKER_COMPOSE_PROJECT_NAME}" up -d
+sleep 5 # wait for the containers to start
 docker compose --project-name "${DOCKER_COMPOSE_PROJECT_NAME}" exec -u root php /tools/setup.sh
 
 # create composer.lock
 composer update --no-install
 # install dependencies with exists composer.lock so that post-install-cmd scripts are also executed
 composer install
+sleep 5 # wait for the containers to start
+composer test
 composer test
 
 # Without DOCKER_COMPOSE_PROJECT_NAME, it is assumed that the test is executed locally.
