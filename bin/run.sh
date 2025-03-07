@@ -42,7 +42,7 @@ composer update --no-install
 # install dependencies with exists composer.lock so that post-install-cmd scripts are also executed
 composer install
 sleep 5 # wait for the containers to start
-composer test
+set -ex;
 composer test
 
 # Without DOCKER_COMPOSE_PROJECT_NAME, it is assumed that the test is executed locally.
