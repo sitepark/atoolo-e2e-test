@@ -12,8 +12,8 @@
 					},
 					"schedulings": [
 						{
-							"start": "2022-12-16T16:00:00+01:00",
-							"end": "2022-12-16T23:59:00+01:00",
+							"start": "2045-03-07T16:00:00+01:00",
+							"end": "2045-03-07T23:59:00+01:00",
 							"rRule": null,
 							"isFullDay": false,
 							"hasStartTime": true,

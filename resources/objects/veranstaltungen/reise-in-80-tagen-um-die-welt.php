@@ -73,11 +73,11 @@ $resource = $lifecycle->init([
 if ($lifecycle->finish($resource)) { return $resource; }
 
 if ($lifecycle->process("base", $resource)) { $resource->process("base", [
-	"date" => 1670935468,
+	"date" => 2372504311,
 	"title" => "Reise in 80 Tagen um die Welt",
 	"kicker" => "Bühne / Theater / Aufführung",
 	"teaser" => [
-		"date" => 1670935468,
+		"date" => 2372511600,
 		"headline" => "Reise in 80 Tagen um die Welt",
 		"text" => "Das Stück \"Reise in 80 Tagen um die Welt\" wird im Rahmen der Reihe \"Kultur am Nachmittag\" im Theater La Lune aufgeführt."
 	],
@@ -97,15 +97,15 @@ if ($lifecycle->process("metadata", $resource)) { $resource->process("metadata",
 		"scheduleType" => "single",
 		"fullDay" => false,
 		"contentType" => "schedule schedule_single schedule_start schedule_end",
-		"from" => 1671202800,
-		"to" => 1671231540,
+		"from" => 2372511600,
+		"to" => 2372543999,
 		"hasBeginTime" => true,
 		"hasEndTime" => true,
 		"status" => "expired"
 	]],
 	"schedulingRaw" => [[
 		"type" => "single",
-		"beginDate" => 1671145200,
+		"beginDate" => 2372454000,
 		"isFullDay" => false,
 		"beginTime" => "16:00",
 		"endTime" => "23:59",

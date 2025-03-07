@@ -2,7 +2,7 @@ query search {
     search(input:{
         filter: [
             { relativeDateRange: {
-                base: "2022-11-30T23:00:00Z",
+                base: "2045-03-01T23:00:00Z",
                 after: "P1D",
                 roundEnd: END_OF_MONTH
             } }

@@ -2,8 +2,8 @@ query search {
     search(input:{
         filter: [
             { absoluteDateRange: {
-                from: "2022-11-30T23:00:00Z",
-                to: "2022-12-31T22:59:59Z"
+                from: "2045-03-01T23:00:00Z",
+                to: "2045-03-31T22:59:59Z"
             } }
         ]
     }){
