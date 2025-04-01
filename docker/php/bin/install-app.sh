@@ -13,7 +13,7 @@ if [ "${GITHUB_TOKEN}" != "" ]; then
     composer config --global github-oauth.github.com ${GITHUB_TOKEN}
 fi
 
-symfony new $PROJECT_DIR --version="^7.0"
+symfony new $PROJECT_DIR --version="^7.2"
 
 cd $HOME/$PROJECT_DIR
 
@@ -63,6 +63,7 @@ composer require --no-interaction \
     atoolo/form-bundle:dev-feature/initial-implementation \
     atoolo/seo-bundle:dev-main \
     atoolo/rewrite-bundle:dev-main \
+    atoolo/microsite-bundle:dev-main \
     symfony/monolog-bundle
 
 
