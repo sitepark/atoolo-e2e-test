@@ -1,4 +1,7 @@
 <?php return [
+    'server' => [
+        'host' => 'ies-atoolo-e2e-test',
+    ],
     'tenant' => [
         'id' => '2',
         'name' => 'Atoolo E2E Tanent',

@@ -13,7 +13,7 @@ if [ "${GITHUB_TOKEN}" != "" ]; then
     composer config --global github-oauth.github.com ${GITHUB_TOKEN}
 fi
 
-symfony new $PROJECT_DIR --version="^7.2"
+symfony new $PROJECT_DIR --version="^7.3"
 
 cd $HOME/$PROJECT_DIR
 
