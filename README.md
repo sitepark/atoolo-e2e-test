@@ -18,6 +18,12 @@ The Solr index is also recreated for each test run, using the resources stored i
 
 The tests themselves are not executed in the container but on the host system. All tests are stored in the [`tests`](tests/) directory.
 
+Host entries are required
+`/etc/hosts`:
+```
+127.0.1.1       atoolo-e2e-test www-atoolo-e2e-test ies-atoolo-e2e-test
+```
+
 ## Endpoints
 
 - Solr: http://localhost:9091/solr/
@@ -32,6 +38,14 @@ To run the tests, the command `bin/run.sh` must be executed.
 ## GraphQL tests
 
 The GraphQL tests are stored in the directory [`test/GraphQL`](tests/GraphQL). Only one test class `Test.php` exists here. This test reads all `*.graphql` files below the directory [`test/GraphQL/resources`](test/GraphQL/resources/) and executes them. In addition to the `*.graphql` file, there must always be a `*.result.json` file in which the expected results are stored.
+
+## Fake IES
+
+To test functions that access the IES server, a fake IES server is required. This runs in the directory `ies-faker` and provides the required routes via a simple PHP script (`index.php`). The IES faker can be accessed internally via the host `ies-atoolo-e2e-test`.
+
+## Supplement Symfony project
+
+The Symfony project created for the tests can, for example, be extended with your own resources that are required for the tests. After installing and setting up the Symfony project, the 'docker/php/app' directory is copied to the Symfony project and the Symfony cache is updated.
 
 ## Debugging
 

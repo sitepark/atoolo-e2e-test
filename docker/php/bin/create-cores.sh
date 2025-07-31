@@ -22,6 +22,7 @@ curl -X POST http://$SOLR_HOST:$SOLR_PORT/api/cores -H 'Content-Type: applicatio
   }
 '
 
+echo
 echo create solr core: www-en_US
 curl -X POST http://$SOLR_HOST:$SOLR_PORT/api/cores -H 'Content-Type: application/json' -d '
   {
@@ -31,4 +32,4 @@ curl -X POST http://$SOLR_HOST:$SOLR_PORT/api/cores -H 'Content-Type: applicatio
     }
   }
 '
-
+echo

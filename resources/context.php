@@ -14,7 +14,7 @@
         "id" => 1,
         "anchor" => "www",
         "name" => "Atoolo E2E test",
-        "serverName" => "atoolo-e2e-test",
+        "serverName" => "www-atoolo-e2e-test",
         "serverAliases" => [],
         "preview" => false,
         "nature" => "internet",
