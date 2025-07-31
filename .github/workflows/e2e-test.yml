@@ -30,7 +30,7 @@ jobs:
 
       - name: Add hosts to /etc/hosts
         run: |
-          sudo echo "127.0.0.1 atoolo-e2e-test" | sudo tee -a /etc/hosts
+          sudo echo "127.0.0.1 atoolo-e2e-test www-atoolo-e2e-test ies-atoolo-e2e-test" | sudo tee -a /etc/hosts
 
       - name: Test PHP(${{ matrix.phpVersions }})
         run: MATRIX_PHP_VERSION=${{ matrix.phpVersions }} bin/run.sh

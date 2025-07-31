@@ -2,7 +2,7 @@ FROM php:8.3-apache
 
 RUN set -ex; \
    apt-get update; \
-   apt-get -y --no-install-recommends install git unzip libzip-dev libicu-dev vim; \
+   apt-get -y --no-install-recommends install git unzip libzip-dev libicu-dev vim yq; \
    mkdir -p /apps /srv/sitepark/ies-webnode/config; \
    chmod a+rwx /apps /srv/sitepark/ies-webnode/config; \
    rm -rf /var/lib/apt/lists/*;

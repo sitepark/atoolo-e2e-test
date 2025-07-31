@@ -26,7 +26,7 @@ else
     export DOCKER_COMPOSE_PROJECT_NAME=atoolo-e2e-test-php${VERSION_AS_NUMBER}
 fi
 
-export ENDPOINT_BASE=http://atoolo-e2e-test:${APACHE_MAPPING_PORT}
+export ENDPOINT_BASE=http://www-atoolo-e2e-test:${APACHE_MAPPING_PORT}
 export MAILPIT_ENDPOINT_BASE=http://atoolo-e2e-test:${MAILPIT_HTTP_MAPPING_PORT}
 
 #docker compose --project-name ${DOCKER_COMPOSE_PROJECT_NAME} build

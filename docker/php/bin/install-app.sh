@@ -64,7 +64,35 @@ composer require --no-interaction \
     atoolo/seo-bundle:dev-main \
     atoolo/rewrite-bundle:dev-main \
     atoolo/microsite-bundle:dev-main \
+    atoolo/webaccount-bundle:dev-main \
     symfony/monolog-bundle
 
 
 ./bin/console lexik:jwt:generate-keypair
+
+cp -rf /app-files/* .
+
+# update config/packages/security.yaml
+echo "update config/packages/security.yaml"
+yq -i -y '
+. as $root
+| $root.security.providers |= {
+"webnode_users": $root.security.providers.webnode_users,
+"sitekit_users": $root.security.providers.sitekit_users,
+"webaccount_users": {"id": "atoolo_webaccount.user_provider"},
+"all_users": $root.security.providers.all_users
+}
+| .security.providers.all_users.chain.providers += ["webaccount_users"]
+| .security.firewalls.webaccount = {
+"lazy": true,
+"provider": "webaccount_users",
+"custom_authenticators": ["atoolo_webaccount.authenticator"],
+"entry_point": "atoolo_webaccount.unauthorized_entry_point",
+"stateless": false
+}
+| .security.access_control |= (
+  .[0:2] + [{"path": "^/protected-content", "roles": "ROLE_WEB_ACCOUNT"}] + .[2:]
+)
+' config/packages/security.yaml
+
+./bin/console cache:clear
