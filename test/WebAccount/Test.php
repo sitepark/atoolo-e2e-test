@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Atoolo\E2E\Test\WebAccount;
 
 use PHPUnit\Framework\TestCase;
-use Symfony\Component\HttpClient\Exception\RedirectionException;
 use Symfony\Component\HttpClient\HttpClient;
 use Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\DecodingExceptionInterface;
@@ -81,8 +80,8 @@ class Test extends TestCase
         $client = HttpClient::create();
 
         $query = <<<'GRAPHQL'
-mutation webaccountAuthenticationWithPassword($username: String!, $password: String!) {
-  webaccountAuthenticationWithPassword(
+mutation webAccountAuthenticationWithPassword($username: String!, $password: String!) {
+  webAccountAuthenticationWithPassword(
     username: $username
     password: $password
     setJwtCookie: true
