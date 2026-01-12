@@ -41,6 +41,78 @@ $routes = [
             ]);
         },
     ],
+    [
+        'method' => 'POST',
+        'path'   => '#^/api/graphql#',
+        'body'   => '#.*mutation startUserRegistration.*#',
+        'handler' => static function ($matches) {
+            json_response([
+                'data' => [
+                    'user' => [
+                        'startUserRegistration' => [
+                            'challengeId' => 'cyEwLnyGtWZ2g2uHpItk8Mk8UaazZxCD',
+                            'createdAt' => '2025-12-05T12:20:14.183370518Z',
+                            'expiresAt' => '2025-12-05T12:35:14.183370518Z',
+                        ],
+                    ],
+                ],
+            ]);
+        },
+    ],
+    [
+        'method' => 'POST',
+        'path'   => '#^/api/graphql#',
+        'body'   => '#.*mutation finishUserRegistration.*#',
+        'handler' => static function ($matches) {
+            json_response([
+                'data' => [
+                    'user' => [
+                        'finishUserRegistration' => [
+                            '__typename' => 'FinishUserRegistrationResult',
+                            'id' => '1234',
+                            'email' => 'peter.pan@neverland.com',
+                        ],
+                    ],
+                ],
+            ]);
+        },
+    ],
+    [
+        'method' => 'POST',
+        'path'   => '#^/api/graphql#',
+        'body'   => '#.*mutation startPasswordRecovery.*#',
+        'handler' => static function ($matches) {
+            json_response([
+                'data' => [
+                    'security' => [
+                        'password' => [
+                            'startPasswordRecovery' => [
+                                'challengeId' => 'cyEwLnyGtWZ2g2uHpItk8Mk8UaazZxCD',
+                                'createdAt' => '2025-12-05T12:20:14.183370518Z',
+                                'expiresAt' => '2025-12-05T12:35:14.183370518Z',
+                            ],
+                        ],
+                    ],
+                ],
+            ]);
+        },
+    ],
+    [
+        'method' => 'POST',
+        'path'   => '#^/api/graphql#',
+        'body'   => '#.*mutation finishPasswordRecovery.*#',
+        'handler' => static function ($matches) {
+            json_response([
+                'data' => [
+                    'security' => [
+                        'password' => [
+                            'finishPasswordRecovery' => true,
+                        ],
+                    ],
+                ],
+            ]);
+        },
+    ],
 ];
 
 foreach ($routes as $route) {

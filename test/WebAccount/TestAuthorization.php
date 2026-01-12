@@ -12,7 +12,7 @@ use Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 
-class Test extends TestCase
+class TestAuthorization extends TestCase
 {
     private static string $ENDPOINT_BASE;
 
