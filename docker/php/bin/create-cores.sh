@@ -17,7 +17,7 @@ curl -X POST http://$SOLR_HOST:$SOLR_PORT/api/cores -H 'Content-Type: applicatio
   {
     "create": {
       "name": "www",
-      "configSet": "sitekit2x", "schema" : "conf/schema/default/2.1/schema.xml"
+      "configSet": "sitekit2x", "schema" : "conf/schema/default/3.0/schema.xml"
     }
   }
 '
@@ -28,7 +28,7 @@ curl -X POST http://$SOLR_HOST:$SOLR_PORT/api/cores -H 'Content-Type: applicatio
   {
     "create": {
       "name": "www-en_US",
-      "configSet": "sitekit2x", "schema" : "conf/schema/default/2.1/schema-en.xml"
+      "configSet": "sitekit2x", "schema" : "conf/schema/default/3.0/schema-en.xml"
     }
   }
 '

@@ -27,7 +27,7 @@
 					<xsl:variable name="schemaname">
 						<xsl:choose>
 							<xsl:when test="./@schemaname"><xsl:value-of select="./@schemaname"/></xsl:when>
-							<xsl:otherwise>sitepark-2.1-<xsl:value-of select="name(.)"/></xsl:otherwise>
+							<xsl:otherwise>sitepark-3.0-<xsl:value-of select="name(.)"/></xsl:otherwise>
 						</xsl:choose>
 					</xsl:variable>
 
@@ -52,11 +52,11 @@
 							<fields>
 								<xsl:copy-of select="document('schema-fields-general.xml')/fields/*"/>
 
-								<field name="title"       type="{$fieldTypeIgnoreFrequency}" stored="true" indexed="true" multiValued="false" termVectors="true"/>
-								<field name="sp_title"    type="{$fieldTypeIgnoreFrequency}" stored="true" indexed="true" />
-								<field name="sp_intro"    type="{$fieldTypeIgnoreFrequency}" stored="true" indexed="true" />
-								<field name="description" type="{$fieldTypeIgnoreFrequency}" stored="true" indexed="true" multiValued="true"  termVectors="true"/>
-								<field name="content"     type="{$fieldType}" stored="true" indexed="true" multiValued="true"  termVectors="true"/>
+								<field name="title"       type="{$fieldTypeIgnoreFrequency}" stored="true" indexed="true" termVectors="true" termPositions="false"/>
+								<field name="sp_title"    type="{$fieldTypeIgnoreFrequency}" stored="true" indexed="true" termVectors="true" termPositions="false"/>
+								<field name="sp_intro"    type="{$fieldTypeIgnoreFrequency}" stored="true" indexed="true" termVectors="true" termPositions="false"/>
+								<field name="description" type="{$fieldTypeIgnoreFrequency}" stored="true" indexed="true" termVectors="true" multiValued="true" />
+								<field name="content"     type="{$fieldType}"                stored="true" indexed="true" termVectors="true" multiValued="true" />
 
 								<dynamicField name="sp_meta_text_*" type="{$fieldType}" stored="true" indexed="true"  multiValued="true"/>
 								<dynamicField name="sp_meta_single_text_*" type="{$fieldType}" stored="true" indexed="true"  multiValued="false"/>

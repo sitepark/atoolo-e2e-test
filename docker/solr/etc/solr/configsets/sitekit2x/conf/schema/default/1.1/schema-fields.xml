@@ -108,13 +108,13 @@
 	<field name="sp_vv_phone"               type="text_lc"     stored="true" indexed="true"  multiValued="false"/>
 	<field name="sp_vv_furtherphone"        type="text_lc"     stored="true" indexed="true"  multiValued="false"/>
 	<field name="sp_vv_address"             type="text_lc"     stored="true" indexed="true"  multiValued="false"/>
-	<field name="sp_vv_function"            type="text_lc"     stored="true" indexed="true"  multiValued="false"/>
-	<field name="sp_vv_product"             type="text_lc"     stored="true" indexed="true"  multiValued="false"/>
-	<field name="sp_vv_productsynonym"      type="text_lc"     stored="true" indexed="true"  multiValued="false"/>
+	<field name="sp_vv_function"            type="text_general" stored="true" indexed="true"  multiValued="false"/>
+	<field name="sp_vv_product"             type="text_general" stored="true" indexed="true"  multiValued="false"/>
+	<field name="sp_vv_productsynonym"      type="text_general" stored="true" indexed="true"  multiValued="false"/>
 	<field name="sp_vv_productresponsibility" type="text_lc"   stored="true" indexed="true"  multiValued="false"/>
 	<field name="sp_vv_mainorganisation"    type="text_lc"     stored="true" indexed="true"  multiValued="false"/>
-	<field name="sp_vv_organisationsynonym" type="text_lc"     stored="true" indexed="true"  multiValued="false"/>
-	<field name="sp_vv_organisation"        type="text_lc"     stored="true" indexed="true"  multiValued="false"/>
+	<field name="sp_vv_organisationsynonym" type="text_general" stored="true" indexed="true"  multiValued="false"/>
+	<field name="sp_vv_organisation"        type="text_general" stored="true" indexed="true"  multiValued="false"/>
 	<field name="sp_vv_organisationtoken"   type="text_lc"     stored="true" indexed="true"  multiValued="false"/>
 	<!-- für die Sortierung der Mitarbeiter nach Ihren Orga-Token. (suchen und korrket sortieren mit einen Feld-Typ geht leider nicht) -->
 	<field name="sp_vv_sortfieldorganisationtoken" type="alphaOnlySort" stored="true" indexed="true"  multiValued="false"/>

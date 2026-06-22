@@ -50735,6 +50735,7 @@ park
 parkallee
 parkanlagen
 parkartig
+parkausweis
 parkbank
 parkbänke
 parkdeck
