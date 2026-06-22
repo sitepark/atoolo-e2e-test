@@ -1,0 +1,53 @@
+services:
+
+  atoolo_citygov.citygov_organisation_hierarchy_loader:
+    class: Atoolo\Resource\Loader\SiteKitResourceHierarchyLoader
+    arguments:
+      - '@atoolo_resource.resource_loader'
+      - "citygovOrganisation"
+
+  Atoolo\CityGov\Service\Indexer\Enricher\SiteKitSchema2x\OrganisationDocumentEnricher:
+    arguments:
+      - '@atoolo_citygov.resource_channel_attributes'
+      - '@atoolo_search.indexer.solr_index_service'
+      - '@atoolo_citygov.citygov_organisation_hierarchy_loader'
+    tags:
+      - { name: 'atoolo_search.indexer.document_enricher.schema2x', priority: 10 }
+
+  Atoolo\CityGov\Service\Indexer\Enricher\SiteKitSchema2x\ProductDocumentEnricher:
+    arguments:
+      - '@atoolo_citygov.resource_channel_attributes'
+      - '@atoolo_search.indexer.solr_index_service'
+      - '@atoolo_resource.resource_loader'
+      - '@Atoolo\CityGov\Service\Indexer\Enricher\SiteKitSchema2x\OrganisationDocumentEnricher'
+    tags:
+      - { name: 'atoolo_search.indexer.document_enricher.schema2x', priority: 10 }
+
+  Atoolo\CityGov\Service\Indexer\Enricher\SiteKitSchema2x\PersonDocumentEnricher:
+    arguments:
+      - '@atoolo_resource.resource_loader'
+      - '@Atoolo\CityGov\Service\Indexer\Enricher\SiteKitSchema2x\OrganisationDocumentEnricher'
+    tags:
+      - { name: 'atoolo_search.indexer.document_enricher.schema2x', priority: 10 }
+
+  Atoolo\CityGov\Service\Indexer\Enricher\SiteKitSchema2x\ContactPointDocumentEnricher:
+    tags:
+      - { name: 'atoolo_search.indexer.document_enricher.schema2x', priority: 9 }
+
+  # GraphQL
+  atoolo_citygov.graphql.factory.online_service_feature:
+    class: Atoolo\CityGov\Service\GraphQL\Factory\OnlineServiceFeatureFactory
+    arguments:
+      - '@atoolo_resource.navigation_hierarchy_loader'
+      - '@atoolo_graphql_search.factory.link_factory'
+    tags:
+      - { name: 'atoolo_graphql_search.teaser_feature_factory' }
+
+  atoolo_citygov.resource_channel_attributes_factory:
+    class: Atoolo\CityGov\Factory\ChannelAttributesFactory
+    arguments:
+      - '@atoolo_resource.resource_channel'
+
+  atoolo_citygov.resource_channel_attributes:
+    class: Atoolo\CityGov\ChannelAttributes
+    factory: [ '@atoolo_citygov.resource_channel_attributes_factory', 'create' ]

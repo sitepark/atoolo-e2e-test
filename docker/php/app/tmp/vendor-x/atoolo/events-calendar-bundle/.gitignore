@@ -1,0 +1,12 @@
+/vendor
+/vendor.orig
+composer.lock
+.idea
+/var/cache/*
+!var/cache/.gitkeep
+/var/log/*
+!var/log/.gitkeep
+/var/test/*
+!var/test/.gitkeep
+/tools
+.phpactor.json

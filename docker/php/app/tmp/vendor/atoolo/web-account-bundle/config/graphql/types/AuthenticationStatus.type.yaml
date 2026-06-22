@@ -1,0 +1,4 @@
+AuthenticationStatus:
+  type: enum
+  config:
+    enumClass: Atoolo\WebAccount\Dto\AuthenticationStatus

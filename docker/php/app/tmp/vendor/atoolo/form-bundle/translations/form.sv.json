@@ -1,0 +1,62 @@
+{
+  "email" : {
+    "header" : "<a href=\"{url}\">Website</a>Följande meddelande skickades från din .",
+    "footer" : "Meddelande skickat av: {host} den {datum} kl {tid}",
+    "headline" : "Formulärdata"
+  },
+  "field" : {
+    "webAccount" : {
+      "salutation.label" : "Hälsning",
+      "salutation.salutationMale.label" : "Herr",
+      "salutation.salutationFemale.label" : "Fru",
+      "salutation.salutationDiverse.label" : "Övrigt",
+      "salutation.salutationNotSpecified.label" : "Ej specificerat",
+      "lastname.label" : "Efternamn",
+      "firstname.label" : "Förnamn",
+      "street.label" : "Gata",
+      "housenumber.label" : "Husnummer",
+      "postalCode.label" : "POSTKODE",
+      "city.label" : "Plats",
+      "tel.label" : "Telefon",
+      "mobile.label" : "Mobiltelefon",
+      "email.label" : "E-postadress",
+      "emailCompare.label" : "Upprepa e-postadressen",
+      "password.label" : "Lösenord",
+      "passwordRepetition.label" : "Lösenord, repetition"
+    },
+    "dateFilter" : {
+      "empty.label" : "fri period"
+    },
+    "dateSelectorComposition.label" : "Period",
+    "date.label" : "datum",
+    "dateFrom.label" : "från",
+    "dateTo.label" : "tills",
+    "file.deleteFile.label" : "Ta bort fil",
+    "salutation.label" : "Hälsning",
+    "salutation.salutationMale.label" : "Herr",
+    "salutation.salutationFemale.label" : "Fru",
+    "salutation.salutationDiverse.label" : "Övrigt",
+    "salutation.salutationNotSpecified.label" : "Ej specificerat",
+    "firstname.label" : "Förnamn",
+    "lastname.label" : "Efternamn",
+    "street.label" : "Gata",
+    "housenumber.label" : "Husnummer",
+    "postalCode.label" : "POSTKODE",
+    "city.label" : "Plats",
+    "tel.label" : "Telefon",
+    "mobile.label" : "Mobiltelefon",
+    "email.label" : "E-postadress",
+    "select.pleaseSelect.label" : "Vänligen välj",
+    "consent" : {
+      "legend" : "Skydd av personuppgifter",
+      "label" : "Jag samtycker till att de uppgifter som krävs för de tjänster som erbjuds här får samlas in och användas.",
+      "validator" : {
+        "required" : {
+          "message" : "Vänligen bekräfta samtyckesförklaringen."
+        }
+      }
+    },
+    "file.button.label" : "Välj",
+    "checkboxTree.furtherSubCategoriesFor.label" : "ytterligare underkategorier till"
+  }
+}

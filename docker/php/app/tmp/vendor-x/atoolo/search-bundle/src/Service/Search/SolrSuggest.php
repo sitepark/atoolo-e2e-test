@@ -1,0 +1,154 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Atoolo\Search\Service\Search;
+
+use Atoolo\Search\Dto\Search\Query\Filter\Filter;
+use Atoolo\Search\Dto\Search\Query\SuggestQuery;
+use Atoolo\Search\Dto\Search\Result\Suggestion;
+use Atoolo\Search\Dto\Search\Result\SuggestResult;
+use Atoolo\Search\Exception\UnexpectedResultException;
+use Atoolo\Search\Service\IndexName;
+use Atoolo\Search\Service\SolrClientFactory;
+use Atoolo\Search\Suggest;
+use JsonException;
+use Solarium\Core\Client\Client;
+use Solarium\QueryType\Select\Query\Query as SolrSelectQuery;
+use Solarium\QueryType\Select\Result\Result as SolrSelectResult;
+
+/**
+ * Implementation of the "suggest search" based on a Solr index.
+ *
+ *  @phpstan-type SolariumResponse array{
+ *      facet_counts: array{
+ *         facet_fields: array<string, array<string>>
+ *      }
+ *  }
+ */
+class SolrSuggest implements Suggest
+{
+    public function __construct(
+        private readonly IndexName $index,
+        private readonly SolrClientFactory $clientFactory,
+        private readonly Schema2xFieldMapper $schemaFieldMapper,
+        private readonly QueryTemplateResolver $queryTemplateResolver,
+        private readonly string $indexSuggestField = 'raw_content',
+    ) {}
+
+    /**
+     * @throws UnexpectedResultException
+     */
+    public function suggest(SuggestQuery $query): SuggestResult
+    {
+        $index = $this->index->name($query->lang);
+        $client = $this->clientFactory->create($index);
+
+        $solrQuery = $this->buildSolrQuery($client, $query);
+        $solrResult = $client->select($solrQuery);
+        return $this->buildResult($solrResult);
+    }
+
+    private function buildSolrQuery(
+        Client $client,
+        SuggestQuery $query,
+    ): SolrSelectQuery {
+        $solrQuery = $client->createSelect();
+        $solrQuery->addParam("spellcheck", "true");
+        $solrQuery->addParam("spellcheck.accuracy", "0.6");
+        $solrQuery->addParam("spellcheck.onlyMorePopular", "false");
+        $solrQuery->addParam("spellcheck.count", "15");
+        $solrQuery->addParam("spellcheck.maxCollations", "5");
+        $solrQuery->addParam("spellcheck.maxCollationTries", "15");
+        $solrQuery->addParam("spellcheck.collate", "true");
+        $solrQuery->addParam("spellcheck.collateExtendedResults", "true");
+        $solrQuery->addParam("spellcheck.extendedResults", "true");
+        $solrQuery->addParam("facet", "true");
+        $solrQuery->addParam("facet.sort", "count");
+        $solrQuery->addParam("facet.method", "enum");
+        $solrQuery->addParam("facet.prefix", $query->text);
+        $solrQuery->addParam("facet.limit", $query->limit);
+        $solrQuery->addParam("facet.field", $this->indexSuggestField);
+
+        $solrQuery->setOmitHeader(false);
+        $solrQuery->setStart(0);
+        $solrQuery->setRows(0);
+
+        // Filter
+        $this->addFilterQueriesToSolrQuery($solrQuery, $query->filter, $query->archive);
+
+        return $solrQuery;
+    }
+
+    /**
+     * @param Filter[] $filterList
+     */
+    private function addFilterQueriesToSolrQuery(
+        SolrSelectQuery $solrQuery,
+        array $filterList,
+        bool $archive,
+    ): void {
+        $filterAppender = new SolrQueryFilterAppender(
+            $solrQuery,
+            $this->schemaFieldMapper,
+            $this->queryTemplateResolver,
+        );
+        foreach ($filterList as $filter) {
+            $filterAppender->append($filter);
+        }
+        if (!$archive) {
+            $filterAppender->excludeArchived();
+        }
+    }
+
+    private function buildResult(
+        SolrSelectResult $solrResult,
+    ): SuggestResult {
+        $suggestions = $this->parseSuggestion(
+            $solrResult->getResponse()->getBody(),
+        );
+        return new SuggestResult(
+            $suggestions,
+            $solrResult->getQueryTime() ?? 0,
+        );
+    }
+
+    /**
+     * @throws UnexpectedResultException
+     * @return Suggestion[]
+     */
+    private function parseSuggestion(
+        string $responseBody,
+    ): array {
+        try {
+            /** @var SolariumResponse $json */
+            $json = json_decode(
+                $responseBody,
+                true,
+                5,
+                JSON_THROW_ON_ERROR,
+            );
+            $facets =
+                $json['facet_counts']['facet_fields'][$this->indexSuggestField]
+                ?? [];
+
+            $len = count($facets);
+
+            $suggestions = [];
+            for ($i = 0; $i < $len - 1; $i += 2) {
+                $term = $facets[$i];
+                $hits = (int) $facets[$i + 1];
+                $suggestions[] = new Suggestion($term, $hits);
+            }
+
+            return $suggestions;
+        } catch (JsonException $e) {
+            throw new UnexpectedResultException(
+                $responseBody,
+                "Invalid JSON for suggest result",
+                0,
+                $e,
+            );
+        }
+    }
+}

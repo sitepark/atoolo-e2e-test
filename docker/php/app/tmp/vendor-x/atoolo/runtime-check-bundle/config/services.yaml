@@ -1,0 +1,93 @@
+parameters:
+  atoolo_runtime_check.worker_status_file: '%kernel.cache_dir%/%atoolo_resource.resource_host%_schedule_check.json'
+  env(SUPERVISOR_GROUP_NAME): default
+  ## The period in minutes after which the worker status file is updated.
+  atoolo_runtime_check.worker_status_update_period: 10
+  atoolo_runtime_check.checker.monolog.max_log_file_size: '100M'
+  atoolo_runtime_check.checker.monolog.max_log_dir_size: '10G'
+  atoolo_runtime_check.checker.monolog.max_log_file_rotations: 10
+
+services:
+
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  _instanceof:
+    Symfony\Component\Console\Command\Command:
+      tags: ['command']
+
+  Atoolo\Runtime\Check\Service\Cli\FastCgiStatusFactory:
+    arguments:
+      - [
+        '/var/run/php-fpm.sock',
+        '/var/run/php/php-fpm.sock',
+        '/run/php-fpm/php-fpm.sock',
+        '/var/run/php-fpm/php-fpm.sock',
+        '/var/run/php*.sock',
+        '/var/run/php/*.sock',
+        '/run/php-fpm/*.sock',
+        '/var/run/php-fpm/*.sock'
+      ]
+      - '%kernel.project_dir%/public/index.php'
+      - '%atoolo_resource.resource_root%'
+      - '%atoolo_resource.resource_host%'
+
+  Atoolo\Runtime\Check\Service\Checker\PhpStatus:
+    tags:
+      - { name: 'atoolo_runtime_check.checker' }
+
+  Atoolo\Runtime\Check\Service\Checker\ProcessStatus:
+    tags:
+      - { name: 'atoolo_runtime_check.checker' }
+
+  Atoolo\Runtime\Check\Service\Checker\MonologChecker:
+    arguments:
+      - '%atoolo_runtime_check.checker.monolog.max_log_file_size%'
+      - '%atoolo_runtime_check.checker.monolog.max_log_dir_size%'
+      - '%atoolo_runtime_check.checker.monolog.max_log_file_rotations%'
+      - '@logger'
+    tags:
+      - { name: 'atoolo_runtime_check.checker' }
+
+  Atoolo\Runtime\Check\Service\Checker\CheckerCollection:
+    arguments:
+      - !tagged_iterator atoolo_runtime_check.checker
+
+  Atoolo\Runtime\Check\Service\Cli\RuntimeCheck:
+    arguments:
+      - '@Atoolo\Runtime\Check\Service\Checker\CheckerCollection'
+      - '@Atoolo\Runtime\Check\Service\Cli\FastCgiStatusFactory'
+      - '@Atoolo\Runtime\Check\Service\Worker\WorkerStatusFile'
+
+  Atoolo\Runtime\Check\Service\FpmFcgi\CliStatus:
+    arguments:
+      - '%kernel.project_dir%/bin/console'
+      - '%atoolo_resource.resource_root%'
+      - '%atoolo_resource.resource_host%'
+
+  Atoolo\Runtime\Check\Service\FpmFcgi\RuntimeCheck:
+    arguments:
+      - '@Atoolo\Runtime\Check\Service\Checker\CheckerCollection'
+      - '@Atoolo\Runtime\Check\Service\FpmFcgi\CliStatus'
+      - '@Atoolo\Runtime\Check\Service\Worker\WorkerStatusFile'
+
+
+  Atoolo\Runtime\Check\Service\Worker\WorkerStatusFile:
+    arguments:
+      - '%atoolo_runtime_check.worker_status_file%'
+      - '%atoolo_runtime_check.worker_status_update_period%'
+
+  Atoolo\Runtime\Check\Service\Worker\WorkerCheckScheduler:
+    arguments:
+      - '@Atoolo\Runtime\Check\Service\Worker\WorkerStatusFile'
+      - '@Atoolo\Runtime\Check\Service\Checker\CheckerCollection'
+      - '%atoolo_resource.resource_host%'
+
+  Atoolo\Runtime\Check\Console\Command\CheckCommand:
+    arguments:
+      - '@Atoolo\Runtime\Check\Service\Cli\RuntimeCheck'
+
+  Atoolo\Runtime\Check\Controller\CheckController:
+    arguments:
+      - '@Atoolo\Runtime\Check\Service\FpmFcgi\RuntimeCheck'

@@ -1,0 +1,62 @@
+{
+  "email" : {
+    "header" : "<a href=\"{url}\">Website</a>에서 다음 메시지가 전송되었습니다.",
+    "footer" : "보낸 메시지입니다: {호스트}가 {날짜}에 {시간}에 보낸 메시지입니다.",
+    "headline" : "양식 데이터"
+  },
+  "field" : {
+    "webAccount" : {
+      "salutation.label" : "인사말",
+      "salutation.salutationMale.label" : "Mr",
+      "salutation.salutationFemale.label" : "부인",
+      "salutation.salutationDiverse.label" : "기타",
+      "salutation.salutationNotSpecified.label" : "지정되지 않음",
+      "lastname.label" : "성",
+      "firstname.label" : "이름",
+      "street.label" : "거리",
+      "housenumber.label" : "집 번호",
+      "postalCode.label" : "포스트코드",
+      "city.label" : "위치",
+      "tel.label" : "전화",
+      "mobile.label" : "휴대폰",
+      "email.label" : "이메일 주소",
+      "emailCompare.label" : "이메일 주소 반복",
+      "password.label" : "비밀번호",
+      "passwordRepetition.label" : "비밀번호, 반복"
+    },
+    "dateFilter" : {
+      "empty.label" : "무료 기간"
+    },
+    "dateSelectorComposition.label" : "기간",
+    "date.label" : "날짜",
+    "dateFrom.label" : "에서",
+    "dateTo.label" : "까지",
+    "file.deleteFile.label" : "파일 삭제",
+    "salutation.label" : "인사말",
+    "salutation.salutationMale.label" : "Mr",
+    "salutation.salutationFemale.label" : "부인",
+    "salutation.salutationDiverse.label" : "기타",
+    "salutation.salutationNotSpecified.label" : "지정되지 않음",
+    "firstname.label" : "이름",
+    "lastname.label" : "성",
+    "street.label" : "거리",
+    "housenumber.label" : "집 번호",
+    "postalCode.label" : "포스트코드",
+    "city.label" : "위치",
+    "tel.label" : "전화",
+    "mobile.label" : "휴대폰",
+    "email.label" : "이메일 주소",
+    "select.pleaseSelect.label" : "선택해 주세요",
+    "consent" : {
+      "legend" : "데이터 보호",
+      "label" : "본인은 여기에서 제공하는 서비스에 필요한 데이터를 수집하고 사용할 수 있음에 동의합니다.",
+      "validator" : {
+        "required" : {
+          "message" : "동의 선언을 확인해 주세요."
+        }
+      }
+    },
+    "file.button.label" : "선택",
+    "checkboxTree.furtherSubCategoriesFor.label" : "추가 하위 카테고리"
+  }
+}

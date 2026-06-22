@@ -5712,6 +5712,7 @@ gockel
 gold
 golf
 golfer
+golfplatz
 gondel
 gong
 gorgonzola
@@ -8532,6 +8533,7 @@ mineralien
 mineralöl
 mini
 miniatur
+minigolf
 minima
 minimal
 minimieren
@@ -9354,6 +9356,7 @@ parfüm
 parfümerie
 parität
 park
+parkausweis
 parkett
 parlament
 parlamentarier

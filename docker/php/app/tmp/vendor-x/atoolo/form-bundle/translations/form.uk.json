@@ -1,0 +1,62 @@
+{
+  "email" : {
+    "header" : "<a href=\"{url}\">Website</a>Наступне повідомлення було надіслано з вашого .",
+    "footer" : "Повідомлення відправлено {хост} на {дата} о {час}",
+    "headline" : "Дані форми"
+  },
+  "field" : {
+    "webAccount" : {
+      "salutation.label" : "Привітання",
+      "salutation.salutationMale.label" : "Пане",
+      "salutation.salutationFemale.label" : "Пані",
+      "salutation.salutationDiverse.label" : "Різне",
+      "salutation.salutationNotSpecified.label" : "Не вказано",
+      "lastname.label" : "Прізвище",
+      "firstname.label" : "Ім'я та прізвище",
+      "street.label" : "Вулиця",
+      "housenumber.label" : "Номер будинку",
+      "postalCode.label" : "ПОШТОВИЙ КОД",
+      "city.label" : "Місце",
+      "tel.label" : "Телефон",
+      "mobile.label" : "Мобільний телефон",
+      "email.label" : "Адреса електронної пошти",
+      "emailCompare.label" : "Повторити адресу електронної пошти",
+      "password.label" : "пароль",
+      "passwordRepetition.label" : "Пароль, повторення"
+    },
+    "dateFilter" : {
+      "empty.label" : "безкоштовний період"
+    },
+    "dateSelectorComposition.label" : "Крапка",
+    "date.label" : "дата",
+    "dateFrom.label" : "від",
+    "dateTo.label" : "до тих пір, поки",
+    "file.deleteFile.label" : "Видалити файл",
+    "salutation.label" : "Привітання",
+    "salutation.salutationMale.label" : "Пане",
+    "salutation.salutationFemale.label" : "Пані",
+    "salutation.salutationDiverse.label" : "Різне",
+    "salutation.salutationNotSpecified.label" : "Не вказано",
+    "firstname.label" : "Ім'я та прізвище",
+    "lastname.label" : "Прізвище",
+    "street.label" : "Вулиця",
+    "housenumber.label" : "Номер будинку",
+    "postalCode.label" : "ПОШТОВИЙ КОД",
+    "city.label" : "Місце",
+    "tel.label" : "Телефон",
+    "mobile.label" : "Мобільний телефон",
+    "email.label" : "Адреса електронної пошти",
+    "select.pleaseSelect.label" : "будь ласка, оберіть",
+    "consent" : {
+      "legend" : "Захист даних",
+      "label" : "Я погоджуюся, що дані, необхідні для надання послуг, пропонованих тут, можуть бути зібрані та використані.",
+      "validator" : {
+        "required" : {
+          "message" : "Будь ласка, підтвердіть декларацію про згоду."
+        }
+      }
+    },
+    "file.button.label" : "вибрати",
+    "checkboxTree.furtherSubCategoriesFor.label" : "інші підкатегорії до"
+  }
+}

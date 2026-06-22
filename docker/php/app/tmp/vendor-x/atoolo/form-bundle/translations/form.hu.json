@@ -1,0 +1,62 @@
+{
+  "email" : {
+    "header" : "<a href=\"{url}\">Website</a>A következő üzenetet küldte az Ön .",
+    "footer" : "Üzenetet küldött:: {host} a {dátum} {időpontban}",
+    "headline" : "Formanyomtatvány adatok"
+  },
+  "field" : {
+    "webAccount" : {
+      "salutation.label" : "Üdvözlés",
+      "salutation.salutationMale.label" : "Mr",
+      "salutation.salutationFemale.label" : "Mrs",
+      "salutation.salutationDiverse.label" : "Egyéb",
+      "salutation.salutationNotSpecified.label" : "Nincs megadva",
+      "lastname.label" : "Vezetéknév",
+      "firstname.label" : "Keresztnév",
+      "street.label" : "Street",
+      "housenumber.label" : "Házszám",
+      "postalCode.label" : "POSTACÍM",
+      "city.label" : "Helyszín",
+      "tel.label" : "Telefon",
+      "mobile.label" : "Mobiltelefon",
+      "email.label" : "E-mail cím",
+      "emailCompare.label" : "E-mail cím megismétlése",
+      "password.label" : "jelszó",
+      "passwordRepetition.label" : "Jelszó, ismétlés"
+    },
+    "dateFilter" : {
+      "empty.label" : "szabadidő"
+    },
+    "dateSelectorComposition.label" : "Időszak",
+    "date.label" : "dátum",
+    "dateFrom.label" : "a  címről",
+    "dateTo.label" : "amíg",
+    "file.deleteFile.label" : "Fájl törlése",
+    "salutation.label" : "Üdvözlés",
+    "salutation.salutationMale.label" : "Mr",
+    "salutation.salutationFemale.label" : "Mrs",
+    "salutation.salutationDiverse.label" : "Egyéb",
+    "salutation.salutationNotSpecified.label" : "Nincs megadva",
+    "firstname.label" : "Keresztnév",
+    "lastname.label" : "Vezetéknév",
+    "street.label" : "Street",
+    "housenumber.label" : "Házszám",
+    "postalCode.label" : "POSTACÍM",
+    "city.label" : "Helyszín",
+    "tel.label" : "Telefon",
+    "mobile.label" : "Mobiltelefon",
+    "email.label" : "E-mail cím",
+    "select.pleaseSelect.label" : "Kérjük, válasszon",
+    "consent" : {
+      "legend" : "Adatvédelem",
+      "label" : "Hozzájárulok, hogy az itt kínált szolgáltatásokhoz szükséges adatokat összegyűjtsék és felhasználják.",
+      "validator" : {
+        "required" : {
+          "message" : "Kérjük, erősítse meg a hozzájáruló nyilatkozatot."
+        }
+      }
+    },
+    "file.button.label" : "válassza ki a  címet.",
+    "checkboxTree.furtherSubCategoriesFor.label" : "további alkategóriák"
+  }
+}

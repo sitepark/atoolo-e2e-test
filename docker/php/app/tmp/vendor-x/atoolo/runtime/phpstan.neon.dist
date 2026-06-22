@@ -1,0 +1,37 @@
+parameters:
+    level: 9
+    tmpDir: var/cache/phpstan
+    paths:
+        - src
+    typeAliases:
+        RuntimePackageOptions: '''
+          array{
+            executor?: array<class-string<Atoolo\Runtime\Executor\RuntimeExecutor>>,
+            umask?: string,
+            users?: array<string>,
+            env?: array{
+              file?: string,
+              set?: array<string, string>
+            },
+            ini?: array{
+              set?: array<string, mixed>
+            }
+          }
+        '''
+        RuntimeRootPackageOptions: '''
+          array{
+            template?: string,
+            class?: string,
+            executor?: array<class-string<Atoolo\Runtime\Executor\RuntimeExecutor>>,
+            umask?: string,
+            users?: array<string>,
+            env?: array{
+              file?: string,
+              set?: array<string, mixed>
+            },
+            ini?: array{
+              set?: array<string, mixed>
+            }
+          }
+        '''
+        RuntimeOptions: 'array<string,RuntimePackageOptions|RuntimeRootPackageOptions>'

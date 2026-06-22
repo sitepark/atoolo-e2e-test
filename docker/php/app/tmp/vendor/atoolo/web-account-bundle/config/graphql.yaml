@@ -1,0 +1,14 @@
+overblog_graphql:
+  errors_handler:
+    exceptions:
+      errors:
+        - "Atoolo\\WebAccount\\Service\\ServiceException"
+  definitions:
+    mappings:
+      types:
+        - type: attribute
+          dir: "%atoolo_web_account.src_dir%/GraphQL"
+          suffix: ~
+        - types: [ yaml ]
+          dir: "%atoolo_web_account.config_dir%/graphql/types"
+          suffix: ~

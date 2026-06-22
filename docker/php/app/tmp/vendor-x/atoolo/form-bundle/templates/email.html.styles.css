@@ -1,0 +1,74 @@
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+}
+.header, .footer {
+    background-color: #f3f3f3;
+    padding: 15px 20px;
+    text-align: center;
+    color: #666;
+}
+.header a {
+    color: #0066cc;
+    text-decoration: none;
+}
+.content {
+    padding: 20px;
+}
+.header .title {
+    font-size: 16px;
+    font-weight: bold;
+}
+.section {
+    margin-bottom: 15px;
+    padding-left: 15px;
+    border-left: 2px solid #eee;
+}
+.section .section {
+    margin-top: 10px;
+    border-left: 2px solid #ddd;
+}
+.field {
+    margin-bottom: 5px;
+}
+.field-label {
+    display: block;
+    font-weight: bold;
+    color: #333;
+}
+.field-value {
+    margin-left: 10px;
+    color: #666;
+}
+.checkbox-group {
+    margin-top: 5px;
+    margin-left: 10px;
+}
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.checkbox-item input[type="checkbox"] {
+    margin-right: 10px;
+}
+.checkbox-field {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.checkbox-field input[type="checkbox"] {
+    margin-right: 10px;
+}

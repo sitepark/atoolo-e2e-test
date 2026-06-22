@@ -1,0 +1,46 @@
+services:
+
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+    Atoolo\Security\Service\:
+      resource: '../src/Service'
+
+    Atoolo\Security\RealmPropertiesUserLoader:
+        arguments:
+            - '%env(default::IES_WEBNODE_HOME)%/config/realm.properties'
+
+    Atoolo\Security\SiteKit\UserLoader:
+        arguments:
+            - '@atoolo_resource.resource_channel'
+            - '@logger'
+
+    atoolo_security.user.provider.ies_webnode:
+        class: Atoolo\Security\UserProvider
+        arguments:
+            - '@Atoolo\Security\RealmPropertiesUserLoader'
+
+    atoolo_security.user.provider:
+        class: Atoolo\Security\UserProvider
+        arguments:
+            - '@Atoolo\Security\SiteKit\UserLoader'
+
+    Atoolo\Security\SiteKit\AccessMapFactory:
+        arguments:
+            - '@atoolo_resource.resource_channel'
+            - '@logger'
+
+    atoolo_security.access.map:
+        class: Symfony\Component\Security\Http\AccessMapInterface
+        factory: ['@Atoolo\Security\SiteKit\AccessMapFactory', 'create']
+
+    Atoolo\Security\SiteKit\ProtectedPathMatcher:
+        arguments:
+            - '@atoolo_security.access.map'
+
+    Atoolo\Security\SiteKit\Voter:
+        arguments:
+            - '@atoolo_security.access.map'
+        tags:
+            - { name: 'security.voter', priority: 10 }

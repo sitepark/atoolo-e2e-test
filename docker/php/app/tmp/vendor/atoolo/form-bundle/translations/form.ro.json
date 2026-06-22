@@ -1,0 +1,62 @@
+{
+  "email" : {
+    "header" : "<a href=\"{url}\">Website</a>Următorul mesaj a fost trimis din .",
+    "footer" : "Mesaj trimis de: {host} pe {data} la {ora}",
+    "headline" : "Datele formularului"
+  },
+  "field" : {
+    "webAccount" : {
+      "salutation.label" : "Salutul",
+      "salutation.salutationMale.label" : "Dl",
+      "salutation.salutationFemale.label" : "Doamnă",
+      "salutation.salutationDiverse.label" : "Diverse",
+      "salutation.salutationNotSpecified.label" : "Nu este specificat",
+      "lastname.label" : "Numele de familie",
+      "firstname.label" : "Numele și prenumele",
+      "street.label" : "Strada",
+      "housenumber.label" : "Numărul casei",
+      "postalCode.label" : "COD POȘTAL",
+      "city.label" : "Loc",
+      "tel.label" : "Telefon",
+      "mobile.label" : "Telefon mobil",
+      "email.label" : "Adresa de e-mail",
+      "emailCompare.label" : "Repetați adresa de e-mail",
+      "password.label" : "parolă",
+      "passwordRepetition.label" : "Parolă, repetiție"
+    },
+    "dateFilter" : {
+      "empty.label" : "perioadă liberă"
+    },
+    "dateSelectorComposition.label" : "Perioada",
+    "date.label" : "data",
+    "dateFrom.label" : "de la",
+    "dateTo.label" : "până când",
+    "file.deleteFile.label" : "Ștergeți fișierul",
+    "salutation.label" : "Salutul",
+    "salutation.salutationMale.label" : "Dl",
+    "salutation.salutationFemale.label" : "Doamnă",
+    "salutation.salutationDiverse.label" : "Diverse",
+    "salutation.salutationNotSpecified.label" : "Nu este specificat",
+    "firstname.label" : "Numele și prenumele",
+    "lastname.label" : "Numele de familie",
+    "street.label" : "Strada",
+    "housenumber.label" : "Numărul casei",
+    "postalCode.label" : "COD POȘTAL",
+    "city.label" : "Loc",
+    "tel.label" : "Telefon",
+    "mobile.label" : "Telefon mobil",
+    "email.label" : "Adresa de e-mail",
+    "select.pleaseSelect.label" : "vă rugăm să alegeți",
+    "consent" : {
+      "legend" : "Protecția datelor",
+      "label" : "Sunt de acord că datele necesare pentru serviciile oferite aici pot fi colectate și utilizate.",
+      "validator" : {
+        "required" : {
+          "message" : "Vă rugăm să confirmați declarația de consimțământ."
+        }
+      }
+    },
+    "file.button.label" : "selectați",
+    "checkboxTree.furtherSubCategoriesFor.label" : "subcategorii suplimentare pentru"
+  }
+}

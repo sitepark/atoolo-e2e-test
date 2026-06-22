@@ -1,0 +1,26 @@
+services:
+
+  # default configuration for services in *this* file
+  _defaults:
+    autowire: true      # Automatically injects dependencies in your services.
+    autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+  _instanceof:
+    Atoolo\Rewrite\Service\UrlRewriterHandler:
+      tags:
+        - { name: 'atoolo_rewrite.url_rewrite_handler', priority: 20 }
+
+  Atoolo\Microsite\Service\:
+    resource: '../src/Service'
+
+  Atoolo\Microsite\Factory\:
+    resource: '../src/Factory'
+
+  Atoolo\Microsite\Environment\:
+    resource: '../src/Environment'
+
+  Atoolo\Microsite\Environment\MicrositeContext:
+    factory: [ '@Atoolo\Microsite\Factory\MicrositeContextFactory', 'create' ]
+
+  Atoolo\Microsite\Service\MountService:
+    factory: [ '@Atoolo\Microsite\Factory\MountServiceFactory', 'create' ]

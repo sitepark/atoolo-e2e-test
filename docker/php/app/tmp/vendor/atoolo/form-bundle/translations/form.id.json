@@ -1,0 +1,62 @@
+{
+  "email" : {
+    "header" : "<a href=\"{url}\">Website</a>Pesan berikut ini dikirim dari .",
+    "footer" : "Pesan dikirim oleh: {host} pada {tanggal} di {waktu}",
+    "headline" : "Formulir data"
+  },
+  "field" : {
+    "webAccount" : {
+      "salutation.label" : "Salam",
+      "salutation.salutationMale.label" : "Mr.",
+      "salutation.salutationFemale.label" : "Nyonya",
+      "salutation.salutationDiverse.label" : "Lain-lain",
+      "salutation.salutationNotSpecified.label" : "Tidak ditentukan",
+      "lastname.label" : "Nama keluarga",
+      "firstname.label" : "Nama depan",
+      "street.label" : "Jalan",
+      "housenumber.label" : "Nomor rumah",
+      "postalCode.label" : "KODE POS",
+      "city.label" : "Tempat",
+      "tel.label" : "Telepon",
+      "mobile.label" : "Ponsel",
+      "email.label" : "Alamat email",
+      "emailCompare.label" : "Ulangi alamat email",
+      "password.label" : "kata sandi",
+      "passwordRepetition.label" : "Kata sandi, pengulangan"
+    },
+    "dateFilter" : {
+      "empty.label" : "periode bebas"
+    },
+    "dateSelectorComposition.label" : "Periode",
+    "date.label" : "tanggal",
+    "dateFrom.label" : "dari",
+    "dateTo.label" : "sampai",
+    "file.deleteFile.label" : "Menghapus file",
+    "salutation.label" : "Salam",
+    "salutation.salutationMale.label" : "Mr.",
+    "salutation.salutationFemale.label" : "Nyonya",
+    "salutation.salutationDiverse.label" : "Lain-lain",
+    "salutation.salutationNotSpecified.label" : "Tidak ditentukan",
+    "firstname.label" : "Nama depan",
+    "lastname.label" : "Nama keluarga",
+    "street.label" : "Jalan",
+    "housenumber.label" : "Nomor rumah",
+    "postalCode.label" : "KODE POS",
+    "city.label" : "Tempat",
+    "tel.label" : "Telepon",
+    "mobile.label" : "Ponsel",
+    "email.label" : "Alamat email",
+    "select.pleaseSelect.label" : "silakan pilih",
+    "consent" : {
+      "legend" : "Perlindungan data",
+      "label" : "Saya setuju bahwa data yang diperlukan untuk layanan yang ditawarkan di sini dapat dikumpulkan dan digunakan.",
+      "validator" : {
+        "required" : {
+          "message" : "Mohon konfirmasikan pernyataan persetujuan."
+        }
+      }
+    },
+    "file.button.label" : "pilih",
+    "checkboxTree.furtherSubCategoriesFor.label" : "subkategori lebih lanjut ke"
+  }
+}

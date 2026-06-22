@@ -1,0 +1,14 @@
+overblog_graphql:
+  definitions:
+    schema:
+      query: RootQuery
+      mutation: RootMutation
+      types: [OnlineServiceFeature, OnlineService]
+    mappings:
+      types:
+      - type: attribute
+        dir: "%atoolo_citygov.src_dir%/Service/GraphQL/Types"
+        suffix: ~
+      - types: [yaml]
+        dir: "%atoolo_citygov.config_dir%/graphql/types"
+        suffix: ~

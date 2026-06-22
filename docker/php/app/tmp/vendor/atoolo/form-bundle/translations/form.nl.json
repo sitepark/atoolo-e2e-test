@@ -1,0 +1,62 @@
+{
+  "email" : {
+    "header" : "<a href=\"{url}\">Website</a>Het volgende bericht is verzonden vanuit uw .",
+    "footer" : "Bericht verzonden door: {host} op {datum} om {tijd}",
+    "headline" : "Formuliergegevens"
+  },
+  "field" : {
+    "webAccount" : {
+      "salutation.label" : "Begroeting",
+      "salutation.salutationMale.label" : "De heer",
+      "salutation.salutationFemale.label" : "Mevrouw",
+      "salutation.salutationDiverse.label" : "Diverse",
+      "salutation.salutationNotSpecified.label" : "Niet gespecificeerd",
+      "lastname.label" : "Achternaam",
+      "firstname.label" : "Voornaam",
+      "street.label" : "Straat",
+      "housenumber.label" : "Huisnummer",
+      "postalCode.label" : "POSTCODE",
+      "city.label" : "Locatie",
+      "tel.label" : "Telefoon",
+      "mobile.label" : "Mobiele telefoon",
+      "email.label" : "E-mailadres",
+      "emailCompare.label" : "E-mailadres herhalen",
+      "password.label" : "wachtwoord",
+      "passwordRepetition.label" : "Wachtwoord, herhaling"
+    },
+    "dateFilter" : {
+      "empty.label" : "vrije periode"
+    },
+    "dateSelectorComposition.label" : "Periode",
+    "date.label" : "datum",
+    "dateFrom.label" : "van",
+    "dateTo.label" : "tot",
+    "file.deleteFile.label" : "Bestand verwijderen",
+    "salutation.label" : "Begroeting",
+    "salutation.salutationMale.label" : "De heer",
+    "salutation.salutationFemale.label" : "Mevrouw",
+    "salutation.salutationDiverse.label" : "Diverse",
+    "salutation.salutationNotSpecified.label" : "Niet gespecificeerd",
+    "firstname.label" : "Voornaam",
+    "lastname.label" : "Achternaam",
+    "street.label" : "Straat",
+    "housenumber.label" : "Huisnummer",
+    "postalCode.label" : "POSTCODE",
+    "city.label" : "Locatie",
+    "tel.label" : "Telefoon",
+    "mobile.label" : "Mobiele telefoon",
+    "email.label" : "E-mailadres",
+    "select.pleaseSelect.label" : "kies",
+    "consent" : {
+      "legend" : "Gegevensbescherming",
+      "label" : "Ik ga ermee akkoord dat de gegevens die nodig zijn voor de hier aangeboden diensten worden verzameld en gebruikt.",
+      "validator" : {
+        "required" : {
+          "message" : "Bevestig de toestemmingsverklaring."
+        }
+      }
+    },
+    "file.button.label" : "selecteer",
+    "checkboxTree.furtherSubCategoriesFor.label" : "verdere subcategorieën naar"
+  }
+}

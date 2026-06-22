@@ -1,0 +1,62 @@
+{
+  "email" : {
+    "header" : "<a href=\"{url}\">Website</a>Nasledujúca správa bola odoslaná z vášho .",
+    "footer" : "Správu poslal: {hostiteľ} dňa {dátum} v {čas}",
+    "headline" : "Údaje vo formulári"
+  },
+  "field" : {
+    "webAccount" : {
+      "salutation.label" : "Pozdrav",
+      "salutation.salutationMale.label" : "Pán",
+      "salutation.salutationFemale.label" : "Pani",
+      "salutation.salutationDiverse.label" : "Rôzne",
+      "salutation.salutationNotSpecified.label" : "Nie je špecifikované",
+      "lastname.label" : "Priezvisko",
+      "firstname.label" : "Krstné meno",
+      "street.label" : "Ulica",
+      "housenumber.label" : "Číslo domu",
+      "postalCode.label" : "POSTCODE",
+      "city.label" : "Miesto",
+      "tel.label" : "Telefón",
+      "mobile.label" : "Mobilný telefón",
+      "email.label" : "e-mailová adresa",
+      "emailCompare.label" : "Opakovanie e-mailovej adresy",
+      "password.label" : "heslo",
+      "passwordRepetition.label" : "Heslo, opakovanie"
+    },
+    "dateFilter" : {
+      "empty.label" : "voľné obdobie"
+    },
+    "dateSelectorComposition.label" : "Obdobie",
+    "date.label" : "dátum",
+    "dateFrom.label" : "z adresy",
+    "dateTo.label" : "do",
+    "file.deleteFile.label" : "Odstrániť súbor",
+    "salutation.label" : "Pozdrav",
+    "salutation.salutationMale.label" : "Pán",
+    "salutation.salutationFemale.label" : "Pani",
+    "salutation.salutationDiverse.label" : "Rôzne",
+    "salutation.salutationNotSpecified.label" : "Nie je špecifikované",
+    "firstname.label" : "Krstné meno",
+    "lastname.label" : "Priezvisko",
+    "street.label" : "Ulica",
+    "housenumber.label" : "Číslo domu",
+    "postalCode.label" : "POSTCODE",
+    "city.label" : "Miesto",
+    "tel.label" : "Telefón",
+    "mobile.label" : "Mobilný telefón",
+    "email.label" : "e-mailová adresa",
+    "select.pleaseSelect.label" : "vyberte si, prosím,",
+    "consent" : {
+      "legend" : "Ochrana údajov",
+      "label" : "Súhlasím so zhromažďovaním a používaním údajov potrebných pre tu ponúkané služby.",
+      "validator" : {
+        "required" : {
+          "message" : "Potvrďte, prosím, vyhlásenie o súhlase."
+        }
+      }
+    },
+    "file.button.label" : "vybrať",
+    "checkboxTree.furtherSubCategoriesFor.label" : "ďalšie podkategórie"
+  }
+}

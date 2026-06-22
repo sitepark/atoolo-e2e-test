@@ -1,0 +1,28 @@
+parameters:
+    atoolo_form.default_processors:
+      'ip-limiter': ~
+      'submit-limiter': ~
+      'json-schema-validator': ~
+    atoolo_form.processor.ip_allower.allowed_ips: []
+    atoolo_form.processor.ip_blocker.blocked_ips: []
+
+services:
+
+  # default configuration for services in *this* file
+  _defaults:
+    autowire: true      # Automatically injects dependencies in your services.
+    autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+  Atoolo\Form\Controller\:
+    resource: '../src/Controller'
+
+  Atoolo\Form\Service\:
+    resource: '../src/Service'
+
+  Atoolo\Form\Processor\:
+    resource: '../src/Processor'
+
+  Atoolo\Form\Processor\EmailSender:
+    arguments:
+      - '@Atoolo\Form\Service\Email\EmailMessageModelFactory'
+      - '@Atoolo\Form\Service\Email\EmailMessageTwigRenderer'

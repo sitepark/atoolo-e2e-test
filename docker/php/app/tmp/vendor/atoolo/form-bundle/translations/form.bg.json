@@ -1,0 +1,62 @@
+{
+  "email" : {
+    "header" : "<a href=\"{url}\">Website</a>Следното съобщение беше изпратено от вашия .",
+    "footer" : "Message sent by: {хост} на {дата} в {време}",
+    "headline" : "Данни от формуляра"
+  },
+  "field" : {
+    "webAccount" : {
+      "salutation.label" : "Поздрав",
+      "salutation.salutationMale.label" : "Г-н",
+      "salutation.salutationFemale.label" : "Г-жа",
+      "salutation.salutationDiverse.label" : "Различни",
+      "salutation.salutationNotSpecified.label" : "Не е посочено",
+      "lastname.label" : "Фамилно име",
+      "firstname.label" : "Първо име",
+      "street.label" : "Улица",
+      "housenumber.label" : "Номер на къщата",
+      "postalCode.label" : "ПОЩЕНСКИ КОД",
+      "city.label" : "Местоположение",
+      "tel.label" : "Телефон",
+      "mobile.label" : "Мобилен телефон",
+      "email.label" : "Адрес на електронна поща",
+      "emailCompare.label" : "Повтаряне на имейл адреса",
+      "password.label" : "парола",
+      "passwordRepetition.label" : "Парола, повторение"
+    },
+    "dateFilter" : {
+      "empty.label" : "свободен период"
+    },
+    "dateSelectorComposition.label" : "Период",
+    "date.label" : "дата",
+    "dateFrom.label" : "от",
+    "dateTo.label" : "до",
+    "file.deleteFile.label" : "Изтриване на файла",
+    "salutation.label" : "Поздрав",
+    "salutation.salutationMale.label" : "Г-н",
+    "salutation.salutationFemale.label" : "Г-жа",
+    "salutation.salutationDiverse.label" : "Различни",
+    "salutation.salutationNotSpecified.label" : "Не е посочено",
+    "firstname.label" : "Първо име",
+    "lastname.label" : "Фамилно име",
+    "street.label" : "Улица",
+    "housenumber.label" : "Номер на къщата",
+    "postalCode.label" : "ПОЩЕНСКИ КОД",
+    "city.label" : "Местоположение",
+    "tel.label" : "Телефон",
+    "mobile.label" : "Мобилен телефон",
+    "email.label" : "Адрес на електронна поща",
+    "select.pleaseSelect.label" : "моля, изберете",
+    "consent" : {
+      "legend" : "Защита на данните",
+      "label" : "Съгласен съм данните, необходими за предлаганите тук услуги, да бъдат събирани и използвани.",
+      "validator" : {
+        "required" : {
+          "message" : "Моля, потвърдете декларацията за съгласие."
+        }
+      }
+    },
+    "file.button.label" : "изберете",
+    "checkboxTree.furtherSubCategoriesFor.label" : "допълнителни подкатегории към"
+  }
+}

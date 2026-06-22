@@ -1,0 +1,62 @@
+{
+  "email" : {
+    "header" : "<a href=\"{url}\">Website</a>Naslednje sporočilo je bilo poslano iz vašega .",
+    "footer" : "Sporočilo je poslal: {host} na {datum} ob {času}",
+    "headline" : "Podatki v obrazcu"
+  },
+  "field" : {
+    "webAccount" : {
+      "salutation.label" : "Pozdrav",
+      "salutation.salutationMale.label" : "Gospod",
+      "salutation.salutationFemale.label" : "Gospa",
+      "salutation.salutationDiverse.label" : "Različni",
+      "salutation.salutationNotSpecified.label" : "Ni določeno",
+      "lastname.label" : "Priimek",
+      "firstname.label" : "Ime in priimek",
+      "street.label" : "Ulica",
+      "housenumber.label" : "Številka hiše",
+      "postalCode.label" : "POŠTNA KODA",
+      "city.label" : "Kraj",
+      "tel.label" : "Telefon",
+      "mobile.label" : "Mobilni telefon",
+      "email.label" : "e-poštni naslov",
+      "emailCompare.label" : "Ponovite e-poštni naslov",
+      "password.label" : "geslo",
+      "passwordRepetition.label" : "Geslo, ponavljanje"
+    },
+    "dateFilter" : {
+      "empty.label" : "brezplačno obdobje"
+    },
+    "dateSelectorComposition.label" : "Obdobje",
+    "date.label" : "datum",
+    "dateFrom.label" : "s spletne strani",
+    "dateTo.label" : "do .",
+    "file.deleteFile.label" : "Izbriši datoteko",
+    "salutation.label" : "Pozdrav",
+    "salutation.salutationMale.label" : "Gospod",
+    "salutation.salutationFemale.label" : "Gospa",
+    "salutation.salutationDiverse.label" : "Različni",
+    "salutation.salutationNotSpecified.label" : "Ni določeno",
+    "firstname.label" : "Ime in priimek",
+    "lastname.label" : "Priimek",
+    "street.label" : "Ulica",
+    "housenumber.label" : "Številka hiše",
+    "postalCode.label" : "POŠTNA KODA",
+    "city.label" : "Kraj",
+    "tel.label" : "Telefon",
+    "mobile.label" : "Mobilni telefon",
+    "email.label" : "e-poštni naslov",
+    "select.pleaseSelect.label" : "izberite",
+    "consent" : {
+      "legend" : "Varstvo podatkov",
+      "label" : "Strinjam se z zbiranjem in uporabo podatkov, ki so potrebni za opravljanje tukaj ponujenih storitev.",
+      "validator" : {
+        "required" : {
+          "message" : "Potrdite izjavo o privolitvi."
+        }
+      }
+    },
+    "file.button.label" : "izberite",
+    "checkboxTree.furtherSubCategoriesFor.label" : "dodatne podkategorije za"
+  }
+}

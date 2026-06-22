@@ -1,0 +1,61 @@
+parameters:
+    level: 9
+    tmpDir: var/cache/phpstan
+    paths:
+        - src
+    typeAliases:
+        EmailMessageModelItem: '''
+            array{
+               type?: string,
+               layout?: boolean,
+            }
+        '''
+        EmailMessageModelLayoutItem: '''
+            array{
+               type: string,
+               layout: boolean,
+               label?: string,
+               items?: array<EmailMessageModelItem>,
+            }
+        '''
+        EmailMessageModelControlItem: '''
+            array{
+               type: string,
+               name: string,
+               label?: string,
+               htmlLabel?: string,
+               value: string|int|bool|array<string>|EmailMessageModelFileUpload|null,
+               options?: array<array{
+                     value: string,
+                     label: string,
+                     selected: boolean,
+               }>,
+            }
+        '''
+        EmailMessageModelFileUpload: '''
+            array{
+                filename: string,
+                contentType: string,
+                data: string,
+                size: int,
+            }
+        '''
+        EmailMessageModel: '''
+            array{
+               url: string,
+               tenant: array{name: string},
+               host: string,
+               date: \DateTime,
+               items: array<EmailMessageModelItem>,
+            }
+        '''
+        JsonSchema: '''
+            array{
+                type?: string,
+                format?: string,
+                oneOf?: array<array{const: string, title: string}>,
+                items?: array{
+                    oneOf?: array<array{const: string, title: string}>,
+                },
+            }
+        '''

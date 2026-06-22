@@ -1,0 +1,16 @@
+services:
+
+  # default configuration for services in *this* file
+  _defaults:
+    autowire: true      # Automatically injects dependencies in your services.
+    autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+  Atoolo\WebAccount\GraphQL\:
+    public: true
+    resource: '../src/GraphQL'
+
+  Atoolo\WebAccount\Service\:
+    resource: '../src/Service'
+
+  Atoolo\WebAccount\Security\:
+    resource: '../src/Security'

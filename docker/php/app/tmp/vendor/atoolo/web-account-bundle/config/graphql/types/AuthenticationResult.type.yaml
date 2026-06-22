@@ -1,0 +1,6 @@
+AuthenticationResult:
+  type: "object"
+  config:
+    fields:
+      status: { type: "AuthenticationStatus!" }
+      user: { type: "User!" }

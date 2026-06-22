@@ -1,0 +1,22 @@
+parameters:
+    level: 9
+    tmpDir: var/cache/phpstan
+    paths:
+        - src
+    typeAliases:
+        CheckStatusData: '''
+          array{
+             success?: ?mixed,
+             reports?: array<string,array<string,mixed>>,
+             messages?: array<string,array<string>>
+           }
+        '''
+        RuntimeStatusData: '''
+          array{
+             success?: ?mixed,
+             cli: CheckStatusData,
+             fpm-fcgi: CheckStatusData,
+             worker: CheckStatusData,
+             messages?: array<string>
+          }
+        '''

@@ -1,0 +1,20 @@
+parameters:
+  # This parameter can be used to control how the default language for the lang_prefix rewriter
+  # is handled. If the value is 'de:false', no path prefix is used for the language 'de'.
+  # If the value is 'de:true', a path prefix is used for the language 'de', even if the request
+  # itself does not contain a lang prefix.
+  atoolo_rewrite.url_rewrite_handler.lang_prefix.default: 'de:false'
+services:
+
+  # default configuration for services in *this* file
+  _defaults:
+    autowire: true      # Automatically injects dependencies in your services.
+    autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+  _instanceof:
+    Atoolo\Rewrite\Service\UrlRewriterHandler:
+      tags: ['atoolo_rewrite.url_rewrite_handler']
+
+  Atoolo\Rewrite\Service\:
+    resource: '../src/Service'
+

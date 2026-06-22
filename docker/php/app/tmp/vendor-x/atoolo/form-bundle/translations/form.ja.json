@@ -1,0 +1,62 @@
+{
+  "email" : {
+    "header" : ".NETから以下のメッセージが送信されました。",
+    "footer" : "メッセージ送信者{ホスト} on {日付} at {時刻}.",
+    "headline" : "フォームデータ"
+  },
+  "field" : {
+    "webAccount" : {
+      "salutation.label" : "挨拶",
+      "salutation.salutationMale.label" : "ミスター",
+      "salutation.salutationFemale.label" : "夫人",
+      "salutation.salutationDiverse.label" : "その他",
+      "salutation.salutationNotSpecified.label" : "特になし",
+      "lastname.label" : "苗字",
+      "firstname.label" : "名前",
+      "street.label" : "ストリート",
+      "housenumber.label" : "家屋番号",
+      "postalCode.label" : "郵便番号",
+      "city.label" : "場所",
+      "tel.label" : "電話",
+      "mobile.label" : "携帯電話",
+      "email.label" : "Eメールアドレス",
+      "emailCompare.label" : "リピートEメールアドレス",
+      "password.label" : "パスワード",
+      "passwordRepetition.label" : "パスワード、繰り返し"
+    },
+    "dateFilter" : {
+      "empty.label" : "休み時間"
+    },
+    "dateSelectorComposition.label" : "期間",
+    "date.label" : "日付",
+    "dateFrom.label" : "より",
+    "dateTo.label" : "まで",
+    "file.deleteFile.label" : "ファイルの削除",
+    "salutation.label" : "挨拶",
+    "salutation.salutationMale.label" : "ミスター",
+    "salutation.salutationFemale.label" : "夫人",
+    "salutation.salutationDiverse.label" : "その他",
+    "salutation.salutationNotSpecified.label" : "特になし",
+    "firstname.label" : "名前",
+    "lastname.label" : "苗字",
+    "street.label" : "ストリート",
+    "housenumber.label" : "家屋番号",
+    "postalCode.label" : "郵便番号",
+    "city.label" : "場所",
+    "tel.label" : "電話",
+    "mobile.label" : "携帯電話",
+    "email.label" : "Eメールアドレス",
+    "select.pleaseSelect.label" : "選択してください",
+    "consent" : {
+      "legend" : "データ保護",
+      "label" : "私は、ここで提供されるサービスに必要なデータが収集され使用されることに同意します。",
+      "validator" : {
+        "required" : {
+          "message" : "同意宣言をご確認ください。"
+        }
+      }
+    },
+    "file.button.label" : "選ぶ",
+    "checkboxTree.furtherSubCategoriesFor.label" : "にはさらにサブカテゴリーがある。"
+  }
+}

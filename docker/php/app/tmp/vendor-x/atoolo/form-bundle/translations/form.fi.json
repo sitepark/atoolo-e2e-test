@@ -1,0 +1,62 @@
+{
+  "email" : {
+    "header" : "<a href=\"{url}\">Website</a>Seuraava viesti lähetettiin sinun .",
+    "footer" : "Viestin lähetti: {host} {päivänä} klo {aika}",
+    "headline" : "Lomakkeen tiedot"
+  },
+  "field" : {
+    "webAccount" : {
+      "salutation.label" : "Tervehdys",
+      "salutation.salutationMale.label" : "Herra",
+      "salutation.salutationFemale.label" : "Rouva",
+      "salutation.salutationDiverse.label" : "Sekalaiset",
+      "salutation.salutationNotSpecified.label" : "Ei määritelty",
+      "lastname.label" : "Sukunimi",
+      "firstname.label" : "Etunimi",
+      "street.label" : "Street",
+      "housenumber.label" : "Talon numero",
+      "postalCode.label" : "POSTINUMERO",
+      "city.label" : "Paikka",
+      "tel.label" : "Puhelin",
+      "mobile.label" : "Matkapuhelin",
+      "email.label" : "Sähköpostiosoite",
+      "emailCompare.label" : "Toista sähköpostiosoite",
+      "password.label" : "salasana",
+      "passwordRepetition.label" : "Salasana, toisto"
+    },
+    "dateFilter" : {
+      "empty.label" : "vapaa-aika"
+    },
+    "dateSelectorComposition.label" : "Jakso",
+    "date.label" : "päivämäärä",
+    "dateFrom.label" : "osoitteesta",
+    "dateTo.label" : "kunnes",
+    "file.deleteFile.label" : "Poista tiedosto",
+    "salutation.label" : "Tervehdys",
+    "salutation.salutationMale.label" : "Herra",
+    "salutation.salutationFemale.label" : "Rouva",
+    "salutation.salutationDiverse.label" : "Sekalaiset",
+    "salutation.salutationNotSpecified.label" : "Ei määritelty",
+    "firstname.label" : "Etunimi",
+    "lastname.label" : "Sukunimi",
+    "street.label" : "Street",
+    "housenumber.label" : "Talon numero",
+    "postalCode.label" : "POSTINUMERO",
+    "city.label" : "Paikka",
+    "tel.label" : "Puhelin",
+    "mobile.label" : "Matkapuhelin",
+    "email.label" : "Sähköpostiosoite",
+    "select.pleaseSelect.label" : "valitse",
+    "consent" : {
+      "legend" : "Tietosuoja",
+      "label" : "Hyväksyn, että täällä tarjottujen palvelujen edellyttämiä tietoja voidaan kerätä ja käyttää.",
+      "validator" : {
+        "required" : {
+          "message" : "Vahvistakaa suostumusilmoitus."
+        }
+      }
+    },
+    "file.button.label" : "valitse",
+    "checkboxTree.furtherSubCategoriesFor.label" : "muita alaluokkia"
+  }
+}

@@ -1,0 +1,63 @@
+{
+
+    "email" : {
+        "header": "Die folgende Nachricht wurde gesendet von Ihrer <a href=\"{url}\">Website</a>.",
+        "footer": "Nachricht gesendet von: {host} am {date} um {time} Uhr",
+        "headline": "Formulardaten"
+    },
+    "field" : {
+        "webAccount": {
+            "salutation.label": "Anrede",
+            "salutation.salutationMale.label": "Herr",
+            "salutation.salutationFemale.label": "Frau",
+            "salutation.salutationDiverse.label": "Divers",
+            "salutation.salutationNotSpecified.label": "Keine Angabe",
+            "lastname.label": "Nachname",
+            "firstname.label": "Vorname",
+            "street.label": "Stra\u00dfe",
+            "housenumber.label": "Hausnummer",
+            "postalCode.label": "PLZ",
+            "city.label": "Ort",
+            "tel.label": "Telefon",
+            "mobile.label": "Mobiltelefon",
+            "email.label": "E-Mail-Adresse",
+            "emailCompare.label": "E-Mail-Adresse wiederholen",
+            "password.label": "Passwort",
+            "passwordRepetition.label": "Passwort, Wiederholung"
+        },
+        "dateFilter": {
+            "empty.label": "freier Zeitraum"
+        },
+        "dateSelectorComposition.label": "Zeitraum",
+        "date.label": "Datum",
+        "dateFrom.label": "von",
+        "dateTo.label": "bis",
+        "file.deleteFile.label": "Datei löschen",
+        "salutation.label": "Anrede",
+        "salutation.salutationMale.label": "Herr",
+        "salutation.salutationFemale.label": "Frau",
+        "salutation.salutationDiverse.label": "Divers",
+        "salutation.salutationNotSpecified.label": "Keine Angabe",
+        "firstname.label": "Vorname",
+        "lastname.label": "Nachname",
+        "street.label": "Stra\u00dfe",
+        "housenumber.label": "Hausnummer",
+        "postalCode.label": "PLZ",
+        "city.label": "Ort",
+        "tel.label": "Telefon",
+        "mobile.label": "Mobiltelefon",
+        "email.label": "E-Mail-Adresse",
+        "select.pleaseSelect.label": "bitte wählen",
+        "consent": {
+            "legend": "Datenschutz",
+            "label": "Ich erkläre mich damit einverstanden, dass die erforderlichen Daten für die hier angebotenen Leistungen erhoben und verwendet werden.",
+            "validator": {
+                "required": {
+                    "message": "Bitte bestätigen Sie die Einverständniserklärung."
+                }
+            }
+        },
+        "file.button.label": "auswählen",
+        "checkboxTree.furtherSubCategoriesFor.label": "weitere Unterkategorien zu x"
+    }
+}

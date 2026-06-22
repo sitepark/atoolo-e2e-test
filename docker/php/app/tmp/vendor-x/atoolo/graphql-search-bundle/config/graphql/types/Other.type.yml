@@ -1,0 +1,202 @@
+Resource:
+  type: "object"
+  config:
+    fields:
+      id: { type: "ID!" }
+      name: { type: "String!" }
+      location: { type: "String!" }
+      objectType: { type: "String!" }
+      contentSectionTypes: { type: "[String!]" }
+      teaser: { type: "Teaser!" }
+      navigation: { type: "Hierarchy!" }
+      kicker: { type: "String" }
+      date: { type: "DateTime" }
+      geo: { type: "Geo" }
+      asset:
+        type: "Asset"
+        args:
+          variant:
+            type: "String"
+      symbolicAsset:
+        type: "Asset"
+        args:
+          variant:
+            type: "String"
+      explain:
+        type: "ResultExplain"
+
+Hierarchy:
+  type: "object"
+  config:
+    fields:
+      root: { type: "Resource!" }
+      primaryParent: { type: "Resource" }
+      primaryPath: { type: "[Resource!]" }
+      children: { type: "[Resource!]" }
+
+FacetGroup:
+  type: "object"
+  config:
+    fields:
+      key: { type: "String!" }
+      facets: { type: "[Facet!]!" }
+
+Facet:
+  type: "object"
+  config:
+      fields:
+        key: { type: "String!" }
+        hits: { type: "Int!" }
+
+SpellcheckWord:
+  type: "object"
+  config:
+    fields:
+      word: { type: "String!" }
+      frequency: { type: "Int!" }
+
+SpellcheckSuggestion:
+  type: "object"
+  config:
+    fields:
+      original: { type: "SpellcheckWord!" }
+      suggestion: { type: "SpellcheckWord!" }
+
+Spellcheck:
+  type: "object"
+  config:
+    fields:
+      suggestions: { type: "[SpellcheckSuggestion!]!" }
+      collation: { type: "String!" }
+
+SearchResult:
+  type: "object"
+  config:
+      fields:
+        total: { type: "Int!" }
+        queryTime: { type: "Int!" }
+        offset: { type: "Int!" }
+        limit: { type: "Int!" }
+        results: { type: "[Resource!]!" }
+        facetGroups: { type: "[FacetGroup!]!" }
+        spellcheck: { type: "Spellcheck" }
+
+SuggestResult:
+  type: "object"
+  config:
+    fields:
+      suggestions: { type: "[Suggestion!]!" }
+      queryTime: { type: "Int!" }
+
+Suggestion:
+  type: "object"
+  config:
+    fields:
+      term: { type: "String!" }
+      hits: { type: "Int!" }
+
+Asset:
+  type: "interface"
+  config:
+    fields:
+      copyright: { type: "String" }
+      copyrightDetails: { type: "CopyrightDetails" }
+      caption: { type: "String" }
+      description:  { type: "String" }
+
+Image:
+  type: "object"
+  inherits: [Asset]
+  config:
+    interfaces: [Asset]
+    fields:
+      alternativeText: { type: "String" }
+      original: { type: "ImageSource!" }
+      characteristic: { type: "ImageCharacteristic" }
+      sources: { type: "[ImageSource!]!" }
+      static:
+        deprecationReason: "'static' might be a reserved keyword. Use field 'staticImage' instead"
+        type: "ImageSource!"
+      staticImage: { type: "ImageSource!" }
+
+ImageSource:
+  type: "object"
+  config:
+    fields:
+      variant: { type: "String!" }
+      url: { type: "String!" }
+      width: { type: "Int!" }
+      height: { type: "Int!" }
+      mediaQuery: { type: "String" }
+
+Svg:
+  type: "object"
+  inherits: [Asset]
+  config:
+    interfaces: [Asset]
+    fields:
+      url: { type: "String" }
+
+CopyrightDetails:
+  type: "object"
+  config:
+    fields:
+      original: { type: "Link" }
+      author: { type: "Link" }
+      license: { type: "Link" }
+
+IndexerStatus:
+  type: "object"
+  config:
+    fields:
+      startTime : { type: "DateTime" }
+      endTime : { type: "DateTime" }
+      lastUpdate : { type: "DateTime" }
+      total: { type: "Int" }
+      processed: { type: "Int" }
+      skipped: { type: "Int" }
+      updated: { type: "Int" }
+      errors: { type: "Int" }
+      statusLine: { type: "String" }
+
+TeaserFeature:
+  type: "interface"
+  config:
+    fields:
+      label : { type: "String" }
+
+Link:
+  type: "object"
+  config:
+    fields:
+      url : { type: "String!" }
+      label : { type: "String" }
+      accessibilityLabel : { type: "String" }
+      description: { type: "String" }
+      opensNewWindow: { type: "Boolean!" }
+      isExternal: { type: "Boolean!" }
+
+ResultExplain:
+  type: "object"
+  config:
+    fields:
+      score: { type: "Float" }
+      type: { type: "String" }
+      field: { type: "String" }
+      description: { type: "String" }
+      details: { type: "[ResultExplain!]" }
+
+Geo:
+  type: "object"
+  config:
+    fields:
+      primary : { type: "GeoPoint" }
+      secondary : { type: "GeoJson" }
+      distance : { type: "Float" }
+
+GeoPoint:
+  type: "object"
+  config:
+    fields:
+        lng : { type: "Float!" }
+        lat : { type: "Float!" }

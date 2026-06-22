@@ -1,0 +1,6 @@
+FinishUserRegistrationResultType:
+  type: union
+  config:
+    types: [ FinishRegistrationResult, EmailAlreadyExistsError ]
+    description: FinishRegistrationResult and EmailAlreadyExistsError
+    resolveType: "@=mutation('map_response_type', value, typeResolver)"

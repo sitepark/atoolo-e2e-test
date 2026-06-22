@@ -1,0 +1,20 @@
+parameters:
+  atoolo_seo.sitemap.max_urls_per_sitemap: 10000
+
+services:
+
+  # default configuration for services in *this* file
+  _defaults:
+    autowire: true      # Automatically injects dependencies in your services.
+    autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+  Atoolo\Seo\Controller\:
+    resource: '../src/Controller'
+
+  Atoolo\Seo\Service\:
+    resource: '../src/Service'
+
+  atoolo_seo.sitemap.url_rewriter:
+    class: Atoolo\Rewrite\Service\UrlRewriteHandlerCollection
+    arguments:
+      - ['@atoolo_rewrite.url_rewrite_handler.php_suffix']

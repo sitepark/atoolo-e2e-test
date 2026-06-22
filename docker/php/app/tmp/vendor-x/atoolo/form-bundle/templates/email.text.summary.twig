@@ -1,0 +1,82 @@
+{% for item in items %}
+{% if item.type == 'horizontal_layout' %}
+{% if item.items|length > 0 %}
+{% if item.label is defined and item.label is not empty %}
+
+{{ item.label }}
+{% endif %}
+{{ include('@AtooloForm/email.text.summary.twig', {items: item.items}) }}
+{% endif %}
+{% elseif item.type == 'vertical_layout' %}
+{% if item.items|length > 0 %}
+{% if item.label is defined and item.label is not empty %}
+
+{{ item.label }}
+{% endif %}
+{{ include('@AtooloForm/email.text.summary.twig', {items: item.items}) }}
+{% endif %}
+{% elseif item.type == 'group' %}
+{% if item.items|length > 0 %}
+{% if item.label is defined and item.label is not empty %}
+
+{{ item.label }}
+{% endif %}
+{{ include('@AtooloForm/email.text.summary.twig', {items: item.items}) }}
+{% endif %}
+{% elseif item.type == 'categorization' %}
+{% if item.items|length > 0 %}
+{% if item.label is defined and item.label is not empty %}
+
+{{ item.label }}
+{% endif %}
+{{ include('@AtooloForm/email.text.summary.twig', {items: []}) }}
+{% endif %}
+{% elseif item.type == 'category' %}
+{% if item.label is defined and item.label is not empty %}
+
+{{ item.label }}
+{% endif %}
+{{ include('@AtooloForm/email.text.summary.twig', {items: item.items}) }}
+{% elseif item.type == 'file' %}
+{% if item.label is defined and item.label is not empty %}
+
+{{ item.label }}:
+{{ item.value.filename }}
+{% endif %}
+{% elseif item.options is defined and item.options is iterable %}
+
+{% if item.label is defined and item.label is not empty %}
+{{ item.label }}:
+{% endif %}
+{% for options in item.options %}
+{{ options.selected ? '[x]' : '[ ]' }} {{ options.label }}
+{% endfor %}
+{% elseif item.type == 'checkbox' %}
+{% if item.label is defined and item.label is not empty %}
+{{ item.value ? '[x]' : '[ ]' }} {{ item.label }}
+{% endif %}
+{% if item.htmlLabel.text is defined and item.htmlLabel.text is not empty %}
+{{ item.value ? '[x]' : '[ ]' }} {{ item.htmlLabel.text|raw }}
+{% endif %}
+{% elseif item.value is defined %}
+{% if item.type == 'date' %}
+{% set value = item.value|date("m.d.Y") %}
+{% elseif item.type == 'time' %}
+{% set value = item.value|date("H:i") %}
+{% elseif item.type == 'date-time' %}
+{% set value = item.value|date("m.d.Y H:i") %}
+{% else %}
+{% set value = item.value %}
+{% endif %}
+{% if item.label is defined and item.label is not empty %}
+
+{{ item.label }}:
+{{ value }}
+{% endif %}
+{% if item.htmlLabel.text is defined and item.htmlLabel.text is not empty %}
+
+{{ item.htmlLabel.text|raw }}:
+{{ value }}
+{% endif %}
+{% endif %}
+{% endfor %}

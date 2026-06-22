@@ -1,0 +1,62 @@
+{
+  "email" : {
+    "header" : "<a href=\"{url}\">Website</a>تم إرسال الرسالة التالية من .",
+    "footer" : "تم إرسال الرسالة بواسطة: {مضيف} في {التاريخ} في {الوقت}",
+    "headline" : "بيانات النموذج"
+  },
+  "field" : {
+    "webAccount" : {
+      "salutation.label" : "التحية",
+      "salutation.salutationMale.label" : "السيد",
+      "salutation.salutationFemale.label" : "السيدة",
+      "salutation.salutationDiverse.label" : "متفرقات",
+      "salutation.salutationNotSpecified.label" : "غير محدد",
+      "lastname.label" : "اللقب",
+      "firstname.label" : "الاسم الأول",
+      "street.label" : "الشارع",
+      "housenumber.label" : "رقم المنزل",
+      "postalCode.label" : "الرمز البريدي",
+      "city.label" : "الموقع",
+      "tel.label" : "الهاتف",
+      "mobile.label" : "الهاتف المحمول",
+      "email.label" : "عنوان البريد الإلكتروني",
+      "emailCompare.label" : "تكرار عنوان البريد الإلكتروني",
+      "password.label" : "كلمة السر",
+      "passwordRepetition.label" : "كلمة السر، التكرار"
+    },
+    "dateFilter" : {
+      "empty.label" : "فترة حرة"
+    },
+    "dateSelectorComposition.label" : "الفترة",
+    "date.label" : "التاريخ",
+    "dateFrom.label" : "من",
+    "dateTo.label" : "حتى",
+    "file.deleteFile.label" : "حذف الملف",
+    "salutation.label" : "التحية",
+    "salutation.salutationMale.label" : "السيد",
+    "salutation.salutationFemale.label" : "السيدة",
+    "salutation.salutationDiverse.label" : "متفرقات",
+    "salutation.salutationNotSpecified.label" : "غير محدد",
+    "firstname.label" : "الاسم الأول",
+    "lastname.label" : "اللقب",
+    "street.label" : "الشارع",
+    "housenumber.label" : "رقم المنزل",
+    "postalCode.label" : "الرمز البريدي",
+    "city.label" : "الموقع",
+    "tel.label" : "الهاتف",
+    "mobile.label" : "الهاتف المحمول",
+    "email.label" : "عنوان البريد الإلكتروني",
+    "select.pleaseSelect.label" : "يرجى الاختيار",
+    "consent" : {
+      "legend" : "حماية البيانات",
+      "label" : "أوافق على جمع البيانات المطلوبة للخدمات المقدمة هنا واستخدامها.",
+      "validator" : {
+        "required" : {
+          "message" : "يُرجى تأكيد إقرار الموافقة."
+        }
+      }
+    },
+    "file.button.label" : "اختر",
+    "checkboxTree.furtherSubCategoriesFor.label" : "فئات فرعية أخرى إلى"
+  }
+}

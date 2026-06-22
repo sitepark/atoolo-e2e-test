@@ -1,0 +1,3 @@
+controller:
+  resource: '@AtooloEventsCalendarBundle/Controller/'
+  type: attribute

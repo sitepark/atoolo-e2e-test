@@ -1,0 +1,89 @@
+<div class="section">
+{% for item in items %}
+    {% if item.type == 'horizontal_layout' %}
+        {% if item.items|length > 0 %}
+            {% if item.label is defined and item.label is not empty %}
+                <div class="header">{{ item.label|escape }}</div>
+            {% endif %}
+            {{ include('@AtooloForm/email.html.summary.twig', {items: item.items}) }}
+        {% endif %}
+    {% elseif item.type == 'vertical_layout' %}
+        {% if item.items|length > 0 %}
+            {% if item.label is defined and item.label is not empty %}
+                <div class="header">{{ item.label|escape }}</div>
+            {% endif %}
+            {{ include('@AtooloForm/email.html.summary.twig', {items: item.items}) }}
+        {% endif %}
+    {% elseif item.type == 'group' %}
+        {% if item.items|length > 0 %}
+            {% if item.label is defined and item.label is not empty %}
+                <div class="header">{{ item.label|escape }}</div>
+            {% endif %}
+            {{ include('@AtooloForm/email.html.summary.twig', {items: item.items}) }}
+        {% endif %}
+    {% elseif item.type == 'categorization' %}
+        {% if item.items|length > 0 %}
+            {% if item.label is defined and item.label is not empty %}
+                <div class="header">{{ item.label|escape }}</div>
+            {% endif %}
+            {{ include('@AtooloForm/email.html.summary.twig', {items: []}) }}
+        {% endif %}
+    {% elseif item.type == 'category' %}
+        {% if item.label is defined and item.label is not empty %}
+            <div class="header">{{ item.label|escape }}</div>
+        {% endif %}
+        {{ include('@AtooloForm/email.html.summary.twig', {items: item.items}) }}
+    {% elseif item.type == 'file' %}
+        <div class="field">
+            {% if item.label is defined and item.label is not empty %}
+                <span class="field-label">{{ item.label|escape }}</span>
+            {% endif %}
+            <span class="field-value">{{ item.value.filename|escape }}</span>
+        </div>
+    {% elseif item.options is defined and item.options is iterable %}
+        <div class="field">
+            {% if item.label is defined and item.label is not empty %}
+                <span class="field-label">{{ item.label|escape }}</span>
+            {% endif %}
+            <div class="checkbox-group">
+                {% for options in item.options %}
+                    <div class="checkbox-item">
+                        <input type="checkbox" {{ options.selected ? 'checked' : '' }} disabled>
+                        <div class="field-value">{{ options.label|escape }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% elseif item.type == 'checkbox' %}
+        <div class="checkbox-field">
+            <input type="checkbox" {{ item.value ? 'checked' : '' }}  disabled>
+            {% if item.label is defined and item.label is not empty %}
+                <span class="field-value">{{ item.label|escape }}</span>
+            {% endif %}
+            {% if item.htmlLabel.text is defined and item.htmlLabel.text is not empty %}
+                <span class="field-value">{{ item.htmlLabel.text|raw }}</span>
+            {% endif %}
+        </div>
+    {% elseif item.value is defined %}
+        {% if item.type == 'date' %}
+            {% set value = item.value|date("m.d.Y") %}
+        {% elseif item.type == 'time' %}
+            {% set value = item.value|date("H:i") %}
+        {% elseif item.type == 'date-time' %}
+            {% set value = item.value|date("m.d.Y H:i") %}
+        {% else %}
+            {% set value = item.value %}
+        {% endif %}
+
+        <div class="field">
+            {% if item.label is defined and item.label is not empty %}
+                <span class="field-label">{{ item.label|escape }}</span>
+            {% endif %}
+            {% if item.htmlLabel.text is defined and item.htmlLabel.text is not empty %}
+                <span class="field-label">{{ item.htmlLabel.text|raw }}</span>
+            {% endif %}
+            <span class="field-value">{{ value|escape }}</span>
+        </div>
+    {% endif %}
+{% endfor %}
+</div>

@@ -1,0 +1,29 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Overblog\GraphQLBundle\ExpressionLanguage\ExpressionFunction\:
+        resource: '../../ExpressionLanguage/ExpressionFunction/*'
+
+    _instanceof:
+        Overblog\GraphQLBundle\ExpressionLanguage\ExpressionFunction:
+            tags: ['overblog_graphql.expression_function']
+
+    # aliases
+    expression_function.parameter_alias:
+        class: Overblog\GraphQLBundle\ExpressionLanguage\ExpressionFunction\DependencyInjection\Parameter
+        arguments: { $name: 'param' }
+
+    expression_function.service_alias:
+        class: Overblog\GraphQLBundle\ExpressionLanguage\ExpressionFunction\DependencyInjection\Service
+        arguments: { $name : 'serv' }
+
+    expression_function.mutation_alias:
+        class: Overblog\GraphQLBundle\ExpressionLanguage\ExpressionFunction\GraphQL\Mutation
+        arguments: { $name : 'm' }
+
+    expression_function.query_alias:
+        class: Overblog\GraphQLBundle\ExpressionLanguage\ExpressionFunction\GraphQL\Query
+        arguments: { $name : 'q' }

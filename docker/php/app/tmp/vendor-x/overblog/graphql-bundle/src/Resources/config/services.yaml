@@ -1,0 +1,127 @@
+parameters:
+    overblog_graphql_types.config: []
+
+services:
+    Overblog\GraphQLBundle\Executor\Executor: ~
+    Overblog\GraphQLBundle\Request\Parser: ~
+    Overblog\GraphQLBundle\Request\BatchParser: ~
+    GraphQL\Executor\Promise\Adapter\SyncPromiseAdapter: ~
+    Overblog\GraphQLBundle\Executor\Promise\Adapter\ReactPromiseAdapter: ~
+    Overblog\GraphQLBundle\Resolver\FieldResolver: ~
+
+    Overblog\GraphQLBundle\Definition\GraphQLServices:
+        tags: ["container.service_locator"]
+
+    Overblog\GraphQLBundle\Request\Executor:
+        arguments:
+            - "@overblog_graphql.executor"
+            - "@overblog_graphql.promise_adapter"
+            - "@event_dispatcher"
+            - "@overblog_graphql.default_field_resolver"
+        calls:
+            - ["setMaxQueryComplexity", ["%overblog_graphql.query_max_complexity%"]]
+            - ["setMaxQueryDepth", ["%overblog_graphql.query_max_depth%"]]
+
+    Overblog\GraphQLBundle\Definition\Builder\SchemaBuilder:
+        arguments:
+            - '@Overblog\GraphQLBundle\Resolver\TypeResolver'
+            - false
+
+    Overblog\GraphQLBundle\Definition\Builder\TypeFactory:
+        arguments:
+            - '@Overblog\GraphQLBundle\Definition\ConfigProcessor'
+            - '@Overblog\GraphQLBundle\Definition\GraphQLServices'
+
+    Overblog\GraphQLBundle\Resolver\TypeResolver:
+        calls:
+            - ["setDispatcher", ["@event_dispatcher"]]
+        tags:
+            - { name: overblog_graphql.service, alias: typeResolver }
+
+    Overblog\GraphQLBundle\Transformer\ArgumentsTransformer:
+        arguments:
+            - "@?validator"
+            - "%overblog_graphql_types.classes_map%"
+
+    Overblog\GraphQLBundle\Resolver\QueryResolver:
+        tags:
+            - { name: overblog_graphql.service, alias: queryResolver }
+
+    Overblog\GraphQLBundle\Resolver\MutationResolver:
+        tags:
+            - { name: overblog_graphql.service, alias: mutationResolver }
+
+    Overblog\GraphQLBundle\Resolver\InterfaceTypeResolver:
+        arguments:
+            - '@Overblog\GraphQLBundle\Resolver\TypeResolver'
+            - "%overblog_graphql_types.interfaces_map%"
+
+    Overblog\GraphQLBundle\Resolver\AccessResolver:
+        arguments:
+            - "@overblog_graphql.promise_adapter"
+
+    Overblog\GraphQLBundle\ExpressionLanguage\ExpressionLanguage:
+        arguments:
+            - "@?overblog_graphql.cache_expression_language_parser"
+
+    Overblog\GraphQLBundle\Generator\TypeGenerator:
+        arguments:
+            - "%overblog_graphql_types.config%"
+            - '@Overblog\GraphQLBundle\Generator\TypeBuilder'
+            - '@Symfony\Contracts\EventDispatcher\EventDispatcherInterface'
+            - !service
+              class: Overblog\GraphQLBundle\Generator\TypeGeneratorOptions
+              arguments:
+                  - "%overblog_graphql.class_namespace%"
+                  - "%overblog_graphql.cache_dir%"
+                  - "%overblog_graphql.use_classloader_listener%"
+                  - "%kernel.cache_dir%"
+                  - "%overblog_graphql.cache_dir_permissions%"
+
+    Overblog\GraphQLBundle\Definition\ArgumentFactory:
+        arguments:
+            - "%overblog_graphql.argument_class%"
+        tags:
+            - { name: overblog_graphql.service, alias: argumentFactory }
+
+    Overblog\GraphQLBundle\Controller\GraphController:
+        public: true
+        arguments:
+            - '@Overblog\GraphQLBundle\Request\BatchParser'
+            - '@Overblog\GraphQLBundle\Request\Executor'
+            - '@Overblog\GraphQLBundle\Request\Parser'
+            - "%overblog_graphql.handle_cors%"
+            - "%overblog_graphql.batching_method%"
+
+    Overblog\GraphQLBundle\Definition\ConfigProcessor:
+        arguments:
+            - !tagged_iterator "overblog_graphql.definition_config_processor"
+
+    GraphQL\Executor\Promise\PromiseAdapter: "@overblog_graphql.promise_adapter"
+
+    Overblog\GraphQLBundle\Validator\Formatter:
+        tags:
+            - { name: kernel.event_listener, event: graphql.error_formatting, method: onErrorFormatting }
+
+    Overblog\GraphQLBundle\Security\Security:
+        arguments:
+            - "@?security.helper"
+        tags:
+            - { name: overblog_graphql.service, alias: security, public: false }
+
+    Overblog\GraphQLBundle\Generator\Converter\ExpressionConverter:
+        arguments:
+            - '@Overblog\GraphQLBundle\ExpressionLanguage\ExpressionLanguage'
+
+    Overblog\GraphQLBundle\Generator\TypeBuilder:
+        arguments:
+            - '@Overblog\GraphQLBundle\Generator\Converter\ExpressionConverter'
+            - "%overblog_graphql.class_namespace%"
+
+    Overblog\GraphQLBundle\Validator\InputValidatorFactory:
+        arguments:
+            - "@?validator.validator_factory"
+            - "@?validator"
+            - "@?translator.default"
+        tags:
+            - { name: overblog_graphql.service, alias: input_validator_factory, public: false }

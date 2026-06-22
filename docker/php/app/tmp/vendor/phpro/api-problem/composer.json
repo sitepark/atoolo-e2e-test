@@ -1,0 +1,36 @@
+{
+    "name": "phpro/api-problem",
+    "description": "RFC7807 Problem details implementation",
+    "type": "library",
+    "require-dev": {
+        "php-cs-fixer/shim": "^3.88",
+        "phpro/grumphp-shim": "^2.17",
+        "phpspec/phpspec": "^7.2",
+        "symfony/validator": "^5.4 || ^6.0 || ^7.0",
+        "sebastian/comparator": "^4.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Toon Verwerft",
+            "email": "toon.verwerft@phpro.be"
+        }
+    ],
+    "require": {
+        "php": "~8.3.0 || ~8.4.0 || ~8.5.0"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "phpro/grumphp-shim": true
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Phpro\\ApiProblem\\": "src/"
+        }
+    },
+    "suggest": {
+        "symfony/validator": "If you want to use the ValidationApiProblem"
+    }
+}

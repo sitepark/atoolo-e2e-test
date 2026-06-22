@@ -1,0 +1,33 @@
+overblog_graphql:
+  errors_handler:
+    rethrow_internal_exceptions: true
+    exceptions:
+      errors:
+        - "InvalidArgumentException"
+        - "Atoolo\\Resource\\Exception\\ResourceNotFoundException"
+        - "Atoolo\\Resource\\Exception\\InvalidResourceException"
+  definitions:
+    schema:
+      query: RootQuery
+      mutation: RootMutation
+      types: [ArticleTeaser, MediaTeaser, NewsTeaser, Image, Svg]
+    mappings:
+      types:
+        - type: attribute
+          dir: "%atoolo_graphql_search.src_dir%/Input"
+          suffix: ~
+        - type: attribute
+          dir: "%atoolo_graphql_search.src_dir%/Types"
+          suffix: ~
+        - type: attribute
+          dir: "%atoolo_graphql_search.src_dir%/Query"
+          suffix: ~
+        - type: attribute
+          dir: "%atoolo_graphql_search.src_dir%/Mutation"
+          suffix: ~
+        - types: [yaml]
+          dir: "%atoolo_graphql_search.config_dir%/graphql/decorators"
+          suffix: ~
+        - types: [yaml]
+          dir: "%atoolo_graphql_search.config_dir%/graphql/types"
+          suffix: ~

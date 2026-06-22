@@ -1,0 +1,8 @@
+{{ 'email.header'|trans({'{url}': url}, 'form')|html_to_markdown }}
+
+{{ 'email.headline'|trans({}, 'form') }}
+
+{{ include('@AtooloForm/email.text.summary.twig')|trim }}
+
+--
+{{ 'email.footer'|trans({'{host}': host, '{date}': date|date('d.m.Y'), '{time}': date|date('H:i:s')}, 'form')|raw }}

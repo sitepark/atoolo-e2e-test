@@ -1,0 +1,62 @@
+{
+  "email" : {
+    "header" : "<a href=\"{url}\">Website</a>以下信息是从您的 .NET 账户发送的",
+    "footer" : "信息由{主机}于{日期}在{时间}发送",
+    "headline" : "表格数据"
+  },
+  "field" : {
+    "webAccount" : {
+      "salutation.label" : "致辞",
+      "salutation.salutationMale.label" : "先生",
+      "salutation.salutationFemale.label" : "夫人",
+      "salutation.salutationDiverse.label" : "杂项",
+      "salutation.salutationNotSpecified.label" : "未说明",
+      "lastname.label" : "姓氏",
+      "firstname.label" : "姓名",
+      "street.label" : "街道",
+      "housenumber.label" : "门牌号",
+      "postalCode.label" : "邮政编码",
+      "city.label" : "地点",
+      "tel.label" : "电话",
+      "mobile.label" : "移动电话",
+      "email.label" : "电子邮件地址",
+      "emailCompare.label" : "重复电子邮件地址",
+      "password.label" : "暗号",
+      "passwordRepetition.label" : "密码，重复"
+    },
+    "dateFilter" : {
+      "empty.label" : "自由活动期"
+    },
+    "dateSelectorComposition.label" : "期间",
+    "date.label" : "日期",
+    "dateFrom.label" : "从",
+    "dateTo.label" : "直到",
+    "file.deleteFile.label" : "删除文件",
+    "salutation.label" : "致辞",
+    "salutation.salutationMale.label" : "先生",
+    "salutation.salutationFemale.label" : "夫人",
+    "salutation.salutationDiverse.label" : "杂项",
+    "salutation.salutationNotSpecified.label" : "未说明",
+    "firstname.label" : "姓名",
+    "lastname.label" : "姓氏",
+    "street.label" : "街道",
+    "housenumber.label" : "门牌号",
+    "postalCode.label" : "邮政编码",
+    "city.label" : "地点",
+    "tel.label" : "电话",
+    "mobile.label" : "移动电话",
+    "email.label" : "电子邮件地址",
+    "select.pleaseSelect.label" : "请选择",
+    "consent" : {
+      "legend" : "数据保护",
+      "label" : "我同意收集和使用此处提供的服务所需的数据。",
+      "validator" : {
+        "required" : {
+          "message" : "请确认同意声明。"
+        }
+      }
+    },
+    "file.button.label" : "遴选",
+    "checkboxTree.furtherSubCategoriesFor.label" : "进一步细分为"
+  }
+}

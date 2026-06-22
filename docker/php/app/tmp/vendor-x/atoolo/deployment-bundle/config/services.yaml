@@ -1,0 +1,25 @@
+services:
+
+  _defaults:
+    autowire: true
+    autoconfigure: true
+  _instanceof:
+    Symfony\Component\Console\Command\Command:
+      tags: ['command']
+
+  Atoolo\Deployment\Service\StopWorkerOnRedeployListener:
+    arguments:
+      - '@logger'
+
+  Atoolo\Deployment\Service\Deployer:
+    arguments:
+      - !tagged_iterator { tag: 'atoolo_deployment.deploy_executor' }
+      - '@logger'
+
+  Atoolo\Deployment\Console\Command\DeployCommand:
+    arguments:
+      - '@Atoolo\Deployment\Service\Deployer'
+
+  Atoolo\Deployment\Controller\DeployController:
+    arguments:
+      - '@Atoolo\Deployment\Service\Deployer'

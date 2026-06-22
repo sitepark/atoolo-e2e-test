@@ -1,0 +1,17 @@
+services:
+    Overblog\GraphQLBundle\Definition\ConfigProcessor\PublicFieldsFilterConfigProcessor:
+        tags:
+            - { name: overblog_graphql.definition_config_processor, priority: 2048 }
+
+    Overblog\GraphQLBundle\Definition\ConfigProcessor\AclConfigProcessor:
+        arguments:
+            - '@Overblog\GraphQLBundle\Resolver\AccessResolver'
+            - "@overblog_graphql.default_field_resolver"
+        tags:
+            - { name: overblog_graphql.definition_config_processor, priority: 512 }
+
+    Overblog\GraphQLBundle\Definition\ConfigProcessor\WrapArgumentConfigProcessor:
+        arguments:
+            - '@Overblog\GraphQLBundle\Definition\ArgumentFactory'
+        tags:
+            - { name: overblog_graphql.definition_config_processor }

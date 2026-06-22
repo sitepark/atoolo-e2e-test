@@ -1,0 +1,30 @@
+{
+    "ini" : [
+        "date.timezone",
+        "file_uploads",
+        "post_max_size",
+        "upload_max_filesize",
+        "session.cache_expire",
+        "opcache.enable",
+        "opcache.revalidate_path",
+        "memory_limit"
+    ],
+    "fpm" : {
+        "configDirs" : [
+            "/usr/local/etc",
+            "/etc/php/{PHP_VERSION_MAJOR}.{PHP_VERSION_MINOR}/fpm"
+        ],
+        "status" : [
+            "pool",
+            "process-manager",
+            "idle-processes",
+            "active-processes",
+            "total-processes"
+        ]
+    },
+    "opcache" : [
+        "cache_full",
+        "memory_usage",
+        "opcache_statistics"
+    ]
+}

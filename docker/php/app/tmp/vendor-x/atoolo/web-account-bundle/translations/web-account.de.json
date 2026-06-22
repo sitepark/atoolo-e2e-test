@@ -1,0 +1,29 @@
+{
+	"startRegistration": {
+		"email": {
+			"subject": "Web-Account Registrierung",
+			"message": {
+				"title": "Bestätigungs-Email für die Web-Account Registrierung",
+				"footer": "Ein Email-Footer"
+			}
+		}
+	},
+	"startPasswordRecover": {
+		"email": {
+			"subject": "Web-Account Passwort soll zurücksetzen werden",
+			"message": {
+				"title": "Bestätigungs-Email für die Web-Account Registrierung",
+				"footer": "Ein Email-Footer"
+			}
+		}
+	},
+	"finishPasswordRecover": {
+		"email": {
+			"subject": "Web-Account Passwort wurde zurückgesetzt",
+			"message": {
+				"title": "Bestätigungs-Email für die Web-Account Registrierung",
+				"footer": "Ein Email-Footer"
+			}
+		}
+	}
+}

@@ -1,0 +1,62 @@
+{
+  "email" : {
+    "header" : "<a href=\"{url}\">Website</a>Järgmine sõnum saadeti teie .",
+    "footer" : "Sõnum saatis: {host} {kuupäev} kell {kellaaeg}",
+    "headline" : "Vormi andmed"
+  },
+  "field" : {
+    "webAccount" : {
+      "salutation.label" : "Tervitus",
+      "salutation.salutationMale.label" : "Härra",
+      "salutation.salutationFemale.label" : "Proua",
+      "salutation.salutationDiverse.label" : "Mitmesugused",
+      "salutation.salutationNotSpecified.label" : "Ei ole täpsustatud",
+      "lastname.label" : "Perekonnanimi",
+      "firstname.label" : "Eesnimi",
+      "street.label" : "Street",
+      "housenumber.label" : "Maja number",
+      "postalCode.label" : "POSTIINFO",
+      "city.label" : "Koht",
+      "tel.label" : "Telefon",
+      "mobile.label" : "Mobiiltelefon",
+      "email.label" : "E-posti aadress",
+      "emailCompare.label" : "E-posti aadressi kordamine",
+      "password.label" : "parool",
+      "passwordRepetition.label" : "Salasõna, kordus"
+    },
+    "dateFilter" : {
+      "empty.label" : "vaba periood"
+    },
+    "dateSelectorComposition.label" : "Ajavahemik",
+    "date.label" : "kuupäev",
+    "dateFrom.label" : "aadressilt",
+    "dateTo.label" : "kuni",
+    "file.deleteFile.label" : "Kustuta fail",
+    "salutation.label" : "Tervitus",
+    "salutation.salutationMale.label" : "Härra",
+    "salutation.salutationFemale.label" : "Proua",
+    "salutation.salutationDiverse.label" : "Mitmesugused",
+    "salutation.salutationNotSpecified.label" : "Ei ole täpsustatud",
+    "firstname.label" : "Eesnimi",
+    "lastname.label" : "Perekonnanimi",
+    "street.label" : "Street",
+    "housenumber.label" : "Maja number",
+    "postalCode.label" : "POSTIINFO",
+    "city.label" : "Koht",
+    "tel.label" : "Telefon",
+    "mobile.label" : "Mobiiltelefon",
+    "email.label" : "E-posti aadress",
+    "select.pleaseSelect.label" : "palun valige",
+    "consent" : {
+      "legend" : "Andmekaitse",
+      "label" : "Olen nõus, et siin pakutavate teenuste jaoks vajalikke andmeid võib koguda ja kasutada.",
+      "validator" : {
+        "required" : {
+          "message" : "Palun kinnitage nõusoleku deklaratsioon."
+        }
+      }
+    },
+    "file.button.label" : "valige",
+    "checkboxTree.furtherSubCategoriesFor.label" : "täiendavad alamkategooriad, et"
+  }
+}

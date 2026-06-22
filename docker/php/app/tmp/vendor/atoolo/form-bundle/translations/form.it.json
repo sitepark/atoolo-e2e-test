@@ -1,0 +1,62 @@
+{
+  "email" : {
+    "header" : "<a href=\"{url}\">Website</a>Il seguente messaggio è stato inviato dal vostro .",
+    "footer" : "Messaggio inviato da: {host} il {data} all' {ora}",
+    "headline" : "Dati del modulo"
+  },
+  "field" : {
+    "webAccount" : {
+      "salutation.label" : "Saluto",
+      "salutation.salutationMale.label" : "Il Sig.",
+      "salutation.salutationFemale.label" : "Signora",
+      "salutation.salutationDiverse.label" : "Varie",
+      "salutation.salutationNotSpecified.label" : "Non specificato",
+      "lastname.label" : "Cognome",
+      "firstname.label" : "Nome",
+      "street.label" : "Via",
+      "housenumber.label" : "Numero civico",
+      "postalCode.label" : "CAP",
+      "city.label" : "Luogo",
+      "tel.label" : "Telefono",
+      "mobile.label" : "Telefono cellulare",
+      "email.label" : "Indirizzo e-mail",
+      "emailCompare.label" : "Ripetere l'indirizzo e-mail",
+      "password.label" : "password",
+      "passwordRepetition.label" : "Password, ripetizione"
+    },
+    "dateFilter" : {
+      "empty.label" : "periodo libero"
+    },
+    "dateSelectorComposition.label" : "Periodo",
+    "date.label" : "data",
+    "dateFrom.label" : "da",
+    "dateTo.label" : "fino a quando",
+    "file.deleteFile.label" : "Cancellare il file",
+    "salutation.label" : "Saluto",
+    "salutation.salutationMale.label" : "Il Sig.",
+    "salutation.salutationFemale.label" : "Signora",
+    "salutation.salutationDiverse.label" : "Varie",
+    "salutation.salutationNotSpecified.label" : "Non specificato",
+    "firstname.label" : "Nome",
+    "lastname.label" : "Cognome",
+    "street.label" : "Via",
+    "housenumber.label" : "Numero civico",
+    "postalCode.label" : "CAP",
+    "city.label" : "Luogo",
+    "tel.label" : "Telefono",
+    "mobile.label" : "Telefono cellulare",
+    "email.label" : "Indirizzo e-mail",
+    "select.pleaseSelect.label" : "scegliere",
+    "consent" : {
+      "legend" : "Protezione dei dati",
+      "label" : "Acconsento alla raccolta e all'utilizzo dei dati necessari per i servizi offerti.",
+      "validator" : {
+        "required" : {
+          "message" : "Confermare la dichiarazione di consenso."
+        }
+      }
+    },
+    "file.button.label" : "selezionare",
+    "checkboxTree.furtherSubCategoriesFor.label" : "ulteriori sottocategorie per"
+  }
+}

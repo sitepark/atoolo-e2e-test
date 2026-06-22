@@ -227,13 +227,40 @@
 	also applies synonyms. -->
 	<!-- zus. zu text_lc noch Ascii und German Normalizer für Suche nach Umlauten und Buchstaben mit accent aigu/grave/circonflexe é/è/ê -->
 	<fieldType name="text_general" class="solr.TextField" positionIncrementGap="100">
-		<analyzer>
+		<analyzer type="index">
+			<!-- gendering. example: 'lehrer:innen' =>  ['lehrer', 'lehrerinnen']  -->
+			<charFilter class="solr.PatternReplaceCharFilterFactory" pattern="(\S*)[_:\*\/(]{1}[-]?(innen|in|r)(\W|$)" replacement="$1 $1$2 "/>
+			<tokenizer class="solr.StandardTokenizerFactory"/>
+			<filter class="solr.LowerCaseFilterFactory"/>
+			<!-- Umwandlung spezieller Zeiche. ZB: A -> Ae | € -> euro-->
+			<charFilter class="solr.MappingCharFilterFactory" mapping="schema/mapping-ISOLatin1Accent.txt"/>
+		</analyzer>
+		<analyzer type="query">
 			<tokenizer class="solr.StandardTokenizerFactory"/>
 			<filter class="solr.LowerCaseFilterFactory"/>
 			<!-- Umwandlung spezieller Zeiche. ZB: A -> Ae | € -> euro-->
 			<charFilter class="solr.MappingCharFilterFactory" mapping="schema/mapping-ISOLatin1Accent.txt"/>
 		</analyzer>
 	</fieldType>
+	<!-- use own similarity-class to ignore frequency of occurrence -->
+	<fieldType name="text_general_ignore_freq" class="solr.TextField" positionIncrementGap="100">
+		<analyzer type="index">
+			<!-- gendering. example: 'lehrer:innen' =>  ['lehrer', 'lehrerinnen']  -->
+			<charFilter class="solr.PatternReplaceCharFilterFactory" pattern="(\S*)[_:\*\/(]{1}[-]?(innen|in|r)(\W|$)" replacement="$1 $1$2 "/>
+			<tokenizer class="solr.StandardTokenizerFactory"/>
+			<filter class="solr.LowerCaseFilterFactory"/>
+			<!-- Umwandlung spezieller Zeiche. ZB: A -> Ae | € -> euro-->
+			<charFilter class="solr.MappingCharFilterFactory" mapping="schema/mapping-ISOLatin1Accent.txt"/>
+		</analyzer>
+		<analyzer type="query">
+			<tokenizer class="solr.StandardTokenizerFactory"/>
+			<filter class="solr.LowerCaseFilterFactory"/>
+			<!-- Umwandlung spezieller Zeiche. ZB: A -> Ae | € -> euro-->
+			<charFilter class="solr.MappingCharFilterFactory" mapping="schema/mapping-ISOLatin1Accent.txt"/>
+		</analyzer>
+		<!-- sitekit plugins not included in atoolo-e2e-test <similarity class="com.sitepark.solr.plugin.search.WithoutFrequencySimilarityFactory"/> -->
+	</fieldType>
+
 
 	<!-- A text field with defaults appropriate for English: it
 		tokenizes with StandardTokenizer, removes English stop words
@@ -592,7 +619,7 @@
 			<filter class="solr.FlattenGraphFilterFactory"/> <!-- required on index analyzers after graph filters -->
 
 			<!-- Auftrennen von (längeren) zusammengesetzten Begriffen: 'Donaudampfschiff' wird zu 'Donau', 'dampf', 'schiff' -->
-			<filter class="solr.DictionaryCompoundWordTokenFilterFactory" dictionary="schema/lang/dictionary_de.txt" minWordSize="8" minSubwordSize="3" maxSubwordSize="15" onlyLongestMatch="true"/>
+			<filter class="solr.DictionaryCompoundWordTokenFilterFactory" dictionary="schema/lang/dictionary_de.txt" minWordSize="8" minSubwordSize="3" maxSubwordSize="15" onlyLongestMatch="false"/>
 
 			<!--  German Stemming: -->
 			<!-- germanStemmer:        filter class="solr.GermanStemFilterFactory"/>  gut, aber keien Ausnahmen definierbar -->
@@ -630,6 +657,37 @@
 			<filter class="solr.SnowballPorterFilterFactory" protected="schema/lang/protectedWordsGerman.txt"  language="German2"/>
 
 		</analyzer>
+	</fieldType>
+
+	<fieldType name="text_de_extended_ignore_freq" class="solr.TextField" positionIncrementGap="100">
+		<analyzer type="index">
+				<!-- Umwandlung spezieller Zeiche. ZB: À -> A | € -> euro |  é -> e   -->
+				<charFilter class="solr.MappingCharFilterFactory" mapping="schema/mapping-ISOLatin1Accent.txt"/>
+				<!-- gendering. example: 'lehrer:innen' =>  ['lehrer', 'lehrerinnen']  -->
+				<charFilter class="solr.PatternReplaceCharFilterFactory" pattern="(\S*)[_:\*\/(]{1}[-]?(innen|in|r)(\W|$)" replacement="$1 $1$2 "/>
+				<tokenizer class="solr.StandardTokenizerFactory"/>
+				<filter class="solr.LowerCaseFilterFactory"/>
+				<filter class="solr.StopFilterFactory" ignoreCase="true" words="schema/lang/stopwords_de.txt" format="snowball"/>
+				<!-- zur Zeit NUR ausgewählte Synonyme. In der Regel kann/soll das weiterhin redaktionell geschehen: -->
+				<filter class="solr.SynonymGraphFilterFactory" synonyms="schema/lang/synonyms_de.txt" ignoreCase="true" expand="true"/>
+				<filter class="solr.FlattenGraphFilterFactory"/> <!-- required on index analyzers after graph filters -->
+				<!-- Auftrennen von (längeren) zusammengesetzten Begriffen: 'Donaudampfschiff' wird zu 'Donau', 'dampf', 'schiff' -->
+				<filter class="solr.DictionaryCompoundWordTokenFilterFactory" dictionary="schema/lang/dictionary_de.txt" minWordSize="8" minSubwordSize="3" maxSubwordSize="15" onlyLongestMatch="false"/>
+				<filter class="solr.SnowballPorterFilterFactory" protected="schema/lang/protectedWordsGerman.txt"  language="German2"/>
+				<!-- The filter removes duplicate tokens in the stream. Tokens are considered to be duplicates ONLY if they have the same text and position values.	  -->
+				<filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+		</analyzer>
+		<analyzer type="query">
+				<!-- Umwandlung spezieller Zeiche. ZB: À -> A | € -> euro |  é -> e   -->
+				<charFilter class="solr.MappingCharFilterFactory" mapping="schema/mapping-ISOLatin1Accent.txt"/>
+				<!-- gendering. example: 'lehrer:innen' =>  ['lehrer', 'lehrerinnen']  -->
+				<charFilter class="solr.PatternReplaceCharFilterFactory" pattern="(\S*)[_:\*\/(]{1}[-]?(innen|in|r)(\W|$)" replacement="$1 "/>
+				<tokenizer class="solr.StandardTokenizerFactory"/>
+				<filter class="solr.LowerCaseFilterFactory"/>
+				<filter class="solr.StopFilterFactory" ignoreCase="true" words="schema/lang/stopwords_de.txt" format="snowball" />
+				<filter class="solr.SnowballPorterFilterFactory" protected="schema/lang/protectedWordsGerman.txt"  language="German2"/>
+		</analyzer>
+		<!-- sitekit plugins not included in atoolo-e2e-test <similarity class="com.sitepark.solr.plugin.search.WithoutFrequencySimilarityFactory"/> -->
 	</fieldType>
 
 
@@ -774,6 +832,16 @@
 		<filter class="solr.HindiNormalizationFilterFactory"/>
 		<filter class="solr.StopFilterFactory" ignoreCase="true" words="schema/lang/stopwords_hi.txt" />
 		<filter class="solr.HindiStemFilterFactory"/>
+		</analyzer>
+	</fieldType>
+
+	<!-- Croatian -->
+	<fieldType name="text_hr" class="solr.TextField" positionIncrementGap="100">
+		<analyzer>
+			<tokenizer class="solr.StandardTokenizerFactory"/>
+			<filter class="solr.LowerCaseFilterFactory"/>
+			<filter class="solr.StopFilterFactory" ignoreCase="true" words="schema/lang/stopwords_hr.txt" format="snowball" />
+			<filter class="solr.SerbianNormalizationFilterFactory" haircut="bald"/>
 		</analyzer>
 	</fieldType>
 
@@ -994,5 +1062,7 @@
 		<filter class="solr.MorfologikFilterFactory" dictionary="ua/net/nlp/ukrainian.dict"/>
 		</analyzer>
 	</fieldType>
+
+	<fieldType name="_nest_path_" class="solr.NestPathField" />
 
 </types>

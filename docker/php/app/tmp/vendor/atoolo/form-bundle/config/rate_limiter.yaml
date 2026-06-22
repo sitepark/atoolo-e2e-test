@@ -1,0 +1,12 @@
+framework:
+  rate_limiter:
+    form_submit_by_ip:
+      # https://symfony.com/doc/current/rate_limiter.html#token-bucket-rate-limiter
+      policy: 'token_bucket'
+      limit: 20
+      rate: { interval: '15 minutes', amount: 5 }
+    form_submit_total:
+      # https://symfony.com/doc/current/rate_limiter.html#token-bucket-rate-limiter
+      policy: 'token_bucket'
+      limit: 1000
+      rate: { interval: '15 minutes', amount: 100 }

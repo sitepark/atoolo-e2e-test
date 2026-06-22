@@ -115,12 +115,12 @@
 	<field name="sp_citygov_phone"               type="text_lc" stored="true" indexed="true"  multiValued="true"/>
 	<!-- für die Suche reicht evtl nur sp_phone field name="sp_citygov_furtherphone"        type="text_lc" stored="true" indexed="true"  multiValued="false"/-->
 	<field name="sp_citygov_address"             type="text_lc" stored="true" indexed="true"  multiValued="true"/>
-	<field name="sp_citygov_function"            type="text_lc" stored="true" indexed="true"  multiValued="true"/>
-	<field name="sp_citygov_product"             type="text_lc" stored="true" indexed="true"  multiValued="true"/>
+	<field name="sp_citygov_function"            type="text_general" stored="true" indexed="true"  multiValued="true"/>
+	<field name="sp_citygov_product"             type="text_general" stored="true" indexed="true"  multiValued="true"/>
 	<field name="sp_citygov_responsibility"      type="text_lc" stored="true" indexed="true"  multiValued="true"/>
 	<!-- kann für Suche in _product    field name="sp_citygov_productsynonym"      type="text_lc" stored="true" indexed="true"  multiValued="false"/-->
 	<!-- field name="sp_citygov_mainorganisation"    type="text_lc" stored="true" indexed="true"  multiValued="false"/ -->
-	<field name="sp_citygov_organisation"        type="text_lc" stored="true" indexed="true"  multiValued="true"/>
+	<field name="sp_citygov_organisation"        type="text_general" stored="true" indexed="true"  multiValued="true"/>
 	<!-- für die Sortierung der Mitarbeiter nach Ihren Orga-Token. (suchen und korrket sortieren mit einen Feld-Typ geht leider nicht) -->
 	<field name="sp_citygov_organisationtoken"   type="text_lc" stored="true" indexed="true"  multiValued="true"/>
 	<field name="sp_vv_sortfieldorganisationtoken" type="alphaOnlySort" stored="true" indexed="true"  multiValued="false"/>

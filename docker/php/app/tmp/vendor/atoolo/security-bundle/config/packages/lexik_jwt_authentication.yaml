@@ -1,0 +1,4 @@
+lexik_jwt_authentication:
+    secret_key: '%env(default::IES_WEBNODE_HOME)%/config/jwt/private.pem'
+    public_key: '%env(default::IES_WEBNODE_HOME)%/config/jwt/public.pem'
+    pass_phrase: ''

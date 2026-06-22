@@ -1,0 +1,62 @@
+{
+  "email" : {
+    "header" : "<a href=\"{url}\">Website</a>A seguinte mensagem foi enviada do seu .",
+    "footer" : "Mensagem enviada por: {host} em {date} às {time}",
+    "headline" : "Dados do formulário"
+  },
+  "field" : {
+    "webAccount" : {
+      "salutation.label" : "Saudação",
+      "salutation.salutationMale.label" : "Senhor",
+      "salutation.salutationFemale.label" : "Senhora",
+      "salutation.salutationDiverse.label" : "Diversos",
+      "salutation.salutationNotSpecified.label" : "Não especificado",
+      "lastname.label" : "Apelido",
+      "firstname.label" : "Nome próprio",
+      "street.label" : "Rua",
+      "housenumber.label" : "Número da casa",
+      "postalCode.label" : "CÓDIGO POSTAL",
+      "city.label" : "Local",
+      "tel.label" : "Telefone",
+      "mobile.label" : "Telemóvel",
+      "email.label" : "endereço eletrónico",
+      "emailCompare.label" : "Repetir o endereço de correio eletrónico",
+      "password.label" : "palavra-passe",
+      "passwordRepetition.label" : "Palavra-passe, repetição"
+    },
+    "dateFilter" : {
+      "empty.label" : "período livre"
+    },
+    "dateSelectorComposition.label" : "Período",
+    "date.label" : "data",
+    "dateFrom.label" : "de",
+    "dateTo.label" : "até",
+    "file.deleteFile.label" : "Eliminar ficheiro",
+    "salutation.label" : "Saudação",
+    "salutation.salutationMale.label" : "Senhor",
+    "salutation.salutationFemale.label" : "Senhora",
+    "salutation.salutationDiverse.label" : "Diversos",
+    "salutation.salutationNotSpecified.label" : "Não especificado",
+    "firstname.label" : "Nome próprio",
+    "lastname.label" : "Apelido",
+    "street.label" : "Rua",
+    "housenumber.label" : "Número da casa",
+    "postalCode.label" : "CÓDIGO POSTAL",
+    "city.label" : "Local",
+    "tel.label" : "Telefone",
+    "mobile.label" : "Telemóvel",
+    "email.label" : "endereço eletrónico",
+    "select.pleaseSelect.label" : "escolha",
+    "consent" : {
+      "legend" : "Proteção de dados",
+      "label" : "Aceito que os dados necessários para os serviços aqui oferecidos possam ser recolhidos e utilizados.",
+      "validator" : {
+        "required" : {
+          "message" : "Por favor, confirme a declaração de consentimento."
+        }
+      }
+    },
+    "file.button.label" : "selecionar",
+    "checkboxTree.furtherSubCategoriesFor.label" : "outras subcategorias para"
+  }
+}

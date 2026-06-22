@@ -1,0 +1,34 @@
+parameters:
+  atoolo_resource.resource_root: '%env(default::string:RESOURCE_ROOT)%'
+  atoolo_resource.resource_host: '%env(default::string:RESOURCE_HOST)%'
+
+services:
+
+  # default configuration for services in *this* file
+  _defaults:
+    autowire: true      # Automatically injects dependencies in your services.
+    autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+  Atoolo\Resource\Env\EnvVarLoader:
+    tags:
+      - { name: 'container.env_var_loader', priority: 10 }
+
+  Atoolo\Resource\Service\:
+    resource: '../src/Service'
+
+  Atoolo\Resource\Loader\:
+    resource: '../src/Loader'
+
+  Atoolo\Resource\Factory\:
+    resource: '../src/Factory'
+
+  atoolo_resource.resource_channel:
+    class: Atoolo\Resource\ResourceChannel
+    lazy: true
+    factory: ['@atoolo_resource.resource_channel_factory', 'create']
+
+  atoolo_resource.category_hierarchy_loader:
+    class: Atoolo\Resource\Loader\SiteKitResourceHierarchyLoader
+    arguments:
+      - '@atoolo_resource.cached_resource_loader'
+      - 'category'

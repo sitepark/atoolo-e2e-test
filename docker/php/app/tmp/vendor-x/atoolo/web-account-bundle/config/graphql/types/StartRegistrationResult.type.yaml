@@ -1,0 +1,7 @@
+StartRegistrationResult:
+  type: "object"
+  config:
+    fields:
+      challengeId: { type: "String!" }
+      createAt: { type: "DateTime!" }
+      expiresAt: { type: "DateTime!" }

@@ -1,0 +1,11 @@
+!var/cache/.gitkeep
+!var/log/.gitkeep
+.idea
+.phpactor.json
+/.phplint.cache
+/tools
+/var/cache/*
+/var/log/*
+/vendor
+/vendor.orig
+composer.lock

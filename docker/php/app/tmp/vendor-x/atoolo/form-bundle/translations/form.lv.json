@@ -1,0 +1,62 @@
+{
+  "email" : {
+    "header" : "<a href=\"{url}\">Website</a>Šāds ziņojums tika nosūtīts no jūsu .",
+    "footer" : "Ziņu nosūtīja: {host} {datos} plkst. {laikā}",
+    "headline" : "Veidlapu dati"
+  },
+  "field" : {
+    "webAccount" : {
+      "salutation.label" : "Sveiciens",
+      "salutation.salutationMale.label" : "kungs",
+      "salutation.salutationFemale.label" : "kundze",
+      "salutation.salutationDiverse.label" : "Dažādi",
+      "salutation.salutationNotSpecified.label" : "Nav norādīts",
+      "lastname.label" : "Uzvārds",
+      "firstname.label" : "Vārds",
+      "street.label" : "Ielas",
+      "housenumber.label" : "Mājas numurs",
+      "postalCode.label" : "POSTCODE",
+      "city.label" : "Vieta",
+      "tel.label" : "Tālrunis",
+      "mobile.label" : "Mobilais tālrunis",
+      "email.label" : "E-pasta adrese",
+      "emailCompare.label" : "Atkārtota e-pasta adrese",
+      "password.label" : "parole",
+      "passwordRepetition.label" : "Parole, atkārtošana"
+    },
+    "dateFilter" : {
+      "empty.label" : "bezmaksas periods"
+    },
+    "dateSelectorComposition.label" : "Periods",
+    "date.label" : "datums",
+    "dateFrom.label" : "no",
+    "dateTo.label" : "līdz",
+    "file.deleteFile.label" : "Dzēst failu",
+    "salutation.label" : "Sveiciens",
+    "salutation.salutationMale.label" : "kungs",
+    "salutation.salutationFemale.label" : "kundze",
+    "salutation.salutationDiverse.label" : "Dažādi",
+    "salutation.salutationNotSpecified.label" : "Nav norādīts",
+    "firstname.label" : "Vārds",
+    "lastname.label" : "Uzvārds",
+    "street.label" : "Ielas",
+    "housenumber.label" : "Mājas numurs",
+    "postalCode.label" : "POSTCODE",
+    "city.label" : "Vieta",
+    "tel.label" : "Tālrunis",
+    "mobile.label" : "Mobilais tālrunis",
+    "email.label" : "E-pasta adrese",
+    "select.pleaseSelect.label" : "lūdzu, izvēlieties",
+    "consent" : {
+      "legend" : "Datu aizsardzība",
+      "label" : "Es piekrītu, ka šeit piedāvātajiem pakalpojumiem nepieciešamie dati var tikt vākti un izmantoti.",
+      "validator" : {
+        "required" : {
+          "message" : "Lūdzu, apstipriniet piekrišanas deklarāciju."
+        }
+      }
+    },
+    "file.button.label" : "atlasīt",
+    "checkboxTree.furtherSubCategoriesFor.label" : "papildu apakškategorijas, lai"
+  }
+}

@@ -1,0 +1,17 @@
+overblog_graphql:
+  definitions:
+    schema:
+      query: RootQuery
+      mutation: RootMutation
+      types: [EventTeaser, Scheduling]
+    mappings:
+      types:
+      - type: attribute
+        dir: "%atoolo_events_calendar.src_dir%/Service/GraphQL/Types"
+        suffix: ~
+      - types: [yaml]
+        dir: "%atoolo_events_calendar.config_dir%/graphql/decorators"
+        suffix: ~
+      - types: [yaml]
+        dir: "%atoolo_events_calendar.config_dir%/graphql/types"
+        suffix: ~

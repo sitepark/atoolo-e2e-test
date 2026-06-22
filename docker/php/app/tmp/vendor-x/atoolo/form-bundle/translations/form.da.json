@@ -1,0 +1,62 @@
+{
+  "email" : {
+    "header" : "<a href=\"{url}\">Website</a>Følgende besked blev sendt fra din .",
+    "footer" : "Besked sendt af: {host} den {dato} kl. {tidspunkt}.",
+    "headline" : "Formular-data"
+  },
+  "field" : {
+    "webAccount" : {
+      "salutation.label" : "Hilsen",
+      "salutation.salutationMale.label" : "Hr.",
+      "salutation.salutationFemale.label" : "Fru",
+      "salutation.salutationDiverse.label" : "Diverse",
+      "salutation.salutationNotSpecified.label" : "Ikke specificeret",
+      "lastname.label" : "Efternavn",
+      "firstname.label" : "Fornavn",
+      "street.label" : "Gade",
+      "housenumber.label" : "Husnummer",
+      "postalCode.label" : "POSTKODE",
+      "city.label" : "Sted",
+      "tel.label" : "Telefon",
+      "mobile.label" : "Mobiltelefon",
+      "email.label" : "E-mail-adresse",
+      "emailCompare.label" : "Gentag e-mail-adresse",
+      "password.label" : "adgangskode",
+      "passwordRepetition.label" : "Adgangskode, gentagelse"
+    },
+    "dateFilter" : {
+      "empty.label" : "fri periode"
+    },
+    "dateSelectorComposition.label" : "Periode",
+    "date.label" : "dato",
+    "dateFrom.label" : "fra",
+    "dateTo.label" : "indtil",
+    "file.deleteFile.label" : "Slet filen",
+    "salutation.label" : "Hilsen",
+    "salutation.salutationMale.label" : "Hr.",
+    "salutation.salutationFemale.label" : "Fru",
+    "salutation.salutationDiverse.label" : "Diverse",
+    "salutation.salutationNotSpecified.label" : "Ikke specificeret",
+    "firstname.label" : "Fornavn",
+    "lastname.label" : "Efternavn",
+    "street.label" : "Gade",
+    "housenumber.label" : "Husnummer",
+    "postalCode.label" : "POSTKODE",
+    "city.label" : "Sted",
+    "tel.label" : "Telefon",
+    "mobile.label" : "Mobiltelefon",
+    "email.label" : "E-mail-adresse",
+    "select.pleaseSelect.label" : "Vælg venligst",
+    "consent" : {
+      "legend" : "Beskyttelse af data",
+      "label" : "Jeg accepterer, at de data, der er nødvendige for de tjenester, der tilbydes her, kan indsamles og bruges.",
+      "validator" : {
+        "required" : {
+          "message" : "Bekræft venligst samtykkeerklæringen."
+        }
+      }
+    },
+    "file.button.label" : "Vælg",
+    "checkboxTree.furtherSubCategoriesFor.label" : "yderligere underkategorier til"
+  }
+}

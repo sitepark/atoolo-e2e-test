@@ -1,0 +1,62 @@
+{
+  "email" : {
+    "header" : "<a href=\"{url}\">Website</a>Το ακόλουθο μήνυμα εστάλη από το .",
+    "footer" : "Μήνυμα εστάλη από: {host} στις {ημερομηνία} στις {ώρα}",
+    "headline" : "Δεδομένα φόρμας"
+  },
+  "field" : {
+    "webAccount" : {
+      "salutation.label" : "Χαιρετισμός",
+      "salutation.salutationMale.label" : "Κύριε",
+      "salutation.salutationFemale.label" : "Κυρία",
+      "salutation.salutationDiverse.label" : "Διάφορα",
+      "salutation.salutationNotSpecified.label" : "Δεν προσδιορίζεται",
+      "lastname.label" : "Επώνυμο",
+      "firstname.label" : "Όνομα",
+      "street.label" : "Οδός",
+      "housenumber.label" : "Αριθμός σπιτιού",
+      "postalCode.label" : "ΤΑΧΥΔΡΟΜΙΚΟΣ ΚΩΔΙΚΟΣ",
+      "city.label" : "Τόπος",
+      "tel.label" : "Τηλέφωνο",
+      "mobile.label" : "Κινητό τηλέφωνο",
+      "email.label" : "Διεύθυνση ηλεκτρονικού ταχυδρομείου",
+      "emailCompare.label" : "Επανάληψη της διεύθυνσης ηλεκτρονικού ταχυδρομείου",
+      "password.label" : "κωδικός πρόσβασης",
+      "passwordRepetition.label" : "Κωδικός πρόσβασης, επανάληψη"
+    },
+    "dateFilter" : {
+      "empty.label" : "ελεύθερη περίοδος"
+    },
+    "dateSelectorComposition.label" : "Περίοδος",
+    "date.label" : "ημερομηνία",
+    "dateFrom.label" : "από το",
+    "dateTo.label" : "μέχρι το",
+    "file.deleteFile.label" : "Διαγραφή αρχείου",
+    "salutation.label" : "Χαιρετισμός",
+    "salutation.salutationMale.label" : "Κύριε",
+    "salutation.salutationFemale.label" : "Κυρία",
+    "salutation.salutationDiverse.label" : "Διάφορα",
+    "salutation.salutationNotSpecified.label" : "Δεν προσδιορίζεται",
+    "firstname.label" : "Όνομα",
+    "lastname.label" : "Επώνυμο",
+    "street.label" : "Οδός",
+    "housenumber.label" : "Αριθμός σπιτιού",
+    "postalCode.label" : "ΤΑΧΥΔΡΟΜΙΚΟΣ ΚΩΔΙΚΟΣ",
+    "city.label" : "Τόπος",
+    "tel.label" : "Τηλέφωνο",
+    "mobile.label" : "Κινητό τηλέφωνο",
+    "email.label" : "Διεύθυνση ηλεκτρονικού ταχυδρομείου",
+    "select.pleaseSelect.label" : "παρακαλώ επιλέξτε",
+    "consent" : {
+      "legend" : "Προστασία δεδομένων",
+      "label" : "Συμφωνώ ότι τα δεδομένα που απαιτούνται για τις υπηρεσίες που προσφέρονται εδώ μπορούν να συλλεχθούν και να χρησιμοποιηθούν.",
+      "validator" : {
+        "required" : {
+          "message" : "Παρακαλούμε επιβεβαιώστε τη δήλωση συγκατάθεσης."
+        }
+      }
+    },
+    "file.button.label" : "επιλέξτε",
+    "checkboxTree.furtherSubCategoriesFor.label" : "περαιτέρω υποκατηγορίες για να"
+  }
+}

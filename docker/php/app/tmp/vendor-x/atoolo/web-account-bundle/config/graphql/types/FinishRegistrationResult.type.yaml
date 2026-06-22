@@ -1,0 +1,6 @@
+FinishRegistrationResult:
+  type: "object"
+  config:
+    fields:
+      id: { type: "ID!" }
+      email: { type: "String!" }

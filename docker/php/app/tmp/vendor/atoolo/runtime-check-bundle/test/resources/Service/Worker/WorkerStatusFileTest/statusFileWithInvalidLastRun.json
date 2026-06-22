@@ -1,0 +1,8 @@
+{
+    "success" : true,
+    "reports" : {
+        "scheduler": {
+            "last-run": 123
+        }
+    }
+}

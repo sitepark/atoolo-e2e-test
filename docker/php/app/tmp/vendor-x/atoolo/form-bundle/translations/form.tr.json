@@ -1,0 +1,62 @@
+{
+  "email" : {
+    "header" : "<a href=\"{url}\">Website</a>Aşağıdaki mesaj tarafınızdan gönderilmiştir.",
+    "footer" : "Mesaj şu kişi tarafından gönderildi: {ana bilgisayar} tarafından {tarih} tarihinde {saat}",
+    "headline" : "Form verileri"
+  },
+  "field" : {
+    "webAccount" : {
+      "salutation.label" : "Selamlama",
+      "salutation.salutationMale.label" : "Bay",
+      "salutation.salutationFemale.label" : "Bayan",
+      "salutation.salutationDiverse.label" : "Çeşitli",
+      "salutation.salutationNotSpecified.label" : "Belirtilmemiş",
+      "lastname.label" : "Soyadı",
+      "firstname.label" : "İlk isim",
+      "street.label" : "Sokak",
+      "housenumber.label" : "Ev numarası",
+      "postalCode.label" : "POSTA KODU",
+      "city.label" : "Konum",
+      "tel.label" : "Telefon",
+      "mobile.label" : "Cep telefonu",
+      "email.label" : "e-posta adresi",
+      "emailCompare.label" : "E-posta adresini tekrarla",
+      "password.label" : "şifre",
+      "passwordRepetition.label" : "Şifre, tekrarlama"
+    },
+    "dateFilter" : {
+      "empty.label" : "serbest dönem"
+    },
+    "dateSelectorComposition.label" : "Dönem",
+    "date.label" : "Tarih",
+    "dateFrom.label" : "gelen",
+    "dateTo.label" : "kadar",
+    "file.deleteFile.label" : "Dosya silme",
+    "salutation.label" : "Selamlama",
+    "salutation.salutationMale.label" : "Bay",
+    "salutation.salutationFemale.label" : "Bayan",
+    "salutation.salutationDiverse.label" : "Çeşitli",
+    "salutation.salutationNotSpecified.label" : "Belirtilmemiş",
+    "firstname.label" : "İlk isim",
+    "lastname.label" : "Soyadı",
+    "street.label" : "Sokak",
+    "housenumber.label" : "Ev numarası",
+    "postalCode.label" : "POSTA KODU",
+    "city.label" : "Konum",
+    "tel.label" : "Telefon",
+    "mobile.label" : "Cep telefonu",
+    "email.label" : "e-posta adresi",
+    "select.pleaseSelect.label" : "lütfen seçin",
+    "consent" : {
+      "legend" : "Veri koruma",
+      "label" : "Burada sunulan hizmetler için gerekli verilerin toplanabileceğini ve kullanılabileceğini kabul ediyorum.",
+      "validator" : {
+        "required" : {
+          "message" : "Lütfen onay beyanını onaylayın."
+        }
+      }
+    },
+    "file.button.label" : "seçin",
+    "checkboxTree.furtherSubCategoriesFor.label" : "daha fazla alt kategori"
+  }
+}

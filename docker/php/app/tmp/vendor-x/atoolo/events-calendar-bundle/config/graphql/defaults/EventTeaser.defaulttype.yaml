@@ -1,0 +1,3 @@
+EventTeaser:
+  type: "object"
+  inherits: [EventTeaserDecorator]

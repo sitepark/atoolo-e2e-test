@@ -1,0 +1,62 @@
+{
+  "email" : {
+    "header" : "<a href=\"{url}\">Website</a>Følgende melding ble sendt fra din .",
+    "footer" : "Melding sendt av: {host} den {dato} kl {klokkeslett}",
+    "headline" : "Skjemadata"
+  },
+  "field" : {
+    "webAccount" : {
+      "salutation.label" : "Hilsen",
+      "salutation.salutationMale.label" : "Mr.",
+      "salutation.salutationFemale.label" : "Fru",
+      "salutation.salutationDiverse.label" : "Diverse",
+      "salutation.salutationNotSpecified.label" : "Ikke spesifisert",
+      "lastname.label" : "Etternavn",
+      "firstname.label" : "Fornavn",
+      "street.label" : "Gate",
+      "housenumber.label" : "Husnummer",
+      "postalCode.label" : "POSTCODE",
+      "city.label" : "Sted",
+      "tel.label" : "Telefon",
+      "mobile.label" : "Mobiltelefon",
+      "email.label" : "E-postadresse",
+      "emailCompare.label" : "Gjenta e-postadressen",
+      "password.label" : "passord",
+      "passwordRepetition.label" : "Passord, repetisjon"
+    },
+    "dateFilter" : {
+      "empty.label" : "fri periode"
+    },
+    "dateSelectorComposition.label" : "Periode",
+    "date.label" : "dato",
+    "dateFrom.label" : "fra",
+    "dateTo.label" : "inntil",
+    "file.deleteFile.label" : "Slett fil",
+    "salutation.label" : "Hilsen",
+    "salutation.salutationMale.label" : "Mr.",
+    "salutation.salutationFemale.label" : "Fru",
+    "salutation.salutationDiverse.label" : "Diverse",
+    "salutation.salutationNotSpecified.label" : "Ikke spesifisert",
+    "firstname.label" : "Fornavn",
+    "lastname.label" : "Etternavn",
+    "street.label" : "Gate",
+    "housenumber.label" : "Husnummer",
+    "postalCode.label" : "POSTCODE",
+    "city.label" : "Sted",
+    "tel.label" : "Telefon",
+    "mobile.label" : "Mobiltelefon",
+    "email.label" : "E-postadresse",
+    "select.pleaseSelect.label" : "vennligst velg",
+    "consent" : {
+      "legend" : "Beskyttelse av personopplysninger",
+      "label" : "Jeg samtykker i at opplysningene som kreves for tjenestene som tilbys her, kan samles inn og brukes.",
+      "validator" : {
+        "required" : {
+          "message" : "Vennligst bekreft samtykkeerklæringen."
+        }
+      }
+    },
+    "file.button.label" : "velg",
+    "checkboxTree.furtherSubCategoriesFor.label" : "ytterligere underkategorier til"
+  }
+}

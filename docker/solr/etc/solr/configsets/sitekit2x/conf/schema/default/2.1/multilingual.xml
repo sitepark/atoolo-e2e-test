@@ -11,7 +11,7 @@ com.sitepark.ies.webnode.solr.service.CoresService.SUPPORTED_LANGUAGES
 	<cjk/>
 	<cz/>
 	<da/>
-	<de filename="schema.xml" schemaname="sitepark-2.1" multilingualType="text_de_extended"/>
+	<de filename="schema.xml" schemaname="sitepark-2.1" multilingualType="text_de_extended" multilingualTypeIgnoreFrequency="text_de_extended_ignore_freq"/>
 	<el/>
 	<en/>
 	<es/>
@@ -23,6 +23,7 @@ com.sitepark.ies.webnode.solr.service.CoresService.SUPPORTED_LANGUAGES
 	<gh/>
 	<gl/>
 	<hi/>
+	<hr/>
 	<hu/>
 	<hy/>
 	<id/>

@@ -1,0 +1,3 @@
+atoolo_deployment:
+  resource: '@AtooloDeploymentBundle/Controller/'
+  type: attribute

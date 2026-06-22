@@ -1,0 +1,14 @@
+{
+    "ini" : [
+        "date.timezone"
+    ],
+    "fpm" : {
+        "configDirs" : ["test/resources/Service/Checker/PhpStatusTest/fpm"],
+        "status" : [
+            "pool"
+        ]
+    },
+    "opcache" : [
+        "memory_usage"
+    ]
+}

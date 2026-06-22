@@ -1,0 +1,13 @@
+OnlineServiceFeature:
+  type: "object"
+  inherits: [TeaserFeature]
+  config:
+    interfaces: [TeaserFeature]
+    fields:
+      onlineServices : { type: "[OnlineService!]!" }
+
+OnlineService:
+  type: "object"
+  config:
+    fields:
+      link : { type: "Link!" }

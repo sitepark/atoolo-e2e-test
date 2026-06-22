@@ -1,0 +1,5 @@
+EmailAlreadyExistsError:
+  type: "object"
+  config:
+    fields:
+      email: { type: "String!" }

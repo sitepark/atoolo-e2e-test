@@ -1,0 +1,62 @@
+{
+  "email" : {
+    "header" : "<a href=\"{url}\">Website</a>Šis pranešimas buvo išsiųstas iš jūsų .",
+    "footer" : "Pranešimą atsiuntė: {host}, {data}, {laikas}.",
+    "headline" : "Formos duomenys"
+  },
+  "field" : {
+    "webAccount" : {
+      "salutation.label" : "Pasveikinimas",
+      "salutation.salutationMale.label" : "Ponas",
+      "salutation.salutationFemale.label" : "Ponia",
+      "salutation.salutationDiverse.label" : "Įvairūs",
+      "salutation.salutationNotSpecified.label" : "Nenurodyta",
+      "lastname.label" : "Pavardė",
+      "firstname.label" : "Vardas ir pavardė",
+      "street.label" : "Gatvė",
+      "housenumber.label" : "Namo numeris",
+      "postalCode.label" : "POSTCODE",
+      "city.label" : "Vieta",
+      "tel.label" : "Telefonas",
+      "mobile.label" : "Mobilusis telefonas",
+      "email.label" : "el. pašto adresas",
+      "emailCompare.label" : "Pakartokite el. pašto adresą",
+      "password.label" : "slaptažodis",
+      "passwordRepetition.label" : "Slaptažodis, kartojimas"
+    },
+    "dateFilter" : {
+      "empty.label" : "laisvas laikotarpis"
+    },
+    "dateSelectorComposition.label" : "Laikotarpis",
+    "date.label" : "data",
+    "dateFrom.label" : "iš",
+    "dateTo.label" : "iki",
+    "file.deleteFile.label" : "Ištrinti failą",
+    "salutation.label" : "Pasveikinimas",
+    "salutation.salutationMale.label" : "Ponas",
+    "salutation.salutationFemale.label" : "Ponia",
+    "salutation.salutationDiverse.label" : "Įvairūs",
+    "salutation.salutationNotSpecified.label" : "Nenurodyta",
+    "firstname.label" : "Vardas ir pavardė",
+    "lastname.label" : "Pavardė",
+    "street.label" : "Gatvė",
+    "housenumber.label" : "Namo numeris",
+    "postalCode.label" : "POSTCODE",
+    "city.label" : "Vieta",
+    "tel.label" : "Telefonas",
+    "mobile.label" : "Mobilusis telefonas",
+    "email.label" : "el. pašto adresas",
+    "select.pleaseSelect.label" : "pasirinkite",
+    "consent" : {
+      "legend" : "Duomenų apsauga",
+      "label" : "Sutinku, kad čia siūlomoms paslaugoms reikalingi duomenys gali būti renkami ir naudojami.",
+      "validator" : {
+        "required" : {
+          "message" : "Patvirtinkite sutikimo deklaraciją."
+        }
+      }
+    },
+    "file.button.label" : "pasirinkite",
+    "checkboxTree.furtherSubCategoriesFor.label" : "kitos subkategorijos"
+  }
+}

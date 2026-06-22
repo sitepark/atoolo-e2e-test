@@ -1,0 +1,111 @@
+parameters:
+  atoolo_events_calendar.indexer.rce_event_indexer_scheduler.cron: '0 6-20/2 * * *' # cron expression, every 2 hours from 6am to 8pm
+
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  Atoolo\EventsCalendar\Service\Indexer\SiteKit\DefaultSchema2xEventDocumentEnricher:
+    tags:
+      - { name: 'atoolo_search.indexer.document_enricher.schema2x', priority: 50 }
+
+  Atoolo\EventsCalendar\Service\Indexer\SiteKit\DefaultSchema2xRceEventDocumentEnricher:
+    arguments:
+      - '@atoolo_resource.category_hierarchy_loader'
+      - '@atoolo_search.indexer.content_collector.sitekit'
+    tags:
+      - { name: 'atoolo_events_calendar.indexer.rceEventDocumentEnricher.schema2x', priority: 100 }
+
+  Atoolo\EventsCalendar\Service\Indexer\SiteKit\DefaultSchema2xRceEventCategoryDocumentEnricher:
+    arguments:
+      - '@atoolo_resource.category_hierarchy_loader'
+    tags:
+      - { name: 'atoolo_events_calendar.indexer.rceEventDocumentEnricher.schema2x', priority: 90 }
+
+  atoolo_events_calendar.indexer.rceEventAborter:
+    class: Atoolo\Search\Service\Indexer\IndexingAborter
+    arguments:
+      - '%kernel.project_dir%/var/cache/'
+      - 'rce-event'
+
+  Atoolo\EventsCalendar\Service\Platform: ~
+
+  Atoolo\EventsCalendar\Service\RceEvent\RceEventListHttpClient: ~
+
+  Atoolo\EventsCalendar\Service\RceEvent\RceEventListItemFactory: ~
+
+  Atoolo\EventsCalendar\Service\RceEvent\RceEventListReader:
+    arguments:
+      - '%kernel.project_dir%/var/cache/'
+      - '@Atoolo\EventsCalendar\Service\RceEvent\RceEventListHttpClient'
+      - '@Atoolo\EventsCalendar\Service\RceEvent\RceEventListItemFactory'
+      - '@Atoolo\EventsCalendar\Service\Platform'
+
+  atoolo_events_calendar.indexer.progressState:
+    class: Atoolo\Search\Service\Indexer\IndexerProgressState
+    arguments:
+      - '@atoolo_search.index_name'
+      - '@atoolo_search.indexer.status_store'
+      - 'rce-event'
+
+  atoolo_events_calendar.indexer.rce_event_filter:
+    class: Atoolo\EventsCalendar\Service\Indexer\RceEventIndexerDateFilter
+
+  Atoolo\EventsCalendar\Service\Indexer\RceEventIndexer:
+    arguments:
+      - !tagged_iterator { tag: 'atoolo_events_calendar.indexer.rceEventDocumentEnricher.schema2x' }
+      - '@atoolo_events_calendar.indexer.progressState'
+      - '@atoolo_events_calendar.indexer.rceEventAborter'
+      - '@Atoolo\EventsCalendar\Service\RceEvent\RceEventListReader'
+      - '@atoolo_search.indexer.solr_index_service'
+      - '@atoolo_search.index_name'
+      - '@atoolo_search.indexer.configuration_loader'
+      - '@atoolo_events_calendar.indexer.rce_event_filter'
+      - 'rce-event'
+    tags:
+      - { name: 'atoolo_search.indexer', priority: 10 }
+
+  Atoolo\EventsCalendar\Service\ICal\ICalFactory:
+    arguments:
+      - '@atoolo_events_calendar.scheduling_factory'
+      - '@atoolo_resource.resource_channel'
+
+  Atoolo\EventsCalendar\Controller\ICalController:
+    arguments:
+      - '@atoolo_resource.resource_channel'
+      - '@atoolo_resource.resource_loader'
+      - '@Atoolo\EventsCalendar\Service\ICal\ICalFactory'
+      - '@atoolo_search.search'
+      - '@serializer'
+
+  # GraphQL
+
+  atoolo_events_calendar.scheduling_factory:
+    class: Atoolo\EventsCalendar\Service\GraphQL\Factory\SchedulingFactory
+
+  atoolo_events_calendar.graphql.resolver.resource.resource_scheduling_resolver:
+    class: Atoolo\EventsCalendar\Service\GraphQL\Resolver\Resource\ResourceSchedulingResolver
+    arguments:
+      - '@atoolo_events_calendar.scheduling_factory'
+
+  atoolo_events_calendar.graphql.resolver.resource.resource_ical_url_resolver:
+    class: Atoolo\EventsCalendar\Service\GraphQL\Resolver\Resource\ResourceICalUrlResolver
+  
+  atoolo_events_calendar.graphql.resolver.teaser.event_teaser_resolver:
+    class: Atoolo\EventsCalendar\Service\GraphQL\Resolver\Teaser\EventTeaserResolver
+    arguments:
+      - '@atoolo_graphql_search.resolver.resource.resource_asset_resolver'
+      - '@atoolo_graphql_search.resolver.resource.resource_symbolic_asset_resolver'
+      - '@atoolo_graphql_search.resolver.resource.resource_kicker_resolver'
+      - '@atoolo_events_calendar.graphql.resolver.resource.resource_scheduling_resolver'
+      - '@atoolo_events_calendar.graphql.resolver.resource.resource_ical_url_resolver'
+    tags:
+      - { name: 'atoolo_graphql_search.resolver' }
+
+  atoolo_events_calendar.graphql.factory.event_teaser_factory:
+    class: Atoolo\EventsCalendar\Service\GraphQL\Factory\EventTeaserFactory
+    arguments:
+      - '@atoolo_graphql_search.factory.link_factory'
+    tags:
+      - { name: 'atoolo_graphql_search.teaser_factory', objectType: 'eventsCalendar-event' }

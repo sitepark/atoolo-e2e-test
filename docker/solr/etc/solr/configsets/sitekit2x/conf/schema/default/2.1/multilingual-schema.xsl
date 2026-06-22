@@ -39,6 +39,12 @@
 								<xsl:otherwise>text_<xsl:value-of select="name(.)"/></xsl:otherwise>
 							</xsl:choose>
 						</xsl:variable>
+						<xsl:variable name="fieldTypeIgnoreFrequency">
+							<xsl:choose>
+								<xsl:when test="./@multilingualTypeIgnoreFrequency"><xsl:value-of select="./@multilingualTypeIgnoreFrequency"/></xsl:when>
+								<xsl:otherwise>text_<xsl:value-of select="name(.)"/></xsl:otherwise>
+							</xsl:choose>
+						</xsl:variable>
 
 						<schema name="{$schemaname}" version="1.6">
 							<uniqueKey>id</uniqueKey>
@@ -46,11 +52,11 @@
 							<fields>
 								<xsl:copy-of select="document('schema-fields-general.xml')/fields/*"/>
 
-								<field name="title"       type="{$fieldType}" stored="true" indexed="true" multiValued="false" termVectors="true"/>
-								<field name="description" type="{$fieldType}" stored="true" indexed="true" multiValued="true"  termVectors="true"/>
+								<field name="title"       type="{$fieldTypeIgnoreFrequency}" stored="true" indexed="true" multiValued="false" termVectors="true"/>
+								<field name="sp_title"    type="{$fieldTypeIgnoreFrequency}" stored="true" indexed="true" />
+								<field name="sp_intro"    type="{$fieldTypeIgnoreFrequency}" stored="true" indexed="true" />
+								<field name="description" type="{$fieldTypeIgnoreFrequency}" stored="true" indexed="true" multiValued="true"  termVectors="true"/>
 								<field name="content"     type="{$fieldType}" stored="true" indexed="true" multiValued="true"  termVectors="true"/>
-								<field name="sp_title"    type="{$fieldType}" stored="true" indexed="true" />
-								<field name="sp_intro"    type="{$fieldType}" stored="true" indexed="true" />
 
 								<dynamicField name="sp_meta_text_*" type="{$fieldType}" stored="true" indexed="true"  multiValued="true"/>
 								<dynamicField name="sp_meta_single_text_*" type="{$fieldType}" stored="true" indexed="true"  multiValued="false"/>

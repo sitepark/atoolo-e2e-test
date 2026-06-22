@@ -1,0 +1,62 @@
+{
+  "email" : {
+    "header" : "<a href=\"{url}\">Website</a>Następująca wiadomość została wysłana z Twojego .",
+    "footer" : "Wiadomość wysłana przez: {host} w dniu {data} o godzinie {godzina}",
+    "headline" : "Dane formularza"
+  },
+  "field" : {
+    "webAccount" : {
+      "salutation.label" : "Pozdrowienie",
+      "salutation.salutationMale.label" : "Pan",
+      "salutation.salutationFemale.label" : "Pani",
+      "salutation.salutationDiverse.label" : "Różne",
+      "salutation.salutationNotSpecified.label" : "Nie określono",
+      "lastname.label" : "Nazwisko",
+      "firstname.label" : "Imię",
+      "street.label" : "ul.",
+      "housenumber.label" : "Numer domu",
+      "postalCode.label" : "KOD POCZTOWY",
+      "city.label" : "Lokalizacja",
+      "tel.label" : "Telefon",
+      "mobile.label" : "Telefon komórkowy",
+      "email.label" : "Adres e-mail",
+      "emailCompare.label" : "Powtórzony adres e-mail",
+      "password.label" : "hasło",
+      "passwordRepetition.label" : "Hasło, powtórzenie"
+    },
+    "dateFilter" : {
+      "empty.label" : "okres wolny"
+    },
+    "dateSelectorComposition.label" : "Okres",
+    "date.label" : "data",
+    "dateFrom.label" : "z",
+    "dateTo.label" : "do",
+    "file.deleteFile.label" : "Usuń plik",
+    "salutation.label" : "Pozdrowienie",
+    "salutation.salutationMale.label" : "Pan",
+    "salutation.salutationFemale.label" : "Pani",
+    "salutation.salutationDiverse.label" : "Różne",
+    "salutation.salutationNotSpecified.label" : "Nie określono",
+    "firstname.label" : "Imię",
+    "lastname.label" : "Nazwisko",
+    "street.label" : "ul.",
+    "housenumber.label" : "Numer domu",
+    "postalCode.label" : "KOD POCZTOWY",
+    "city.label" : "Lokalizacja",
+    "tel.label" : "Telefon",
+    "mobile.label" : "Telefon komórkowy",
+    "email.label" : "Adres e-mail",
+    "select.pleaseSelect.label" : "wybierz",
+    "consent" : {
+      "legend" : "Ochrona danych",
+      "label" : "Wyrażam zgodę na gromadzenie i wykorzystywanie danych wymaganych do korzystania z oferowanych tutaj usług.",
+      "validator" : {
+        "required" : {
+          "message" : "Prosimy o potwierdzenie deklaracji zgody."
+        }
+      }
+    },
+    "file.button.label" : "wybór",
+    "checkboxTree.furtherSubCategoriesFor.label" : "dalsze podkategorie do"
+  }
+}

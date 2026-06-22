@@ -1,0 +1,62 @@
+{
+  "email" : {
+    "header" : "The following message was sent from your <a href=\"{url}\">Website</a>.",
+    "footer" : "Message sent by: {host} on {date} at {time}",
+    "headline" : "Form data"
+  },
+  "field" : {
+    "webAccount" : {
+      "salutation.label" : "Salutation",
+      "salutation.salutationMale.label" : "Mr.",
+      "salutation.salutationFemale.label" : "Woman",
+      "salutation.salutationDiverse.label" : "Miscellaneous",
+      "salutation.salutationNotSpecified.label" : "Not specified",
+      "lastname.label" : "Surname",
+      "firstname.label" : "First name",
+      "street.label" : "Street",
+      "housenumber.label" : "House number",
+      "postalCode.label" : "ZIP CODE",
+      "city.label" : "Location",
+      "tel.label" : "Telephone",
+      "mobile.label" : "Cell phone",
+      "email.label" : "E-mail address",
+      "emailCompare.label" : "Repeat e-mail address",
+      "password.label" : "password",
+      "passwordRepetition.label" : "Password, repetition"
+    },
+    "dateFilter" : {
+      "empty.label" : "free period"
+    },
+    "dateSelectorComposition.label" : "Period",
+    "date.label" : "Date",
+    "dateFrom.label" : "from",
+    "dateTo.label" : "to",
+    "file.deleteFile.label" : "Delete file",
+    "salutation.label" : "Salutation",
+    "salutation.salutationMale.label" : "Mr.",
+    "salutation.salutationFemale.label" : "Woman",
+    "salutation.salutationDiverse.label" : "Miscellaneous",
+    "salutation.salutationNotSpecified.label" : "Not specified",
+    "firstname.label" : "First name",
+    "lastname.label" : "Surname",
+    "street.label" : "Street",
+    "housenumber.label" : "House number",
+    "postalCode.label" : "ZIP CODE",
+    "city.label" : "Location",
+    "tel.label" : "Telephone",
+    "mobile.label" : "Cell phone",
+    "email.label" : "E-mail address",
+    "select.pleaseSelect.label" : "please choose",
+    "consent" : {
+      "legend" : "Data protection",
+      "label" : "I agree that the data required for the services offered here may be collected and used.",
+      "validator" : {
+        "required" : {
+          "message" : "Please confirm the declaration of consent."
+        }
+      }
+    },
+    "file.button.label" : "select",
+    "checkboxTree.furtherSubCategoriesFor.label" : "further subcategories to"
+  }
+}
