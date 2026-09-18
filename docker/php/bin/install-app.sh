@@ -54,7 +54,9 @@ composer require --no-interaction \
     atoolo/runtime-check-bundle:dev-main \
     atoolo/deployment-bundle:dev-main \
     atoolo/resource-bundle:dev-main \
+    atoolo/index-bundle:dev-main \
     atoolo/search-bundle:dev-main \
+    atoolo/genai-bundle:dev-main \
     atoolo/citygov-bundle:dev-main \
     atoolo/citycall-bundle:dev-main \
     atoolo/events-calendar-bundle:dev-main \
