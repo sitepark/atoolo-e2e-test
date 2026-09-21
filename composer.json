@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "php": ">=8.2 <8.5.0",
+        "php": ">=8.2 <8.6.0",
         "ext-intl": "*",
         "symfony/http-client": "^7.1"
     },
