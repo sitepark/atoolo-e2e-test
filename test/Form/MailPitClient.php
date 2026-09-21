@@ -13,9 +13,12 @@ class MailPitClient
 
     public function __construct()
     {
-        $this->client = HttpClient::createForBaseUri($_SERVER['MAILPIT_ENDPOINT_BASE']);
+        $this->client = HttpClient::createForBaseUri(e2eEnv('MAILPIT_ENDPOINT_BASE'));
     }
 
+    /**
+     * @return array<int, array<string, mixed>>
+     */
     public function getMessages(): array
     {
         $response = $this->client->request(
@@ -29,6 +32,7 @@ class MailPitClient
             512,
             JSON_THROW_ON_ERROR,
         );
+        /** @var array{messages: array<int, array<string, mixed>>} $json */
         return $json['messages'];
     }
 

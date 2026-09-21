@@ -21,7 +21,7 @@ class Test extends TestCase
     public static function setUpBeforeClass(): void
     {
         // from phpunit.xml
-        self::$ENDPOINT_BASE = $_SERVER['ENDPOINT_BASE'];
+        self::$ENDPOINT_BASE = e2eEnv('ENDPOINT_BASE');
     }
 
     /**
@@ -100,9 +100,12 @@ class Test extends TestCase
 
         if ($response->hasErrors()) {
             $messages = array_map(
-                static fn($error)
-                    => $error['message']
-                    . "\npath: " . (is_array($error['path']) ? implode('/', $error['path']) : $error['path']),
+                static function ($error) {
+                    /** @var array<string> $path */
+                    $path = $error['path'];
+                    return $error['message'] . "\npath: "
+                        . (is_array($error['path']) ? implode('/', $path) : $error['path']);
+                },
                 $response->getErrors(),
             );
             $this->fail(

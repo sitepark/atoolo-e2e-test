@@ -14,7 +14,7 @@ class SitemapXmlTest extends TestCase
 
     public function setUp(): void
     {
-        $this->client = HttpClient::createForBaseUri($_SERVER['ENDPOINT_BASE']);
+        $this->client = HttpClient::createForBaseUri(e2eEnv('ENDPOINT_BASE'));
     }
 
     public function testGetSitemapXmlIndex(): void
@@ -27,8 +27,8 @@ class SitemapXmlTest extends TestCase
 
         $expected = str_replace(
             '__ENDPOINT_BASE__',
-            $_SERVER['ENDPOINT_BASE'],
-            file_get_contents(__DIR__ . '/resources/sitemap.xml'),
+            e2eEnv('ENDPOINT_BASE'),
+            (string) file_get_contents(__DIR__ . '/resources/sitemap.xml'),
         );
 
         $this->assertEquals(
@@ -48,8 +48,8 @@ class SitemapXmlTest extends TestCase
 
         $expected = str_replace(
             '__ENDPOINT_BASE__',
-            $_SERVER['ENDPOINT_BASE'],
-            file_get_contents(__DIR__ . '/resources/sitemap-1.xml'),
+            e2eEnv('ENDPOINT_BASE'),
+            (string) file_get_contents(__DIR__ . '/resources/sitemap-1.xml'),
         );
 
         $this->assertEquals(

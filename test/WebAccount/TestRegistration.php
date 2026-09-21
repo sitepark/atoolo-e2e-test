@@ -19,7 +19,7 @@ class TestRegistration extends TestCase
     public static function setUpBeforeClass(): void
     {
         // from phpunit.xml
-        self::$ENDPOINT_BASE = $_SERVER['ENDPOINT_BASE'];
+        self::$ENDPOINT_BASE = e2eEnv('ENDPOINT_BASE');
     }
 
     /**

@@ -20,7 +20,7 @@ class Test extends TestCase
 
     public function setUp(): void
     {
-        $this->client = HttpClient::createForBaseUri($_SERVER['ENDPOINT_BASE']);
+        $this->client = HttpClient::createForBaseUri(e2eEnv('ENDPOINT_BASE'));
         $this->mailPitClient = new MailPitClient();
     }
 
@@ -42,7 +42,7 @@ class Test extends TestCase
         $json = json_decode($response->getContent(), true, 512, JSON_THROW_ON_ERROR);
 
         $expectedJson = json_decode(
-            file_get_contents(__DIR__ . '/resources/definition.json'),
+            (string) file_get_contents(__DIR__ . '/resources/definition.json'),
             true,
             512,
             JSON_THROW_ON_ERROR,
