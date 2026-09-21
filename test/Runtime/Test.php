@@ -16,7 +16,7 @@ class Test extends TestCase
 
     public static function setUpBeforeClass(): void
     {
-        self::$ENDPOINT_BASE = $_SERVER['ENDPOINT_BASE'];
+        self::$ENDPOINT_BASE = e2eEnv('ENDPOINT_BASE');
     }
 
     /**
@@ -61,7 +61,7 @@ class Test extends TestCase
             'docker',
             'compose',
             '--project-name',
-            $_SERVER['DOCKER_COMPOSE_PROJECT_NAME'],
+            e2eEnv('DOCKER_COMPOSE_PROJECT_NAME'),
             'exec',
             '-u',
             'root',

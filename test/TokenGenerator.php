@@ -20,7 +20,7 @@ class TokenGenerator
     public static function getInstance(): self
     {
         if (self::$instance === null) {
-            self::$instance = new self($_SERVER['ENDPOINT_BASE']);
+            self::$instance = new self(e2eEnv('ENDPOINT_BASE'));
         }
 
         return self::$instance;
@@ -63,7 +63,7 @@ class TokenGenerator
 
         $statusLine = $http_response_header[0];
         preg_match('{HTTP/\S*\s(\d{3})}', $statusLine, $match);
-        $status = (int) $match[1];
+        $status = (int) ($match[1] ?? 0);
 
         if ($status !== 200) {
             throw new RuntimeException("HTTP request failed: $statusLine");
