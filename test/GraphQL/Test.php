@@ -43,8 +43,8 @@ class Test extends TestCase
 
             $tokenRequired = str_contains($query, '@test:token-required');
 
-            $resultJsonFileName = $file->getBasename('.graphql') .
-                '.result.json';
+            $resultJsonFileName = $file->getBasename('.graphql')
+                . '.result.json';
             $resultJsonFile = $file->getPath() . '/' . $resultJsonFileName;
 
             if (!file_exists($resultJsonFile)) {
@@ -100,16 +100,16 @@ class Test extends TestCase
 
         if ($response->hasErrors()) {
             $messages = array_map(
-                static fn($error) =>
-                    $error['message'] .
-                    "\npath: " . (is_array($error['path']) ? implode('/', $error['path']) : $error['path']),
+                static fn($error)
+                    => $error['message']
+                    . "\npath: " . (is_array($error['path']) ? implode('/', $error['path']) : $error['path']),
                 $response->getErrors(),
             );
             $this->fail(
-                $queryFile . "\n" .
-                $resultFile . "\n" .
-                "Errors:\n" .
-                implode("\n", $messages),
+                $queryFile . "\n"
+                . $resultFile . "\n"
+                . "Errors:\n"
+                . implode("\n", $messages),
             );
         } else {
             $this->assertEquals(
