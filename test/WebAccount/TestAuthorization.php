@@ -118,8 +118,8 @@ GRAPHQL;
 
         if (isset($authResponseData['errors'])) {
             $this->fail(
-                'Authentication failed: ' . $authResponseData['errors'][0]['message'] .
-                "\nDebug message: " . $authResponseData['errors'][0]['extensions']['debugMessage'],
+                'Authentication failed: ' . $authResponseData['errors'][0]['message']
+                . "\nDebug message: " . $authResponseData['errors'][0]['extensions']['debugMessage'],
             );
         }
 

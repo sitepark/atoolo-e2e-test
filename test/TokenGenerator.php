@@ -28,9 +28,9 @@ class TokenGenerator
 
     public function getToken(): string
     {
-        if ($this->token === null ||
-            $this->tokenCreatedAt === null ||
-            time() - $this->tokenCreatedAt > $this->tokenTtlInSeconds
+        if ($this->token === null
+            || $this->tokenCreatedAt === null
+            || time() - $this->tokenCreatedAt > $this->tokenTtlInSeconds
         ) {
             $this->token = $this->fetchToken();
             $this->tokenCreatedAt = time();

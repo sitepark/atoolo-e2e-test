@@ -67,8 +67,8 @@ GRAPHQL;
 
         if (isset($data['errors'])) {
             $this->fail(
-                'Authentication failed: ' . $data['errors'][0]['message'] .
-                "\nDebug message: " . $data['errors'][0]['extensions']['debugMessage'],
+                'Authentication failed: ' . $data['errors'][0]['message']
+                . "\nDebug message: " . $data['errors'][0]['extensions']['debugMessage'],
             );
         }
 
@@ -128,8 +128,8 @@ GRAPHQL;
 
         if (isset($data['errors'])) {
             $this->fail(
-                'Authentication failed: ' . $data['errors'][0]['message'] .
-                "\nDebug message: " . $data['errors'][0]['extensions']['debugMessage'],
+                'Authentication failed: ' . $data['errors'][0]['message']
+                . "\nDebug message: " . $data['errors'][0]['extensions']['debugMessage'],
             );
         }
 
