@@ -12,3 +12,5 @@ composer.lock
 .env
 
 /data/php/*
+
+/docker/php/app/tmp/
