@@ -1270,7 +1270,9 @@ if ($lifecycle->process("content", $resource)) { $resource->process("content", [
                                     ],
                                     [
                                         "type" => "Annotation",
-                                        "htmlLabel.text" => "weitere Hinweise"
+                                        "htmlLabel" => [
+                                            "text" => "weitere Hinweise"
+                                        ]
                                     ]
                                 ]
                             ]

@@ -610,7 +610,9 @@
                 "type": "Group"
             },
             {
-                "htmlLabel": [],
+                "htmlLabel": {
+                    "text": "weitere Hinweise"
+                },
                 "options": [],
                 "type": "Annotation"
             }
