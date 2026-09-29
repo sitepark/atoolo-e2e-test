@@ -62,7 +62,7 @@ composer require --no-interaction \
     atoolo/events-calendar-bundle:dev-main \
     atoolo/graphql-search-bundle:dev-main \
     atoolo/security-bundle:dev-main \
-    atoolo/form-bundle:dev-feature/initial-implementation \
+    atoolo/form-bundle:dev-main \
     atoolo/seo-bundle:dev-main \
     atoolo/rewrite-bundle:dev-main \
     atoolo/microsite-bundle:dev-main \
