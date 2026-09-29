@@ -2,6 +2,9 @@
    "name" => "Indexer der internen Resourcen",
    "data" => [
       "cleanupThreshold" => 2,
-      "chunkSize" => 500
+      "chunkSize" => 500,
+      "excludes" => [
+         "/kategorien/"
+      ]
    ]
 ];
